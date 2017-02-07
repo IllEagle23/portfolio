@@ -1,0 +1,27 @@
+@import "variables.less";
+html {
+  height:100%;
+  background-color:@MainBlue;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  font-family:Lato, 'sans-serif';
+  margin:0;
+  padding:0;
+  height:100%;
+  color:@MainFontColor;
+}
+.view-container, .view-frame {
+  position: relative;
+  height:100%;
+}
+@import "../core/global-header/global-header.less";
+@import "../view/home-page/home-page.less";
+@import "../view/about-page/about-page.less";
+@import "../view/contact-page/contact-page.less";
+@import "../view/project-list/project-list.less";
+@import "../view/project-detail/project-detail.less";
+@import "app.animations.less";

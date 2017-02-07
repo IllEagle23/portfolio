@@ -1,0 +1,221 @@
+html {
+  height: 100%;
+  background-color: #99cfcf;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  font-family: Lato, 'sans-serif';
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: rgba(31, 45, 61, 0.5);
+}
+.view-container,
+.view-frame {
+  position: relative;
+  height: 100%;
+}
+global-header {
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 20px auto 0;
+}
+global-header #main-logo {
+  display: inline-block;
+}
+global-header #main-logo h1 {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin: 0;
+}
+global-header #main-logo h6 {
+  margin: 0;
+  font-weight: 300;
+  color: rgba(31, 45, 61, 0.7);
+  font-size: 1em;
+  letter-spacing: .015em;
+}
+global-header #main-nav {
+  float: right;
+  display: inline-block;
+  height: 39px;
+}
+global-header #main-nav ul {
+  margin: 0;
+  padding: 14px 0 0;
+  list-style: none;
+}
+global-header #main-nav ul li {
+  display: inline-block;
+  padding: 0 0 5px;
+  margin: 0 10px;
+  color: rgba(31, 45, 61, 0.5);
+  text-decoration: none;
+  font-weight: 300;
+  cursor: pointer;
+  vertical-align: top;
+}
+global-header #main-nav ul li span {
+  display: block;
+}
+global-header #main-nav ul li span.bottom-border {
+  width: 0;
+  display: block;
+  height: 2px;
+  background-color: rgba(31, 45, 61, 0.5);
+  margin: 5px auto;
+}
+global-header #main-nav ul li:hover.inactive span.bottom-border {
+  animation: 0.25s roll-over;
+  width: 100%;
+}
+global-header #main-nav ul li.active span.bottom-border {
+  width: 100%;
+}
+global-header #main-nav ul li.inactive span.bottom-border {
+  animation: 0.25s roll-out;
+  width: 0;
+}
+@keyframes roll-over {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes roll-out {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+home-page {
+  background-color: #99cfcf;
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 20px auto 0;
+}
+home-page h1 {
+  font-size: 2.3em;
+}
+about-page {
+  background-color: #99cfcf;
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 20px auto 0;
+  height: 100%;
+}
+about-page h1 {
+  font-size: 2.3em;
+}
+contact-page {
+  background-color: #99cfcf;
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 20px auto 0;
+}
+contact-page h1 {
+  font-size: 2.3em;
+}
+/* View: Project list */
+project-list {
+  background-color: #99cfcf;
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+}
+project-list h1 {
+  font-size: 2.3em;
+}
+project-list ul {
+  list-style: none;
+  padding: 0;
+}
+project-list ul li.project-list-item {
+  cursor: pointer;
+}
+/* View: Project detail */
+project-detail {
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+}
+project-detail h1 {
+  font-size: 2.3em;
+}
+project-detail ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+project-detail ul li {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  cursor: pointer;
+}
+project-detail ul li h1 {
+  font-size: 2.3em;
+}
+.project-list-item.ng-enter,
+.project-list-item.ng-leave,
+.project-list-item.ng-move {
+  transition: 0.5s linear all;
+}
+.project-list-item.ng-enter,
+.project-list-item.ng-leave.ng-leave-active,
+.project-list-item.ng-move {
+  opacity: 0;
+}
+.project-list-item.ng-enter.ng-enter-active,
+.project-list-item.ng-leave,
+.phone-list-item.ng-move.ng-move-active {
+  opacity: 1;
+}
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.view-frame.ng-enter {
+  animation: 1s fade-in;
+  z-index: 100;
+}
+.view-frame.ng-leave {
+  animation: 1s fade-out;
+  z-index: 99;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
