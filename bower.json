@@ -5,11 +5,11 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "1.5.x",
-    "angular-animate": "1.5.x",
-    "angular-resource": "1.5.x",
-    "angular-route": "1.5.x",
-    "angular-mocks": "1.5.x",
+    "angular": "1.6.x",
+    "angular-animate": "1.6.x",
+    "angular-resource": "1.6.x",
+    "angular-route": "1.6.x",
+    "angular-mocks": "1.6.x",
     "jquery": "2.2.x"
   }
 }

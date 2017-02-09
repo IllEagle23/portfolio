@@ -6,7 +6,9 @@ angular.module('view.projectList').component('projectList', {
     controller: ['Portfolio',
         function ProjectListController(Portfolio) {
             var self = this;
+            // UNIT TEST
             self.projects = Portfolio.query(function (event) {});
+            // E2E TEST
             self.ProjectDetail = function ProjectDetail (id) {
                 Portfolio.SetCurrentRoute("portfolio/" + id);
             };

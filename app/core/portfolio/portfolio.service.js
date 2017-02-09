@@ -4,12 +4,14 @@
     angular.module('core.portfolio').factory('Portfolio', ['$location','$resource',
         function ($location, $resource) {
             var self = this;
+            // UNIT TEST
             self.data = $resource('portfolioData/:projectId.json', {}, {
                 query: {
                     method: 'GET',
                     params: {projectId: 'portfolio'}
                 }
             });
+            // E2E TEST
             self.data.GetCurrentRoute = function GetCurrentRoute () {
                 return self.currentRoute;
             };

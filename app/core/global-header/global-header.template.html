@@ -6,7 +6,7 @@
 </div>
 <div id="main-nav">
     <ul>
-        <li ng-repeat="navItem in $ctrl.data.globalHeader" ng-click="$ctrl.HeaderClick(navItem.title, $index)" ng-mouseenter="$ctrl.MouseEnter(navItem.title)" id="{{navItem.title}}" class="ng-class:navItem.isSelected" >
+        <li ng-repeat="navItem in $ctrl.data.globalHeader" ng-click="$ctrl.NavItemClick(navItem.title, $index)" ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)" id="{{navItem.title}}" class="ng-class:navItem.isSelected" >
             <span>{{navItem.title}}</span>
             <span class="bottom-border"></span>
         </li>

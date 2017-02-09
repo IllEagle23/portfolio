@@ -7,9 +7,11 @@ angular.module('core.globalHeader').component('globalHeader', {
         function HeaderController(Portfolio) {
             var self = this;
             self.data = Portfolio.query(function (event) {
-                event.globalHeader[Portfolio.GetCurrentRoute()].isSelected = 'active';
+                // UNIT TEST
+                self.data.globalHeader[Portfolio.GetCurrentRoute()].isSelected = 'active';
             });
-            self.HeaderClick = function HeaderClick (title) {
+            // E2E TEST
+            self.NavItemClick = function NavItemClick (title) {
                 // set inactive css class of previous nav item
                 self.title = title.toLowerCase();
                 if (self.title != Portfolio.GetCurrentRoute()) {
@@ -18,8 +20,9 @@ angular.module('core.globalHeader').component('globalHeader', {
                     self.data.globalHeader[self.title].isSelected = "active";
                 }
             };
-            self.MouseEnter = function MouseEnter (title) {
-                // set enter css class of nav item
+            // E2E TEST
+            self.NavItemMouseEnter = function NavItemMouseEnter (title) {
+                // set enter css class of nav item on mouse over
                 self.title = title.toLowerCase();
                 if (self.title != Portfolio.GetCurrentRoute()) {
                     self.data.globalHeader[self.title].isSelected = "inactive";
