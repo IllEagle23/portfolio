@@ -26,6 +26,7 @@ global-header {
 }
 global-header #main-logo {
   display: inline-block;
+  cursor: pointer;
 }
 global-header #main-logo h1 {
   font-weight: 500;
@@ -74,6 +75,7 @@ global-header #main-nav ul li:hover.inactive span.bottom-border {
   width: 100%;
 }
 global-header #main-nav ul li.active span.bottom-border {
+  animation: 0.25s roll-over;
   width: 100%;
 }
 global-header #main-nav ul li.inactive span.bottom-border {
@@ -125,6 +127,16 @@ contact-page {
   margin: 20px auto 0;
 }
 contact-page h1 {
+  font-size: 2.3em;
+}
+portfolio-page {
+  background-color: #99cfcf;
+  max-width: 1080px;
+  width: 100%;
+  display: block;
+  margin: 20px auto 0;
+}
+portfolio-page h1 {
   font-size: 2.3em;
 }
 /* View: Project list */

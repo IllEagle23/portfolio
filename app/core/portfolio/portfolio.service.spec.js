@@ -14,7 +14,8 @@ describe('Portfolio', function() {
     beforeEach(function() {
         jasmine.addCustomEqualityTester(angular.equals);
     });
-    // Load the module that contains the `Phone` service before each test
+    
+    // Load the module that contains the `Portfolio` service before each test
     beforeEach(module('core.portfolio'));
     // Instantiate the service and "train" `$httpBackend` before each test
     beforeEach(inject(function(_$httpBackend_, _Portfolio_) {

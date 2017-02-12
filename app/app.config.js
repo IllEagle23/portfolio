@@ -14,7 +14,7 @@ angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
         }).when('/contact',{
             template:'<contact-page></contact-page>'
         }).when('/portfolio', {
-            template: '<project-list></project-list>'
+            template: '<portfolio-page></portfolio-page>'
         }).when('/portfolio/:projectId', {
             template: '<project-detail></project-detail>'
         }).otherwise('/');

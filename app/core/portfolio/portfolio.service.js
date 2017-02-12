@@ -4,25 +4,40 @@
     angular.module('core.portfolio').factory('Portfolio', ['$location','$resource',
         function ($location, $resource) {
             var self = this;
-            // UNIT TEST
+            
+            // Load resource
             self.data = $resource('portfolioData/:projectId.json', {}, {
                 query: {
                     method: 'GET',
                     params: {projectId: 'portfolio'}
                 }
             });
-            // E2E TEST
+            
+            // Onload look into location object for current route
+            self.data.GetDefaultRoute = function GetDefaultRoute () {
+                self.currentRoute = $location.$$path;
+                if (self.currentRoute == "/" || self.currentRoute == "" || self.currentRoute == undefined) {
+                    self.currentRoute = "/home"
+                }
+            };
+            
+            // Return current route
             self.data.GetCurrentRoute = function GetCurrentRoute () {
                 return self.currentRoute;
             };
+            
+            // Set current route to incoming newRoute
             self.data.SetCurrentRoute = function SetCurrentRoute (newRoute) {
-                self.currentRoute = newRoute.split("/")[0];
-                $location.path(newRoute);
+                self.currentRoute = newRoute;
             };
-            self.data.GetDefaultRoute = function SetDefaultRoute () {
-                self.currentRoute = $location.$$path.split("/")[1];
-                self.currentRoute == "" ? self.currentRoute = "home" : self.currentRoute;
+            
+            // Set window location to incoming id
+            self.data.SetLocation = function SetLocation () {
+                // If home is sent the route changes twice
+                if (self.currentRoute == 'home') {self.currentRoute = '/';}
+                $location.path(self.currentRoute);
             };
+            
             self.data.GetDefaultRoute();
             return self.data;
         }
