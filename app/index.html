@@ -19,8 +19,8 @@
     <script src="core/portfolio/portfolio.service.js"></script>
     <script src="core/project/project.module.js"></script>
     <script src="core/project/project.service.js"></script>
-    <script src="core/global-header/global-header.module.js"></script>
-    <script src="core/global-header/global-header.component.js"></script>
+    <script src="core/global-navigation/global-navigation.module.js"></script>
+    <script src="core/global-navigation/global-navigation.component.js"></script>
 
     <script src="view/view.module.js"></script>
     <script src="view/home-page/home-page.module.js"></script>
@@ -39,14 +39,12 @@
 </head>
 <body>
 
-<global-header></global-header>
+<global-navigation template-url="core/global-navigation/global-header.template.html" datapath="globalHeader"></global-navigation>
+<global-navigation template-url="core/global-navigation/global-footer.template.html" datapath="globalFooter" class="footer"></global-navigation>
 
 <div class="view-container">
     <div ng-view class="view-frame"></div>
 </div>
-
-<global-footer></global-footer>
-
 
 </body>
 </html>

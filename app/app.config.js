@@ -17,6 +17,12 @@ angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
             template: '<portfolio-page></portfolio-page>'
         }).when('/portfolio/:projectId', {
             template: '<project-detail></project-detail>'
+        }).when('/partners', {
+            template: '<partners></partners>'
+        }).when('/friends', {
+            template: '<friends></friends>'
+        }).when('/experiments', {
+            template: '<experiements></experiements>'
         }).otherwise('/');
     
         // $locationProvider.html5Mode(true);

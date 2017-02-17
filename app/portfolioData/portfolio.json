@@ -17,6 +17,20 @@
       "url": "contact"
     }
   },
+  "globalFooter": {
+    "partners": {
+      "title": "Partners",
+      "url": "partners"
+    },
+    "friends": {
+      "title": "Friends",
+      "url": "friends"
+    },
+    "experiments": {
+      "title": "Experiments",
+      "url": "experiments"
+    }
+  },
   "project": [
     {
       "title": "FPO title very long and wordy for space",

@@ -1,0 +1,19 @@
+<!--Right side mobile nav?-->
+<div id="main-logo" ng-click="$ctrl.NavItemClick('Home', $index)">
+    <!--Research SVG for line art logo-->
+    <h1>Jamie Lloyd</h1>
+    <h6>Creative Technologist</h6>
+</div>
+<div id="main-nav">
+    <ul>
+        <li ng-repeat="navItem in $ctrl.data.globalHeader"
+            ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)" id="{{navItem.title}}"
+            class="ng-class:navItem.isSelected">
+            <a href="#!/{{navItem.url}}" ng-click="$ctrl.NavItemClick(navItem.title, $index)">
+                <span>{{navItem.title}}</span>
+                <span class="bottom-border"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+<!--ng-class="{bold: isBold(), italic: isItalic(), underline: isUnderlined()}"-->
