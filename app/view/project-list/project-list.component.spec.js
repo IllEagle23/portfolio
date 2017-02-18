@@ -5,12 +5,13 @@ describe('projectList', function () {
     beforeEach(module('view.projectList'));
     // Test the controller
     describe('ProjectListController', function () {
-        var $httpBackend, ctrl;
+        var $httpBackend, ctrl, $scope;
         beforeEach(inject(function ($componentController, _$httpBackend_) {
             $httpBackend = _$httpBackend_;
             $httpBackend.expectGET('portfolioData/portfolio.json')
                 .respond({name: 'Project 1'}, {name: 'Project 2'});
-            ctrl = $componentController('projectList');
+            $scope = {};
+            ctrl = $componentController('projectList', {$scope: $scope});
         }));
         it('should create a `portfolio` property with 2 projects fetched with `$http`', function () {
             jasmine.addCustomEqualityTester(angular.equals);

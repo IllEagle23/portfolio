@@ -12,52 +12,54 @@
                 self.dataPath = $attrs.datapath;
                 // Read from resource
                 self.data = Portfolio.query(function () {
-                    // Set default nav item active based on current route
-                    // CHECK IF DATAPATH HAS CURRENT ROUTE OBJECT
-                    // FOR EXAMPLE, FOOTER MAY NOT HAVE "HOME"
+                    // Check if datapath has currentRoute as an object
+                    // It will otherwise be undefined and fail
+                    // For example the footer datapath may not have a "Home" object
                     if (self.data[self.dataPath][Portfolio.GetCleanRoute()] != undefined) {
+                        // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetCleanRoute()].isSelected = 'active';
                     }
                 });
-                // If title clicked != current route then change route
+                // Rollover and click animation for nav items based on assigned css class and mouse state
+                // Template li repeat class is bound to isSelected, which can be active or inactive
+                // hover.inactive css class scales bottom border width from 0 to 100%
+                // .active css class scales bottom border width from 0 to 100%
+                // .inactive css class scales bottom border width from 100 to 0%
                 self.NavItemClick = function NavItemClick(title) {
+                    // Don't perform normal anchor tag click actions
+                    // This allows us to see the href location of our anchor tag in our browser on rollover
                     event.preventDefault();
+                    // Passed from template on click for comparison to current route
                     self.title = title.toLowerCase();
-                    if (self.title != Portfolio.GetCurrentRoute()) {
+                    // If title clicked != current route then set route and window location (view)
+                    if (self.title != Portfolio.GetCleanRoute()) {
                         Portfolio.SetCurrentRoute(self.title);
                         Portfolio.SetLocation();
                     }
                 };
-                // Rollover animation for unselected nav items
-                // hover.inactive css class scales bottom border width from 0 to 100%
-                // .active css class scales bottom border width from 0 to 100%
-                // .inactive css class scales bottom border width from 100 to 0%
+                // .inactive css class is only added by JS on rollover and not in the template by default
+                // If it were, each nav item would perform the .inactive css class animation on page load
+                // Not sure if there's a pure css way to do this?
                 self.NavItemMouseEnter = function NavItemMouseEnter(title) {
                     self.title = title.toLowerCase();
                     if (self.title != Portfolio.GetCleanRoute()) {
                         self.data[self.dataPath][self.title].isSelected = "inactive";
                     }
                 };
-                // On route change, deactivate previous nav item and activate new one
-                self.SetNavItemSelected = function SetNavItemSelected(scope, next, current) {
-                    // Define previous route from route change
-                    self.previousRoute = current.$$route.originalPath.split('/')[1];
-                    if (self.previousRoute == "") {
-                        self.previousRoute = 'home';
-                    }
-                    // Define current route and set it in portfolio
-                    Portfolio.SetCurrentRoute(next.$$route.originalPath);
-                    // Set previous route inactive, set current route active
-                    if (self.data[self.dataPath][self.previousRoute] != undefined) {
-                        self.data[self.dataPath][self.previousRoute].isSelected = "inactive";
+                // Listen to $rootScope for $routeChangeSuccess
+                $scope.$on('$routeChangeSuccess', function (scope, next, current) {
+                    self.SetNavItemSelected();
+                });
+                // On route change success, deactivate previous nav item and activate new one
+                self.SetNavItemSelected = function SetNavItemSelected () {
+                    // Again, ensure the object exists in the datapath or this will fail
+                    if (self.data[self.dataPath][Portfolio.GetPreviousRoute()] != undefined) {
+                        self.data[self.dataPath][Portfolio.GetPreviousRoute()].isSelected = "inactive";
                     }
                     if (self.data[self.dataPath][Portfolio.GetCleanRoute()] != undefined) {
                         self.data[self.dataPath][Portfolio.GetCleanRoute()].isSelected = "active";
                     }
                 };
-                $scope.$on('$routeChangeStart', function (scope, next, current) {
-                    self.SetNavItemSelected(scope, next, current);
-                });
             }
         ]
     });
