@@ -2,48 +2,59 @@
 (function () {
     'use strict';
     
-    describe('globalNavigation', function () {
+    describe('Component: global-navigation', function () {
         // Load the module that contains the `projectList` component before each test
         // Include dependencies needed for testing
         beforeEach(module('core.globalNavigation', 'core.portfolio'));
         // Test the controller
-        describe('NavigationController', function () {
-            var $httpBackend, ctrl, Portfolio, $attrs;
-            var defaultRoute = '/home';
+        describe('Controller: NavigationController', function () {
+            var $httpBackend, ctrl, Portfolio, $attrs, event;
             beforeEach(inject(function ($componentController, _$httpBackend_, _Portfolio_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('portfolioData/portfolio.json')
-                    .respond({globalHeader: {'home': {'title': 'Home'}}});
+                $httpBackend.expectGET('portfolioData/portfolio.json').respond({globalHeader: {'home': {'title': 'Home'}, 'about': {'title': 'About'}}});
                 $attrs = { 'datapath': 'globalHeader' };
-                ctrl = $componentController('globalNavigation', {$attrs: $attrs});
+                event = {};
+                event.preventDefault = function () {};
+                ctrl = $componentController('globalNavigation', {$attrs: $attrs, event:event});
                 Portfolio = _Portfolio_;
-            }));
-            it('should create a `portfolio` property with 1 nav item fetched with `$http`', function () {
-                Portfolio.GetCurrentRoute = function () {
-                    return defaultRoute;
-                };
                 jasmine.addCustomEqualityTester(angular.equals);
                 expect(ctrl.data).toEqual({});
                 $httpBackend.flush();
-                expect(ctrl.data).toEqual({globalHeader: {'home': {'title': 'Home', 'isSelected': 'active'}}});
+            }));
+            it('should create a `portfolio` property with 1 nav item fetched with `$http`', function () {
+                expect(ctrl.data).toEqual({globalHeader: {'home': {'title': 'Home', 'isSelected': 'active'}, 'about': {'title': 'About'}}});
+                expect(ctrl.data.globalHeader.home.isSelected).toEqual('active');
+            });
+            it('should simulate the about route rollover', function () {
+                Portfolio.GetCleanRoute = function () {
+                    return 'home';
+                };
+                ctrl.NavItemMouseEnter('About');
+                expect(ctrl.title).toEqual('about');
+                expect(ctrl.data.globalHeader.about.isSelected).toEqual('inactive');
+            });
+            it('should simulate the about route click', function () {
+                ctrl.NavItemClick(event, 'About');
+                expect(ctrl.title).toEqual('about');
+                Portfolio.GetPreviousRoute = function () {
+                    return 'home';
+                };
+                Portfolio.GetCleanRoute = function () {
+                    return 'about';
+                };
+                ctrl.SetNavItemSelected();
+                expect(ctrl.data.globalHeader.home.isSelected).toEqual('inactive');
+                expect(ctrl.data.globalHeader.about.isSelected).toEqual('active');
             });
         });
     });
 })();
 
-
 // RESEARCH
-// Google searches todo :
-// inject $attrs into unit test for angular
-// ngMock
-//
+// Testing todo :
+// https://jasmine.github.io/1.3/introduction.html
 //
 // https://docs.angularjs.org/api/ngMock/service/$componentController
-// If you are using $element or $attrs in the controller, make sure to provide them as locals. The $element must be a jqLite-wrapped DOM element, and $attrs should be an object that has all properties / functions that you are using in the controller. If this is getting too complex, you should compile the component instead and access the component's controller via the controller function.
-//
-//
-//
-//
 // https://docs.angularjs.org/guide/component#unit-testing-component-controllers
 // http://www.bradoncode.com/blog/2015/06/05/ngmock-fundamentals-testing-controllers/
 //

@@ -12,7 +12,7 @@
                 }
             });
             // On initial app load look into location object for current route
-            self.data.GetDefaultRoute = function GetDefaultRoute () {
+            self.data.SetDefaultRoute = function SetDefaultRoute () {
                 self.currentRoute = $location.$$path;
                 if (self.currentRoute == "/" || self.currentRoute == "" || self.currentRoute == undefined) {
                     self.currentRoute = "/home"
@@ -25,7 +25,15 @@
             };
             // Set current route to incoming _currentRoute_
             self.data.SetCurrentRoute = function SetCurrentRoute (_currentRoute_) {
+                // This is called on click and again on route change
+                // Nav item click sets currentRoute var and then changes location
+                // On route change currentRoute is set again
+                // Route change may happen without click
+                // Navigating with back and forward on browser via keyboard input
+                // should still change nav item selected when not using the mouse to click
+                // Performance issue with scalability?
                 self.currentRoute = _currentRoute_;
+                // console.log(self.currentRoute);
                 self.data.CleanCurrentRoute();
             };
             // Clean current route of slashes and sub-routes for css
@@ -63,13 +71,10 @@
             // Redefine previous and current route on route change
             self.SetRoutes = function SetRoutes(scope, next, current) {
                 self.data.SetPreviousRoute(current.$$route.originalPath.split('/')[1]);
-                // This is called on click and again on route change
-                // Route change may happen without click though
-                // Navigating with back and forward on browser
-                // will still change nav item selected when not using the mouse to click
+                // NEXT has / at beginning of route which
                 self.data.SetCurrentRoute(next.$$route.originalPath);
             };
-            self.data.GetDefaultRoute();
+            self.data.SetDefaultRoute();
             return self.data;
         }
     ]);

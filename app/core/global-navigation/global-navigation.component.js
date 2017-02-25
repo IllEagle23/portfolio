@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-// Register `globalNavigation` component, along with its associated controller and template
+// Register `global-navigation` component, along with its associated controller and template
     angular.module('core.globalNavigation').component('globalNavigation', {
         templateUrl: function($element, $attrs) {
             return $attrs.templateUrl;
@@ -25,14 +25,20 @@
                 // hover.inactive css class scales bottom border width from 0 to 100%
                 // .active css class scales bottom border width from 0 to 100%
                 // .inactive css class scales bottom border width from 100 to 0%
-                self.NavItemClick = function NavItemClick(title) {
+                self.NavItemClick = function NavItemClick(event, title) {
                     // Don't perform normal anchor tag click actions
                     // This allows us to see the href location of our anchor tag in our browser on rollover
+                    // console.log(event);
                     event.preventDefault();
                     // Passed from template on click for comparison to current route
                     self.title = title.toLowerCase();
                     // If title clicked != current route then set route and window location (view)
-                    if (self.title != Portfolio.GetCleanRoute()) {
+                    // GetCleanRoute BREAKS when in portfolio project detail
+                    // Setting to GetCurrentRoute works
+                    // clicking current button runs code again unnecessarily though
+                    // Fix?
+                    // Will become issue with complex sub menu navigation
+                    if (self.title != Portfolio.GetCurrentRoute()) {
                         Portfolio.SetCurrentRoute(self.title);
                         Portfolio.SetLocation();
                     }
@@ -47,7 +53,7 @@
                     }
                 };
                 // Listen to $rootScope for $routeChangeSuccess
-                $scope.$on('$routeChangeSuccess', function (scope, next, current) {
+                $scope.$on('$routeChangeSuccess', function () {
                     self.SetNavItemSelected();
                 });
                 // On route change success, deactivate previous nav item and activate new one

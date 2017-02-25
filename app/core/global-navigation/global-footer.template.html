@@ -3,7 +3,7 @@
         <li ng-repeat="navItem in $ctrl.data.globalFooter"
             ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)" id="{{navItem.title}}"
             class="ng-class:navItem.isSelected">
-            <a href="#!/{{navItem.url}}" ng-click="$ctrl.NavItemClick(navItem.title, $index)">
+            <a href="#!/{{navItem.url}}" ng-click="$ctrl.NavItemClick($event, navItem.title, $index)">
                 <span>{{navItem.title}}</span>
                 <span class="bottom-border"></span>
             </a>
