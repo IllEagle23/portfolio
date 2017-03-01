@@ -34,14 +34,14 @@ describe('Factory: Portfolio', function() {
     });
     it('should set the default route on app load to `/home`', function () {
         expect(Portfolio.GetCurrentRoute()).toEqual('/home');
-        expect(Portfolio.GetCleanRoute()).toEqual('home');
+        expect(Portfolio.GetTopRoute()).toEqual('home');
     });
     it('should set current route to `about` and previous route to`home`', function () {
         Portfolio.SetCurrentRoute('/about');
         expect(Portfolio.GetCurrentRoute()).toEqual('/about');
         Portfolio.SetPreviousRoute('/home');
         expect(Portfolio.GetPreviousRoute()).toEqual('/home');
-        expect(Portfolio.GetCleanRoute()).toEqual('about');
+        expect(Portfolio.GetTopRoute()).toEqual('about');
     });
 });
 

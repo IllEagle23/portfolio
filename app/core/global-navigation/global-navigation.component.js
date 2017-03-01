@@ -12,12 +12,12 @@
                 self.dataPath = $attrs.datapath;
                 // Read from resource
                 self.data = Portfolio.query(function () {
-                    // Check if datapath has currentRoute as an object
+                    // Check if datapath has topRoute as an object
                     // It will otherwise be undefined and fail
                     // For example the footer datapath may not have a "Home" object
-                    if (self.data[self.dataPath][Portfolio.GetCleanRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
                         // Set default nav item active based on current route on page load / refresh
-                        self.data[self.dataPath][Portfolio.GetCleanRoute()].isSelected = 'active';
+                        self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
                     }
                 });
                 // Rollover and click animation for nav items based on assigned css class and mouse state
@@ -25,21 +25,16 @@
                 // hover.inactive css class scales bottom border width from 0 to 100%
                 // .active css class scales bottom border width from 0 to 100%
                 // .inactive css class scales bottom border width from 100 to 0%
+                // CAN THIS SIMPLY RELY ON EVENT DEFAULT AND LET ROUTE CHANGE EVENT HANDLE BUTTON STATES?
                 self.NavItemClick = function NavItemClick(event, title) {
                     // Don't perform normal anchor tag click actions
                     // This allows us to see the href location of our anchor tag in our browser on rollover
-                    // console.log(event);
                     event.preventDefault();
                     // Passed from template on click for comparison to current route
-                    self.title = title.toLowerCase();
+                    self.title = "/" + title.toLowerCase();
                     // If title clicked != current route then set route and window location (view)
-                    // GetCleanRoute BREAKS when in portfolio project detail
-                    // Setting to GetCurrentRoute works
-                    // clicking current button runs code again unnecessarily though
-                    // Fix?
-                    // Will become issue with complex sub menu navigation
                     if (self.title != Portfolio.GetCurrentRoute()) {
-                        Portfolio.SetCurrentRoute(self.title);
+                        Portfolio.SetNextRoute(self.title);
                         Portfolio.SetLocation();
                     }
                 };
@@ -48,22 +43,31 @@
                 // Not sure if there's a pure css way to do this?
                 self.NavItemMouseEnter = function NavItemMouseEnter(title) {
                     self.title = title.toLowerCase();
-                    if (self.title != Portfolio.GetCleanRoute()) {
+                    if (self.title != Portfolio.GetTopRoute()) {
+                        self.data[self.dataPath][self.title].isSelected = "active";
+                    }
+                };
+                self.NavItemMouseLeave = function NavItemMouseLeave(title) {
+                    self.title = title.toLowerCase();
+                    if (self.title != Portfolio.GetTopRoute()) {
                         self.data[self.dataPath][self.title].isSelected = "inactive";
                     }
                 };
                 // Listen to $rootScope for $routeChangeSuccess
+                // Fires once for each navigation component in view
                 $scope.$on('$routeChangeSuccess', function () {
                     self.SetNavItemSelected();
                 });
-                // On route change success, deactivate previous nav item and activate new one
+                // On route change success
+                // deactivate previous nav item if it exists in this component
+                // and activate new one if it exists in this component
                 self.SetNavItemSelected = function SetNavItemSelected () {
                     // Again, ensure the object exists in the datapath or this will fail
                     if (self.data[self.dataPath][Portfolio.GetPreviousRoute()] != undefined) {
                         self.data[self.dataPath][Portfolio.GetPreviousRoute()].isSelected = "inactive";
                     }
-                    if (self.data[self.dataPath][Portfolio.GetCleanRoute()] != undefined) {
-                        self.data[self.dataPath][Portfolio.GetCleanRoute()].isSelected = "active";
+                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
+                        self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = "active";
                     }
                 };
             }

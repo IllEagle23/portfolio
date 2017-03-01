@@ -13,7 +13,7 @@
                 // E2E TEST
                 self.ProjectDetail = function ProjectDetail(id) {
                     event.preventDefault();
-                    Portfolio.SetCurrentRoute("portfolio/" + id);
+                    Portfolio.SetNextRoute("portfolio/" + id);
                     Portfolio.SetLocation();
                 };
             }

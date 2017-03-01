@@ -1,12 +1,27 @@
-<div id="main-nav">
+<div class="main-nav">
     <ul>
-        <li ng-repeat="navItem in $ctrl.data.globalFooter"
-            ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)" id="{{navItem.title}}"
-            class="ng-class:navItem.isSelected">
-            <a href="#!/{{navItem.url}}" ng-click="$ctrl.NavItemClick($event, navItem.title, $index)">
-                <span>{{navItem.title}}</span>
-                <span class="bottom-border"></span>
-            </a>
+        <li ng-repeat="navItem in $ctrl.data.globalFooter" id="{{navItem.title}}">
+            <div ng-if="navItem.linktype == 'external'">
+                <a href="{{navItem.url}}"
+                   ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)"
+                   ng-mouseleave="$ctrl.NavItemMouseLeave(navItem.title)"
+                   ng-click="$ctrl.NavItemMouseLeave(navItem.title)"
+                   class="ng-class:navItem.isSelected"
+                target="_new">
+                    <span>{{navItem.title}}</span>
+                    <span class="bottom-border"></span>
+                </a>
+            </div>
+            <div ng-if="navItem.linktype != 'external'">
+                <a href="#!/{{navItem.url}}"
+                   ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)"
+                   ng-mouseleave="$ctrl.NavItemMouseLeave(navItem.title)"
+                   ng-click="$ctrl.NavItemClick($event, navItem.title)"
+                   class="ng-class:navItem.isSelected">
+                    <span>{{navItem.title}}</span>
+                    <span class="bottom-border"></span>
+                </a>
+            </div>
         </li>
     </ul>
 </div>

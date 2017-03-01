@@ -26,20 +26,20 @@
                 expect(ctrl.data.globalHeader.home.isSelected).toEqual('active');
             });
             it('should simulate the about route rollover', function () {
-                Portfolio.GetCleanRoute = function () {
+                Portfolio.GetTopRoute = function () {
                     return 'home';
                 };
                 ctrl.NavItemMouseEnter('About');
                 expect(ctrl.title).toEqual('about');
-                expect(ctrl.data.globalHeader.about.isSelected).toEqual('inactive');
+                expect(ctrl.data.globalHeader.about.isSelected).toEqual('active');
             });
             it('should simulate the about route click', function () {
                 ctrl.NavItemClick(event, 'About');
-                expect(ctrl.title).toEqual('about');
+                expect(ctrl.title).toEqual('/about');
                 Portfolio.GetPreviousRoute = function () {
                     return 'home';
                 };
-                Portfolio.GetCleanRoute = function () {
+                Portfolio.GetTopRoute = function () {
                     return 'about';
                 };
                 ctrl.SetNavItemSelected();

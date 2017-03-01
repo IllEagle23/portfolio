@@ -5,5 +5,6 @@ angular.module('portfolioApp', [
     'ngAnimate',
     'ngRoute',
     'core',
-    'view'
+    'view',
+    'ngTouch'
 ]);

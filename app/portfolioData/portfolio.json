@@ -18,13 +18,14 @@
     }
   },
   "globalFooter": {
-    "partners": {
-      "title": "Partners",
-      "url": "partners"
+    "resume": {
+      "title": "Resume",
+      "url": "resume"
     },
-    "friends": {
-      "title": "Friends",
-      "url": "friends"
+    "linkedin": {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/selfconstructv/",
+      "linktype": "external"
     },
     "experiments": {
       "title": "Experiments",

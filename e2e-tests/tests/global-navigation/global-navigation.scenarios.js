@@ -17,13 +17,13 @@ describe('Portfolio navigation', function () {
     globalHeader = element.all(by.repeater('navItem in $ctrl.data.globalHeader'));
     query = element(by.model('$ctrl.query'));
     homeButton = element(by.id('Home'));
-    homeLI = element(by.cssContainingText('li', 'Home'));
+    homeLI = element(by.cssContainingText('li a', 'Home'));
     aboutButton = element(by.id('About'));
-    aboutLI = element(by.cssContainingText('li', 'About'));
+    aboutLI = element(by.cssContainingText('li a', 'About'));
     portfolioButton = element(by.id('Portfolio'));
-    portfolioLI = element(by.cssContainingText('li', 'Portfolio'));
+    portfolioLI = element(by.cssContainingText('li a', 'Portfolio'));
     contactButton = element(by.id('Contact'));
-    contactLI = element(by.cssContainingText('li', 'Contact'));
+    contactLI = element(by.cssContainingText('li a', 'Contact'));
     mainLogoButton = element(by.id('main-logo'));
     
     describe('View : Navigation', function() {

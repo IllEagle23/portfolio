@@ -1,6 +1,7 @@
 global-navigation {
   max-width: 1080px;
   width: 100%;
+  height:80px;
   display: block;
   margin: 20px auto 0;
   #main-logo {
@@ -10,6 +11,8 @@ global-navigation {
       font-weight: 500;
       font-size: 1.5em;
       margin: 0;
+      padding-top:0;
+
     }
     h6 {
       margin: 0;
@@ -19,7 +22,7 @@ global-navigation {
       letter-spacing: .015em;
     }
   }
-  #main-nav {
+  .main-nav {
     float: right;
     display: inline-block;
     height: 39px;
@@ -32,9 +35,13 @@ global-navigation {
         padding: 0 0 5px;
         margin: 0 10px;
         vertical-align: top;
+        font-size:16px;
+        color:rgba(31, 45, 61, .5);
+        font-family:Lato;
         a {
           text-decoration: none;
           color: @MainFontColor;
+
           font-weight: 300;
 
           span {
@@ -50,24 +57,27 @@ global-navigation {
           }
         }
       }
-      li:hover.inactive {
-        a {
+      li {
+        // This breaks on mobile browsers, which handle mouse events differently
+        // http://sitr.us/2011/07/28/how-mobile-safari-emulates-mouse-events.html
+        // By adding hover class, the browser requires 2 clicks for an anchor to trigger click event
+        //a:hover.isOff {
+        //  span.bottom-border {
+        //    animation: 0.25s roll-over;
+        //    width: 100%;
+        //  }
+        //}
+      }
+      li {
+        a.active {
           span.bottom-border {
             animation: 0.25s roll-over;
             width: 100%;
           }
         }
       }
-      li.active {
-        a {
-          span.bottom-border {
-            animation: 0.25s roll-over;
-            width: 100%;
-          }
-        }
-      }
-      li.inactive {
-        a {
+      li {
+        a.inactive {
           span.bottom-border {
             animation: 0.25s roll-out;
             width: 0;

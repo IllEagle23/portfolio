@@ -21,6 +21,7 @@ body {
 global-navigation {
   max-width: 1080px;
   width: 100%;
+  height: 80px;
   display: block;
   margin: 20px auto 0;
 }
@@ -32,6 +33,7 @@ global-navigation #main-logo h1 {
   font-weight: 500;
   font-size: 1.5em;
   margin: 0;
+  padding-top: 0;
 }
 global-navigation #main-logo h6 {
   margin: 0;
@@ -40,46 +42,45 @@ global-navigation #main-logo h6 {
   font-size: 1em;
   letter-spacing: .015em;
 }
-global-navigation #main-nav {
+global-navigation .main-nav {
   float: right;
   display: inline-block;
   height: 39px;
 }
-global-navigation #main-nav ul {
+global-navigation .main-nav ul {
   margin: 0;
   padding: 14px 0 0;
   list-style: none;
 }
-global-navigation #main-nav ul li {
+global-navigation .main-nav ul li {
   display: inline-block;
   padding: 0 0 5px;
   margin: 0 10px;
   vertical-align: top;
+  font-size: 16px;
+  color: rgba(31, 45, 61, 0.5);
+  font-family: Lato;
 }
-global-navigation #main-nav ul li a {
+global-navigation .main-nav ul li a {
   text-decoration: none;
   color: rgba(31, 45, 61, 0.5);
   font-weight: 300;
 }
-global-navigation #main-nav ul li a span {
+global-navigation .main-nav ul li a span {
   display: block;
 }
-global-navigation #main-nav ul li a span.bottom-border {
+global-navigation .main-nav ul li a span.bottom-border {
   width: 0;
   display: block;
   height: 2px;
   background-color: rgba(31, 45, 61, 0.5);
   margin: 5px auto;
 }
-global-navigation #main-nav ul li:hover.inactive a span.bottom-border {
+global-navigation .main-nav ul li a.active span.bottom-border {
   animation: 0.25s roll-over;
   width: 100%;
 }
-global-navigation #main-nav ul li.active a span.bottom-border {
-  animation: 0.25s roll-over;
-  width: 100%;
-}
-global-navigation #main-nav ul li.inactive a span.bottom-border {
+global-navigation .main-nav ul li a.inactive span.bottom-border {
   animation: 0.25s roll-out;
   width: 0;
 }
@@ -143,6 +144,33 @@ portfolio-page {
 }
 portfolio-page h1 {
   font-size: 2.3em;
+}
+resume-page {
+  background-color: #99cfcf;
+  max-width: 816px;
+  display: block;
+  margin: 20px auto 0;
+}
+resume-page h1 {
+  font-size: 2.3em;
+}
+resume-page #google-resume-doc {
+  max-width: 816px;
+  width: 100%;
+  border: 0;
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
+  margin: 0 0 80px;
+  background-color: white;
+}
+resume-page #google-resume-doc .container {
+  max-width: 496.8pt;
+  padding: 31.7pt 57.6pt 27pt 57.6pt;
+}
+resume-page #google-resume-doc .container .c16 {
+  font-weight: 300;
+}
+resume-page #google-resume-doc .container .c18 {
+  margin-left: 0;
 }
 /* View: Project list */
 project-list {
