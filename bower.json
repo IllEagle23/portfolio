@@ -10,6 +10,7 @@
     "angular-resource": "1.6.x",
     "angular-route": "1.6.x",
     "angular-mocks": "1.6.x",
-    "jquery": "2.2.x"
+    "jquery": "2.2.x",
+    "angulartics-google-analytics": "^0.4.0"
   }
 }

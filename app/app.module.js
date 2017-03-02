@@ -6,5 +6,7 @@ angular.module('portfolioApp', [
     'ngRoute',
     'core',
     'view',
-    'ngTouch'
+    'ngTouch',
+    'angulartics',
+    'angulartics.google.analytics'
 ]);

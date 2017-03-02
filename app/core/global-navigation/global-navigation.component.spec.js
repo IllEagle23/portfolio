@@ -33,9 +33,7 @@
                 expect(ctrl.title).toEqual('about');
                 expect(ctrl.data.globalHeader.about.isSelected).toEqual('active');
             });
-            it('should simulate the about route click', function () {
-                ctrl.NavItemClick(event, 'About');
-                expect(ctrl.title).toEqual('/about');
+            it('should simulate change to about route success', function () {
                 Portfolio.GetPreviousRoute = function () {
                     return 'home';
                 };

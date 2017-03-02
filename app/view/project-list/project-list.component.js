@@ -8,6 +8,7 @@
             function ProjectListController(Portfolio) {
                 var self = this;
                 // UNIT TEST
+                
                 self.projects = Portfolio.query(function (event) {
                 });
                 // E2E TEST

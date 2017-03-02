@@ -256,7 +256,7 @@ project-detail ul li h1 {
 .project-list-item.ng-enter,
 .project-list-item.ng-leave,
 .project-list-item.ng-move {
-  transition: 1s linear all;
+  transition: .5s linear all;
 }
 .project-list-item.ng-enter,
 .project-list-item.ng-leave.ng-leave-active,
