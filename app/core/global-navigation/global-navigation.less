@@ -1,32 +1,58 @@
-global-navigation.footer {
-
-}
 global-navigation {
   width:100%;
   display:block;
   #header {
     z-index:1000;
     width: 100%;
-    min-height:55px;
+    height:55px;
     box-sizing: border-box;
     box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.19), 3px 0 3px 0 rgba(0,0,0,0.19), 0 3px 3px 0 rgba(0,0,0,0.23);
     background-color:white;
     position:fixed;
     #main-logo {
       display: inline-block;
-      margin:12px 0 0 12px;
+      height:100%;
+      a:hover {
+        .line-art {//
+          span.outline img {
+            // animation: 0.25s logo-roll-over;
+            opacity:.75;
+          }
+        }
+      }
       a {
+        margin-top:8px;
         text-decoration:none;
+        display: inline-block;
+        height:100%;
+        .line-art {
+          position:relative;
+          display: inline-block;
+          vertical-align: top;
+          margin:0 0 0 5px;
+          span.outline img {
+            width:40px;
+            position:absolute;
+            opacity:.5;
+            display:inline-block;
+          }
+          span.initials img {
+            width:40px;
+            position:absolute;
+            opacity:.5;
+            display:inline-block;
+          }
+        }
         h1 {
           font-weight: 500;
           font-size: 1.5em;
-          margin: 0;
+          margin: 5px 0 0 40px;
           padding-top:0;
           color: @MainFontColor;
           display:inline-block;
         }
         h6 {
-          margin: 0;
+          margin: 5px 0 0;
           font-weight: 300;
           font-size: 1em;
           letter-spacing: .015em;
@@ -50,7 +76,7 @@ global-navigation {
   .main-nav {
     ul {
       margin: 0;
-      padding: 14px 0 0;
+      padding: 16px 0 0;
       list-style: none;
       li {
         display: inline-block;
@@ -105,6 +131,15 @@ global-navigation {
   }
 }
 
+@keyframes logo-roll-over {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: .75;
+  }
+}
+
 @keyframes roll-over {
   from {
     width: 0;
@@ -120,5 +155,20 @@ global-navigation {
   }
   to {
     width: 0;
+  }
+}
+
+@media (max-width:640px) {
+  global-navigation {
+    #header {
+        #main-logo {
+          a {
+            h1, h6 {
+              display:none;
+            }
+          }
+
+        }
+    }
   }
 }

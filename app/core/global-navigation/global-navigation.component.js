@@ -18,9 +18,13 @@
                     if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
-                        document.title = $route.current.title;
                     }
                 });
+                // Set document title on header template init
+                // Helpful in analytics page views
+                self.SetDocumentTitle = function SetDocumentTitle () {
+                    document.title = $route.current.title;
+                };
                 // Rollover and click animation for nav items based on assigned css class and mouse state
                 // Template li repeat class is bound to isSelected, which can be active or inactive
                 // hover.inactive css class scales bottom border width from 0 to 100%

@@ -69,12 +69,11 @@
             $rootScope.$on('$routeChangeStart', function (scope, next, current) {
                 self.SetRoutes(scope, next, current);
             });
-            // Redefine previous and current route on route change
+            // Redefine previous and current route on route change, set document title to route title
             self.SetRoutes = function SetRoutes(scope, next, current) {
                 self.data.SetPreviousRoute(current.$$route.originalPath.split('/')[1]);
                 self.data.SetCurrentRoute(next.$$route.originalPath);
                 document.title = next.$$route.title;
-                //console.log(next.$$route.title);
             };
             self.data.SetDefaultRoute();
             return self.data;

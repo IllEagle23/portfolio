@@ -8,14 +8,16 @@
         beforeEach(module('core.globalNavigation', 'core.portfolio'));
         // Test the controller
         describe('Controller: NavigationController', function () {
-            var $httpBackend, ctrl, Portfolio, $attrs, event;
+            var $httpBackend, ctrl, Portfolio, $attrs, event, $route;
             beforeEach(inject(function ($componentController, _$httpBackend_, _Portfolio_) {
                 $httpBackend = _$httpBackend_;
                 $httpBackend.expectGET('portfolioData/portfolio.json').respond({globalHeader: {'home': {'title': 'Home'}, 'about': {'title': 'About'}}});
                 $attrs = { 'datapath': 'globalHeader' };
                 event = {};
                 event.preventDefault = function () {};
-                ctrl = $componentController('globalNavigation', {$attrs: $attrs, event:event});
+                $route = {};
+                $route.current = {title:'Jamie Lloyd, Portfolio 2017 : Home'};
+                ctrl = $componentController('globalNavigation', {$attrs: $attrs, event:event, $route:$route});
                 Portfolio = _Portfolio_;
                 jasmine.addCustomEqualityTester(angular.equals);
                 expect(ctrl.data).toEqual({});
@@ -32,6 +34,14 @@
                 ctrl.NavItemMouseEnter('About');
                 expect(ctrl.title).toEqual('about');
                 expect(ctrl.data.globalHeader.about.isSelected).toEqual('active');
+            });
+            it('should simulate the about route rollout', function () {
+                Portfolio.GetTopRoute = function () {
+                    return 'home';
+                };
+                ctrl.NavItemMouseLeave('About');
+                expect(ctrl.title).toEqual('about');
+                expect(ctrl.data.globalHeader.about.isSelected).toEqual('inactive');
             });
             it('should simulate change to about route success', function () {
                 Portfolio.GetPreviousRoute = function () {

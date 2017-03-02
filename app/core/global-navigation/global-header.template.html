@@ -1,8 +1,14 @@
 <!--Right side mobile nav?-->
-<div id="header">
+<div id="header" ng-init="$ctrl.SetDocumentTitle()">
     <div id="main-logo">
         <!--Research SVG for line art logo-->
+        <!-- design placeholder -->
+
         <a href="#!/">
+            <span class="line-art">
+                <span class="outline"><img src="img/portfolio-logo-outline.png" /></span>
+                <span class="initials"><img src="img/portfolio-logo-type.png" /></span>
+            </span>
             <h1>Jamie Lloyd</h1>
             <h6>Creative Technologist</h6>
         </a>
@@ -27,6 +33,7 @@
 
 Todo:
 * header
+    * logo line art
     * mobile break points
     * // make full bleed
     * // make fixed to top
