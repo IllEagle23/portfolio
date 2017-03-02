@@ -76,6 +76,7 @@
                 self.data.SetPreviousRoute(current.$$route.originalPath.split('/')[1]);
                 self.data.SetCurrentRoute(next.$$route.originalPath);
                 document.title = next.$$route.title;
+                console.log(next.$$route.title);
             };
             self.data.SetDefaultRoute();
             return self.data;
