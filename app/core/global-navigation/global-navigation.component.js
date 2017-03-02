@@ -6,8 +6,8 @@
         templateUrl: function($element, $attrs) {
             return $attrs.templateUrl;
         },
-        controller: ['$attrs', '$scope', 'Portfolio',
-            function NavigationController($attrs, $scope, Portfolio) {
+        controller: ['$attrs', '$scope', 'Portfolio', '$route',
+            function NavigationController($attrs, $scope, Portfolio, $route) {
                 var self = this;
                 self.dataPath = $attrs.datapath;
                 // Read from resource
@@ -18,6 +18,8 @@
                     if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
+                        document.title = $route.current.title;
+                        console.log($route.current.title);
                     }
                 });
                 // Rollover and click animation for nav items based on assigned css class and mouse state
