@@ -19,7 +19,6 @@
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
                         document.title = $route.current.title;
-                        console.log($route.current.title);
                     }
                 });
                 // Rollover and click animation for nav items based on assigned css class and mouse state
