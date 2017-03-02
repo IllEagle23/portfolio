@@ -8,7 +8,9 @@
                        ng-mouseleave="$ctrl.NavItemMouseLeave(navItem.title)"
                        ng-click="$ctrl.NavItemMouseLeave(navItem.title)"
                        class="ng-class:navItem.isSelected"
-                    target="_new">
+                       target="_new"
+                       analytics-on="click"
+                       analytics-event="{{navItem.url}}">
                         <span>{{navItem.title}}</span>
                         <span class="bottom-border"></span>
                     </a>
