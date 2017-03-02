@@ -8,20 +8,25 @@ angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
         
         
         $routeProvider.when('/',{
+            title:'Jamie Lloyd, Portfolio 2017 : Home',
             template: '<home-page></home-page>'
         }).when('/about',{
+            title:'Jamie Lloyd, Portfolio 2017 : About',
             template:'<about-page></about-page>'
         }).when('/contact',{
+            title:'Jamie Lloyd, Portfolio 2017 : Contact',
             template:'<contact-page></contact-page>'
         }).when('/portfolio', {
+            title:'Jamie Lloyd, Portfolio 2017 : Portfolio',
             template: '<portfolio-page></portfolio-page>'
         }).when('/portfolio/:projectId', {
+            title:'Jamie Lloyd, Portfolio 2017 : Project :projectId',
             template: '<project-detail></project-detail>'
         }).when('/resume', {
+            title:'Jamie Lloyd, Portfolio 2017 : Resume',
             template: '<resume-page></resume-page>'
-        }).when('/friends', {
-            template: '<friends></friends>'
         }).when('/experiments', {
+            title:'Jamie Lloyd, Portfolio 2017 : Experiments',
             template: '<experiements></experiements>'
         }).otherwise('/');
     

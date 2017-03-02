@@ -5,6 +5,7 @@
         function ($location, $resource, $rootScope) {
             var self = this;
             // Load resource
+            console.log("check");
             self.data = $resource('portfolioData/:projectId.json', {}, {
                 query: {
                     method: 'GET',
@@ -63,6 +64,7 @@
             self.data.SetLocation = function SetLocation () {
                 // If /home is sent the route changes twice due to app config
                 if (self.nextRoute == '/home') {self.nextRoute = '/';}
+                
                 $location.path(self.nextRoute);
             };
             // Listen to $rootScope for route change event
@@ -73,6 +75,7 @@
             self.SetRoutes = function SetRoutes(scope, next, current) {
                 self.data.SetPreviousRoute(current.$$route.originalPath.split('/')[1]);
                 self.data.SetCurrentRoute(next.$$route.originalPath);
+                document.title = next.$$route.title;
             };
             self.data.SetDefaultRoute();
             return self.data;
