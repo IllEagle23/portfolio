@@ -2,15 +2,16 @@
 
 angular.
   module('portfolioApp').
-  animation('.project', function projectAnimationFactory() {
+  animation('.placeholder', function projectAnimationFactory() {
     return {
       addClass: animateIn,
       removeClass: animateOut
     };
 
     function animateIn(element, className, done) {
+        console.log("animate in");
       if (className !== 'selected') return;
-
+      
       element.css({
         display: 'block',
         position: 'absolute',

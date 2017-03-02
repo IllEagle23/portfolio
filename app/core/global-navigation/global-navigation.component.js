@@ -27,16 +27,16 @@
                 // .inactive css class scales bottom border width from 100 to 0%
                 // CAN THIS SIMPLY RELY ON EVENT DEFAULT AND LET ROUTE CHANGE EVENT HANDLE BUTTON STATES?
                 self.NavItemClick = function NavItemClick(event, title) {
-                    // Don't perform normal anchor tag click actions
-                    // This allows us to see the href location of our anchor tag in our browser on rollover
-                    event.preventDefault();
-                    // Passed from template on click for comparison to current route
-                    self.title = "/" + title.toLowerCase();
-                    // If title clicked != current route then set route and window location (view)
-                    if (self.title != Portfolio.GetCurrentRoute()) {
-                        Portfolio.SetNextRoute(self.title);
-                        Portfolio.SetLocation();
-                    }
+                    // // Don't perform normal anchor tag click actions
+                    // // This allows us to see the href location of our anchor tag in our browser on rollover
+                    // event.preventDefault();
+                    // // Passed from template on click for comparison to current route
+                    // self.title = "/" + title.toLowerCase();
+                    // // If title clicked != current route then set route and window location (view)
+                    // if (self.title != Portfolio.GetCurrentRoute()) {
+                    //     Portfolio.SetNextRoute(self.title);
+                    //     Portfolio.SetLocation();
+                    // }
                 };
                 // .inactive css class is only added by JS on rollover and not in the template by default
                 // If it were, each nav item would perform the .inactive css class animation on page load

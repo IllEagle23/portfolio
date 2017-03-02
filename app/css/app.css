@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  background-color: #99cfcf;
+  background-color: white;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -13,39 +13,79 @@ body {
   height: 100%;
   color: rgba(31, 45, 61, 0.5);
 }
-.view-container,
+body #app-wrap {
+  min-height: 100%;
+  background-color: #99cfcf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.view-container {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #99cfcf;
+  padding: 55px 0 0;
+}
 .view-frame {
-  position: relative;
+  background-color: #99cfcf;
+  display: inline-block;
+  width: 100%;
+}
+.body-background {
+  width: 100%;
   height: 100%;
+  position: absolute;
+  top: 55px;
+  background-color: #99cfcf;
 }
 global-navigation {
-  max-width: 1080px;
   width: 100%;
-  height: 80px;
   display: block;
-  margin: 20px auto 0;
 }
-global-navigation #main-logo {
+global-navigation #header {
+  z-index: 1000;
+  width: 100%;
+  min-height: 55px;
+  box-sizing: border-box;
+  box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
+  background-color: white;
+  position: fixed;
+}
+global-navigation #header #main-logo {
   display: inline-block;
-  cursor: pointer;
+  margin: 12px 0 0 12px;
 }
-global-navigation #main-logo h1 {
+global-navigation #header #main-logo a {
+  text-decoration: none;
+}
+global-navigation #header #main-logo a h1 {
   font-weight: 500;
   font-size: 1.5em;
   margin: 0;
   padding-top: 0;
+  color: rgba(31, 45, 61, 0.5);
+  display: inline-block;
 }
-global-navigation #main-logo h6 {
+global-navigation #header #main-logo a h6 {
   margin: 0;
   font-weight: 300;
-  color: rgba(31, 45, 61, 0.7);
   font-size: 1em;
   letter-spacing: .015em;
+  color: rgba(31, 45, 61, 0.7);
+  display: inline-block;
 }
-global-navigation .main-nav {
+global-navigation #header .main-nav {
   float: right;
   display: inline-block;
   height: 39px;
+}
+global-navigation #footer {
+  background-color: #99cfcf;
 }
 global-navigation .main-nav ul {
   margin: 0;
@@ -58,8 +98,6 @@ global-navigation .main-nav ul li {
   margin: 0 10px;
   vertical-align: top;
   font-size: 16px;
-  color: rgba(31, 45, 61, 0.5);
-  font-family: Lato;
 }
 global-navigation .main-nav ul li a {
   text-decoration: none;
@@ -99,10 +137,6 @@ global-navigation .main-nav ul li a.inactive span.bottom-border {
   to {
     width: 0;
   }
-}
-global-navigation.footer {
-  margin: 0 auto;
-  height: 100px;
 }
 home-page {
   background-color: #99cfcf;
@@ -222,7 +256,7 @@ project-detail ul li h1 {
 .project-list-item.ng-enter,
 .project-list-item.ng-leave,
 .project-list-item.ng-move {
-  transition: 0.5s linear all;
+  transition: 1s linear all;
 }
 .project-list-item.ng-enter,
 .project-list-item.ng-leave.ng-leave-active,
@@ -239,7 +273,7 @@ project-detail ul li h1 {
   left: 0;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 55px;
 }
 .view-frame.ng-enter {
   animation: 1s fade-in;

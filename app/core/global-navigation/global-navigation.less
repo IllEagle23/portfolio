@@ -1,31 +1,53 @@
-global-navigation {
-  max-width: 1080px;
-  width: 100%;
-  height:80px;
-  display: block;
-  margin: 20px auto 0;
-  #main-logo {
-    display: inline-block;
-    cursor: pointer;
-    h1 {
-      font-weight: 500;
-      font-size: 1.5em;
-      margin: 0;
-      padding-top:0;
+global-navigation.footer {
 
+}
+global-navigation {
+  width:100%;
+  display:block;
+  #header {
+    z-index:1000;
+    width: 100%;
+    min-height:55px;
+    box-sizing: border-box;
+    box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.19), 3px 0 3px 0 rgba(0,0,0,0.19), 0 3px 3px 0 rgba(0,0,0,0.23);
+    background-color:white;
+    position:fixed;
+    #main-logo {
+      display: inline-block;
+      margin:12px 0 0 12px;
+      a {
+        text-decoration:none;
+        h1 {
+          font-weight: 500;
+          font-size: 1.5em;
+          margin: 0;
+          padding-top:0;
+          color: @MainFontColor;
+          display:inline-block;
+        }
+        h6 {
+          margin: 0;
+          font-weight: 300;
+          font-size: 1em;
+          letter-spacing: .015em;
+          color: @BoldFontColor;
+          display:inline-block;
+        }
+      }
     }
-    h6 {
-      margin: 0;
-      font-weight: 300;
-      color: @BoldFontColor;
-      font-size: 1em;
-      letter-spacing: .015em;
+    .main-nav {
+      float: right;
+      display: inline-block;
+      height: 39px;
     }
   }
+  #footer {
+    background-color:@MainBlue;
+    //position:absolute;
+    //bottom:0;
+
+  }
   .main-nav {
-    float: right;
-    display: inline-block;
-    height: 39px;
     ul {
       margin: 0;
       padding: 14px 0 0;
@@ -36,19 +58,14 @@ global-navigation {
         margin: 0 10px;
         vertical-align: top;
         font-size:16px;
-        color:rgba(31, 45, 61, .5);
-        font-family:Lato;
         a {
           text-decoration: none;
           color: @MainFontColor;
-
           font-weight: 300;
-
           span {
             display: block;
           }
           span.bottom-border {
-            //animation: 1s roll-out;
             width: 0;
             display: block;
             height: 2px;
@@ -104,8 +121,4 @@ global-navigation {
   to {
     width: 0;
   }
-}
-global-navigation.footer {
-  margin:0 auto;
-  height:100px;
 }

@@ -1,23 +1,45 @@
 <!--Right side mobile nav?-->
-<div id="main-logo" ng-click="$ctrl.NavItemClick($event, 'Home')">
-    <!--Research SVG for line art logo-->
-    <h1>Jamie Lloyd</h1>
-    <h6>Creative Technologist</h6>
+<div id="header">
+    <div id="main-logo">
+        <!--Research SVG for line art logo-->
+        <a href="#!/">
+            <h1>Jamie Lloyd</h1>
+            <h6>Creative Technologist</h6>
+        </a>
+    </div>
+    <div class="main-nav">
+        <ul>
+            <li ng-repeat="navItem in $ctrl.data.globalHeader" id="{{navItem.title}}">
+                <a href="#!/{{navItem.url}}"
+                   ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)"
+                   ng-mouseleave="$ctrl.NavItemMouseLeave(navItem.title)"
+                   class="ng-class:navItem.isSelected">
+                    <span>{{navItem.title}}</span>
+                    <span class="bottom-border"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
-<div class="main-nav">
-    <ul>
-        <li ng-repeat="navItem in $ctrl.data.globalHeader" id="{{navItem.title}}">
-            <a href="#!/{{navItem.url}}"
-               ng-mouseenter="$ctrl.NavItemMouseEnter(navItem.title)"
-               ng-mouseleave="$ctrl.NavItemMouseLeave(navItem.title)"
-               ng-click="$ctrl.NavItemClick($event, navItem.title)"
-               class="ng-class:navItem.isSelected">
-                <span>{{navItem.title}}</span>
-                <span class="bottom-border"></span>
-            </a>
-        </li>
-    </ul>
-</div>
+
+
+<!--
+
+Todo:
+* header
+    * mobile break points
+    * // make full bleed
+    * // make fixed to top
+        * // white bkg?
+        * // bottom shadow
+* Footer
+    * Move below view container
+
+-->
+
 <!--ng-class="{bold: isBold(), italic: isItalic(), underline: isUnderlined()}"-->
 
 <!--  Binding class="ng-class:navItem.isSelected" on the LI causes need for double click on mobile, not sure why? -->
+
+<!-- ng-click="$ctrl.NavItemClick($event, navItem.title)" -->
+
