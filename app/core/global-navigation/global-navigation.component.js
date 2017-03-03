@@ -20,6 +20,9 @@
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
                     }
                 });
+                self.RouteClass = function RouteClass () {
+                    return Portfolio.GetTopRoute()
+                };
                 // Set document title on header template init
                 // Helpful in analytics page views
                 self.SetDocumentTitle = function SetDocumentTitle () {

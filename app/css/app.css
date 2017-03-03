@@ -36,13 +36,6 @@ body #app-wrap {
   display: inline-block;
   width: 100%;
 }
-.body-background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 55px;
-  background-color: #99cfcf;
-}
 global-navigation {
   width: 100%;
   display: block;
@@ -80,6 +73,9 @@ global-navigation #header #main-logo a .line-art span.outline img {
   position: absolute;
   opacity: .5;
   display: inline-block;
+}
+global-navigation #header #main-logo a .line-art span.outline.home img {
+  opacity: .75;
 }
 global-navigation #header #main-logo a .line-art span.initials img {
   width: 40px;

@@ -6,7 +6,7 @@
 
         <a href="#!/">
             <span class="line-art">
-                <span class="outline"><img src="img/portfolio-logo-outline.png" /></span>
+                <span ng-class="$ctrl.RouteClass()" class="outline"><img src="img/portfolio-logo-outline.png" /></span>
                 <span class="initials"><img src="img/portfolio-logo-type.png" /></span>
             </span>
             <h1>Jamie Lloyd</h1>
@@ -28,26 +28,6 @@
     </div>
 </div>
 
-
-<!--
-
-Todo:
-* header
-    * logo line art
-    * mobile break points
-    * // make full bleed
-    * // make fixed to top
-        * // white bkg?
-        * // bottom shadow
-* Footer
-    * // Move below view container
-    * Multi column list?
-
--->
-
 <!--ng-class="{bold: isBold(), italic: isItalic(), underline: isUnderlined()}"-->
 
-<!--  Binding class="ng-class:navItem.isSelected" on the LI causes need for double click on mobile, not sure why? -->
-
-<!-- ng-click="$ctrl.NavItemClick($event, navItem.title)" -->
-
+<!--  Binding class="ng-class:navItem.isSelected" on the LI causes need for double click on mobile, not sure why? Appears to be related to :hover of anchor and how iOS handles gestures. -->
