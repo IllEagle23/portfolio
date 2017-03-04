@@ -1,0 +1,54 @@
+{
+  "globalHeader": {
+    "home": {
+      "title": "Home",
+      "url": ""
+    },
+    "about": {
+      "title": "About",
+      "url": "about"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "url": "portfolio"
+    },
+    "contact": {
+      "title": "Contact",
+      "url": "contact"
+    }
+  },
+  "globalFooter": {
+    "resume": {
+      "title": "Resume",
+      "url": "resume"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/selfconstructv/",
+      "linktype": "external"
+    },
+    "experiments": {
+      "title": "Experiments",
+      "url": "experiments"
+    }
+  },
+  "project": [
+    {
+      "title": "FPO title very long and wordy for space",
+      "img": "img/stadium-background.jpg",
+      "id": "project0"
+    },{
+      "title": "FPO title very long and wordy for space",
+      "img": "img/stadium-background.jpg",
+      "id": "project0"
+    },{
+      "title": "FPO title very long and wordy for space",
+      "img": "img/stadium-background.jpg",
+      "id": "project0"
+    },{
+      "title": "FPO title very long and wordy for space",
+      "img": "img/stadium-background.jpg",
+      "id": "project0"
+    }
+  ]
+}
