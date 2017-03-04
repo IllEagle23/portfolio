@@ -134,13 +134,7 @@ module.exports = function(grunt) {
                     {
                         expand:true,
                         cwd: 'app/',
-                        src:['img/**'],
-                        dest:'dist/'
-                    },
-                    {
-                        expand:true,
-                        cwd: 'app/',
-                        src:['portfolioData/**'],
+                        src:['img/**', 'portfolioData/**', 'robots.txt', 'google015368be708b51fe.html'],
                         dest:'dist/'
                     }
                 ]
