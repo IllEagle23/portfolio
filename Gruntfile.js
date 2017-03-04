@@ -46,9 +46,8 @@ module.exports = function(grunt) {
                     'app/view/resume-page/resume-page.module.js',
                     'app/view/resume-page/resume-page.component.js',
                     '!app/**/*.spec.js',
-                    '!app/bower_components/**/*.js',
-                    '!app/dist/js/main.js'],
-                dest: 'app/dist/js/app.js'
+                    '!app/bower_components/**/*.js'],
+                dest: 'dist/js/app.js'
             },
             bower: {
                 src: [
@@ -61,11 +60,11 @@ module.exports = function(grunt) {
                     'app/bower_components/angulartics/dist/angulartics.min.js',
                     'app/bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js'
                 ],
-                dest: 'app/dist/js/bower-components.min.js'
+                dest: 'dist/js/bower-components.min.js'
             },
             all: {
-                src: ['app/dist/js/bower-components.min.js', 'app/dist/js/app.min.js'],
-                dest:'app/dist/js/main.min.js'
+                src: ['dist/js/bower-components.min.js', 'dist/js/app.min.js'],
+                dest:'dist/js/main.min.js'
             }
         },
         uglify: {
@@ -74,8 +73,8 @@ module.exports = function(grunt) {
                 mangle:false
             },
             app: {
-                src: ['app/dist/js/app.js'],
-                dest: 'app/dist/js/app.min.js'
+                src: ['dist/js/app.js'],
+                dest: 'dist/js/app.min.js'
             }
         },
         less: {
@@ -94,7 +93,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'app/css',
                     src: ['*.css', '!*.min.css'],
-                    dest: 'app/css',
+                    dest: 'dist/css',
                     ext: '.min.css'
                 }]
             }
@@ -105,9 +104,20 @@ module.exports = function(grunt) {
                     removeComments: true,
                     collapseWhitespace: true
                 },
-                files: {
-                    'dist/index.html': 'app/index.html'
-                }
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'app',
+                        src: ['**/*.template.html'],
+                        dest: 'dist/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'app',
+                        src: ['index.html'],
+                        dest: 'dist/'
+                    }
+                ]
             },
             development: {
                 files: [{
@@ -116,6 +126,24 @@ module.exports = function(grunt) {
                     src: ['app/index.html', 'index.html'],
                     dest: 'dist'
                 }]
+            }
+        },
+        copy: {
+            static: {
+                files: [
+                    {
+                        expand:true,
+                        cwd: 'app/',
+                        src:['img/**'],
+                        dest:'dist/'
+                    },
+                    {
+                        expand:true,
+                        cwd: 'app/',
+                        src:['portfolioData/**'],
+                        dest:'dist/'
+                    }
+                ]
             }
         },
         watch: {
@@ -128,8 +156,8 @@ module.exports = function(grunt) {
                 tasks: ['concat:app', 'concat:bower', 'uglify:app', 'concat:all']
             },
             html: {
-                files: 'app/index.html',
-                tasks: 'htmlmin:development'
+                files: ['app/index.html', 'app/**/*.template.html'],
+                tasks: ['htmlmin:distribution', 'copy:static']
             }
         }
     });
@@ -142,6 +170,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Default task(s).
     // grunt.registerTask('default', ['uglify']);

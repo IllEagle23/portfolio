@@ -4,7 +4,9 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-htmlmin": "^2.1.0",
     "grunt-contrib-less": "^1.4.0",
@@ -22,7 +24,7 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "http-server ./app -a 10.0.1.11 -p 8000 -c-1",
+    "start": "http-server ./dist -a 10.0.1.11 -p 8000 -c-1",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
