@@ -17,6 +17,9 @@ module.exports = function(grunt) {
                 }
             }
         },
+        jshint: {
+            all: ['Gruntfile.js', 'app/core/**/*.js', 'app/view/**/*.js', '!app/core/google/*.js']
+        },
         concat: {
             app: {
                 src: [
@@ -147,7 +150,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['app/**/*.js', '!app/**/*.spec.js', '!app/bower_components/**/*.js', '!app/dist/**/*.js', '!app/dist/**/*.min.js'],
-                tasks: ['concat:app', 'concat:bower', 'uglify:app', 'concat:all']
+                tasks: ['jshint:all', 'concat:app', 'concat:bower', 'uglify:app', 'concat:all']
             },
             html: {
                 files: ['app/index.html', 'app/**/*.template.html'],
@@ -165,6 +168,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task(s).
     // grunt.registerTask('default', ['uglify']);

@@ -20,8 +20,8 @@
                 self.data.SetTopRoute();
             };
             self.data.CheckForHome = function CheckForHome () {
-                if (self.currentRoute == "/" || self.currentRoute == "" || self.currentRoute == undefined) {
-                    self.currentRoute = "/home"
+                if (self.currentRoute == "/" || self.currentRoute === "" || self.currentRoute === undefined) {
+                    self.currentRoute = "/home";
                 }
             };
             // Return current route for comparison to clicked nav item
@@ -48,7 +48,7 @@
             // Set previous route to incoming _previousRoute_ on route change event
             self.data.SetPreviousRoute = function SetPreviousRoute (_previousRoute_) {
                 self.previousRoute = _previousRoute_;
-                if (self.previousRoute == "" || self.previousRoute == undefined) {
+                if (self.previousRoute === "" || self.previousRoute === undefined) {
                     self.previousRoute = 'home';
                 }
             };

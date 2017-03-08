@@ -1,7 +1,9 @@
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `projectDetail` module
-angular.module('view.projectDetail', [
-  'ngRoute',
-  'core.portfolio'
-]);
+    angular.module('view.projectDetail', [
+        'ngRoute',
+        'core.portfolio'
+    ]);
+})();

@@ -1,69 +1,74 @@
-'use strict';
+(function () {
+    "use strict";
 
 // Define the `portfolioApp` module
-angular.module('portfolioApp', [
-    'ngAnimate',
-    'ngRoute',
-    'core',
-    'view',
-    'ngTouch',
-    'angulartics',
-    'angulartics.google.analytics'
-]);
-'use strict';
+    angular.module('portfolioApp', [
+        'ngAnimate',
+        'ngRoute',
+        'core',
+        'view',
+        'ngTouch',
+        'angulartics',
+        'angulartics.google.analytics'
+    ]);
+})();
+(function () {
+    "use strict";
 
 // want /experiments
 // want /experiments/experimentId
-
-angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
-    function config($locationProvider, $routeProvider) {
-        
-        
-        $routeProvider.when('/',{
-            title:'Jamie Lloyd, Portfolio 2017 : Home',
-            template: '<home-page></home-page>'
-        }).when('/about',{
-            title:'Jamie Lloyd, Portfolio 2017 : About',
-            template:'<about-page></about-page>'
-        }).when('/contact',{
-            title:'Jamie Lloyd, Portfolio 2017 : Contact',
-            template:'<contact-page></contact-page>'
-        }).when('/portfolio', {
-            title:'Jamie Lloyd, Portfolio 2017 : Portfolio',
-            template: '<portfolio-page></portfolio-page>'
-        }).when('/portfolio/:projectId', {
-            title:'Jamie Lloyd, Portfolio 2017 : Project :projectId',
-            template: '<project-detail></project-detail>'
-        }).when('/resume', {
-            title:'Jamie Lloyd, Portfolio 2017 : Resume',
-            template: '<resume-page></resume-page>'
-        }).when('/experiments', {
-            title:'Jamie Lloyd, Portfolio 2017 : Experiments',
-            template: '<experiements></experiements>'
-        }).otherwise('/');
     
-        // $locationProvider.html5Mode(true);
-        // breaks on route reload if not default when using node
-        // htaccess fix worked on MT
-        
-        $locationProvider.hashPrefix('!');
-    }
-]);
+    angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
+        function config($locationProvider, $routeProvider) {
+            
+            
+            $routeProvider.when('/', {
+                title: 'Jamie Lloyd, Portfolio 2017 : Home',
+                template: '<home-page></home-page>'
+            }).when('/about', {
+                title: 'Jamie Lloyd, Portfolio 2017 : About',
+                template: '<about-page></about-page>'
+            }).when('/contact', {
+                title: 'Jamie Lloyd, Portfolio 2017 : Contact',
+                template: '<contact-page></contact-page>'
+            }).when('/portfolio', {
+                title: 'Jamie Lloyd, Portfolio 2017 : Portfolio',
+                template: '<portfolio-page></portfolio-page>'
+            }).when('/portfolio/:projectId', {
+                title: 'Jamie Lloyd, Portfolio 2017 : Project :projectId',
+                template: '<project-detail></project-detail>'
+            }).when('/resume', {
+                title: 'Jamie Lloyd, Portfolio 2017 : Resume',
+                template: '<resume-page></resume-page>'
+            }).when('/experiments', {
+                title: 'Jamie Lloyd, Portfolio 2017 : Experiments',
+                template: '<experiements></experiements>'
+            }).otherwise('/');
+            
+            // $locationProvider.html5Mode(true);
+            // breaks on route reload if not default when using node
+            // htaccess fix worked on MT
+            
+            $locationProvider.hashPrefix('!');
+        }
+    ]);
+})();
+(function () {
+    'use strict';
 
-
-'use strict';
 
 // Define the `core` module
 // `core` modules are global
 // Research core module getter and setter functionality
-
-angular.module('core', ['core.portfolio', 'core.globalNavigation', 'core.project']);
-
-'use strict';
+    
+    angular.module('core', ['core.portfolio', 'core.globalNavigation', 'core.project']);
+})();
+(function () {
+    'use strict';
 
 // Define the `core.portfolio` module
-angular.module('core.portfolio', ['ngResource']);
-
+    angular.module('core.portfolio', ['ngResource']);
+})();
 (function () {
     'use strict';
     // Register the Portfolio factory with it's route getters and setters used in navigation
@@ -86,8 +91,8 @@ angular.module('core.portfolio', ['ngResource']);
                 self.data.SetTopRoute();
             };
             self.data.CheckForHome = function CheckForHome () {
-                if (self.currentRoute == "/" || self.currentRoute == "" || self.currentRoute == undefined) {
-                    self.currentRoute = "/home"
+                if (self.currentRoute == "/" || self.currentRoute === "" || self.currentRoute === undefined) {
+                    self.currentRoute = "/home";
                 }
             };
             // Return current route for comparison to clicked nav item
@@ -114,7 +119,7 @@ angular.module('core.portfolio', ['ngResource']);
             // Set previous route to incoming _previousRoute_ on route change event
             self.data.SetPreviousRoute = function SetPreviousRoute (_previousRoute_) {
                 self.previousRoute = _previousRoute_;
-                if (self.previousRoute == "" || self.previousRoute == undefined) {
+                if (self.previousRoute === "" || self.previousRoute === undefined) {
                     self.previousRoute = 'home';
                 }
             };
@@ -148,11 +153,12 @@ angular.module('core.portfolio', ['ngResource']);
 })();
 // https://docs.angularjs.org/api/ngResource/service/$resource
 // $resource(url template, [paramDefaults], [actions], options);
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `core.project` module
-angular.module('core.project', ['ngResource']);
-
+    angular.module('core.project', ['ngResource']);
+})();
 (function () {
     'use strict';
     
@@ -168,11 +174,12 @@ angular.module('core.project', ['ngResource']);
     ]);
 })();
 
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `core.global-navigation` module
-angular.module('core.globalNavigation', ['core.portfolio']);
-
+    angular.module('core.globalNavigation', ['core.portfolio']);
+})();
 (function () {
     'use strict';
 
@@ -190,13 +197,13 @@ angular.module('core.globalNavigation', ['core.portfolio']);
                     // Check if datapath has topRoute as an object
                     // It will otherwise be undefined and fail
                     // For example the footer datapath may not have a "Home" object
-                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] !== undefined) {
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
                     }
                 });
                 self.RouteClass = function RouteClass () {
-                    return Portfolio.GetTopRoute()
+                    return Portfolio.GetTopRoute();
                 };
                 // Set document title on header template init
                 // Helpful in analytics page views
@@ -246,10 +253,10 @@ angular.module('core.globalNavigation', ['core.portfolio']);
                 // and activate new one if it exists in this component
                 self.SetNavItemSelected = function SetNavItemSelected () {
                     // Again, ensure the object exists in the datapath or this will fail
-                    if (self.data[self.dataPath][Portfolio.GetPreviousRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetPreviousRoute()] !== undefined) {
                         self.data[self.dataPath][Portfolio.GetPreviousRoute()].isSelected = "inactive";
                     }
-                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] !== undefined) {
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = "active";
                     }
                 };
@@ -262,19 +269,21 @@ angular.module('core.globalNavigation', ['core.portfolio']);
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-92897917-1', 'auto');
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `views` module
 // `views` modules are global
 // Research core module getter and setter functionality
-
-angular.module('view', ['view.homePage', 'view.aboutPage', 'view.contactPage', 'view.projectList', 'view.projectDetail', 'view.portfolioPage', 'view.resumePage']);
-
-'use strict';
+    
+    angular.module('view', ['view.homePage', 'view.aboutPage', 'view.contactPage', 'view.projectList', 'view.projectDetail', 'view.portfolioPage', 'view.resumePage']);
+})();
+(function () {
+    'use strict';
 
 // Define the `homePage` module
-angular.module('view.homePage', ['core.portfolio']);
-
+    angular.module('view.homePage', ['core.portfolio']);
+})();
 (function () {
     'use strict';
 
@@ -294,11 +303,12 @@ angular.module('view.homePage', ['core.portfolio']);
 // Limit project list for Home Page
 // Figure out adding attributes to custom divs that can be read for use cases like this?
 // self.data = event.data.slice(0, 5);
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `portfolioPage` module
-angular.module('view.portfolioPage', ['core.portfolio']);
-
+    angular.module('view.portfolioPage', ['core.portfolio']);
+})();
 (function () {
     'use strict';
 
@@ -315,11 +325,12 @@ angular.module('view.portfolioPage', ['core.portfolio']);
         ]
     });
 })();
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `aboutPage` module
-angular.module('view.aboutPage', ['core.portfolio']);
-
+    angular.module('view.aboutPage', ['core.portfolio']);
+})();
 (function () {
     'use strict';
 
@@ -336,11 +347,12 @@ angular.module('view.aboutPage', ['core.portfolio']);
         ]
     });
 })();
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `contactPage` module
-angular.module('view.contactPage', ['ngResource', 'core.portfolio']);
-
+    angular.module('view.contactPage', ['ngResource', 'core.portfolio']);
+})();
 (function () {
     'use strict';
 
@@ -357,11 +369,12 @@ angular.module('view.contactPage', ['ngResource', 'core.portfolio']);
         ]
     });
 })();
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `projectList` module
-angular.module('view.projectList', ['core.portfolio']);
-
+    angular.module('view.projectList', ['core.portfolio']);
+})();
 (function () {
     'use strict';
 
@@ -385,14 +398,15 @@ angular.module('view.projectList', ['core.portfolio']);
         ]
     });
 })();
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `projectDetail` module
-angular.module('view.projectDetail', [
-  'ngRoute',
-  'core.portfolio'
-]);
-
+    angular.module('view.projectDetail', [
+        'ngRoute',
+        'core.portfolio'
+    ]);
+})();
 (function () {
     'use strict';
 
@@ -410,11 +424,12 @@ angular.module('view.projectDetail', [
     });
 })();
 
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `resumePage` module
-angular.module('view.resumePage', ['core.portfolio']);
-
+    angular.module('view.resumePage', ['core.portfolio']);
+})();
 (function () {
     'use strict';
 

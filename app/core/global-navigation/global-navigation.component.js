@@ -15,13 +15,13 @@
                     // Check if datapath has topRoute as an object
                     // It will otherwise be undefined and fail
                     // For example the footer datapath may not have a "Home" object
-                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] !== undefined) {
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
                     }
                 });
                 self.RouteClass = function RouteClass () {
-                    return Portfolio.GetTopRoute()
+                    return Portfolio.GetTopRoute();
                 };
                 // Set document title on header template init
                 // Helpful in analytics page views
@@ -71,10 +71,10 @@
                 // and activate new one if it exists in this component
                 self.SetNavItemSelected = function SetNavItemSelected () {
                     // Again, ensure the object exists in the datapath or this will fail
-                    if (self.data[self.dataPath][Portfolio.GetPreviousRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetPreviousRoute()] !== undefined) {
                         self.data[self.dataPath][Portfolio.GetPreviousRoute()].isSelected = "inactive";
                     }
-                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] != undefined) {
+                    if (self.data[self.dataPath][Portfolio.GetTopRoute()] !== undefined) {
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = "active";
                     }
                 };

@@ -1,4 +1,6 @@
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `portfolioPage` module
-angular.module('view.portfolioPage', ['core.portfolio']);
+    angular.module('view.portfolioPage', ['core.portfolio']);
+})();

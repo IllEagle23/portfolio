@@ -1,4 +1,6 @@
-'use strict';
+(function () {
+    'use strict';
 
 // Define the `core.global-navigation` module
-angular.module('core.globalNavigation', ['core.portfolio']);
+    angular.module('core.globalNavigation', ['core.portfolio']);
+})();
