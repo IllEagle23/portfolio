@@ -61,7 +61,7 @@
 // `core` modules are global
 // Research core module getter and setter functionality
     
-    angular.module('core', ['core.portfolio', 'core.globalNavigation', 'core.project']);
+    angular.module('core', ['core.portfolio', 'core.globalNavigation', 'core.project', 'core.resume']);
 })();
 (function () {
     'use strict';
@@ -177,6 +177,29 @@
 (function () {
     'use strict';
 
+// Define the `core.project` module
+    angular.module('core.resume', []);
+})();
+
+(function () {
+    'use strict';
+    
+    angular.module('core.resume').factory('Resume', ['$http',
+        function ($http) {
+            var data;
+            return $http
+            .get('https://docs.google.com/document/d/1CRXE9zrw79gAWVs_UbUbYlU5mm1lpb34-mUjLfr2fBI/pub?embedded=true')
+            .then(function (response)
+            {
+                data = response;
+                return data;
+            });
+        }
+    ]);
+})();
+(function () {
+    'use strict';
+
 // Define the `core.global-navigation` module
     angular.module('core.globalNavigation', ['core.portfolio']);
 })();
@@ -281,8 +304,79 @@ ga('create', 'UA-92897917-1', 'auto');
 (function () {
     'use strict';
 
+// Define the `aboutPage` module
+    angular.module('view.aboutPage', ['core.portfolio']);
+})();
+(function () {
+    'use strict';
+
+// Define the `contactPage` module
+    angular.module('view.contactPage', ['core.portfolio']);
+})();
+(function () {
+    'use strict';
+
 // Define the `homePage` module
     angular.module('view.homePage', ['core.portfolio']);
+})();
+(function () {
+    'use strict';
+
+// Define the `portfolioPage` module
+    angular.module('view.portfolioPage', ['core.portfolio']);
+})();
+(function () {
+    'use strict';
+
+// Define the `projectDetail` module
+    angular.module('view.projectDetail', [
+        'ngRoute',
+        'core.portfolio'
+    ]);
+})();
+(function () {
+    'use strict';
+
+// Define the `projectList` module
+    angular.module('view.projectList', ['core.portfolio']);
+})();
+(function () {
+    'use strict';
+
+// Define the `resumePage` module
+    angular.module('view.resumePage', ['core.resume']);
+})();
+(function () {
+    'use strict';
+
+// Register `aboutPage` component, along with its associated controller and template
+    angular.module('view.aboutPage').component('aboutPage', {
+        templateUrl: 'view/about-page/about-page.template.html',
+        controller: ['Portfolio',
+            function AboutPageController(Portfolio) {
+                var self = this;
+                self.data = Portfolio.query(function (event) {
+                    // data loaded
+                });
+            }
+        ]
+    });
+})();
+(function () {
+    'use strict';
+
+// Register `contactPage` component, along with its associated controller and template
+    angular.module('view.contactPage').component('contactPage', {
+        templateUrl: 'view/contact-page/contact-page.template.html',
+        controller: ['Portfolio',
+            function ContactPageController(Portfolio) {
+                var self = this;
+                self.data = Portfolio.query(function (event) {
+                    // data loaded
+                });
+            }
+        ]
+    });
 })();
 (function () {
     'use strict';
@@ -306,12 +400,6 @@ ga('create', 'UA-92897917-1', 'auto');
 (function () {
     'use strict';
 
-// Define the `portfolioPage` module
-    angular.module('view.portfolioPage', ['core.portfolio']);
-})();
-(function () {
-    'use strict';
-
 // Register `portfolioPage` component, along with its associated controller and template
     angular.module('view.portfolioPage').component('portfolioPage', {
         templateUrl: 'view/portfolio-page/portfolio-page.template.html',
@@ -328,53 +416,20 @@ ga('create', 'UA-92897917-1', 'auto');
 (function () {
     'use strict';
 
-// Define the `aboutPage` module
-    angular.module('view.aboutPage', ['core.portfolio']);
-})();
-(function () {
-    'use strict';
-
-// Register `aboutPage` component, along with its associated controller and template
-    angular.module('view.aboutPage').component('aboutPage', {
-        templateUrl: 'view/about-page/about-page.template.html',
-        controller: ['Portfolio',
-            function AboutPageController(Portfolio) {
+// Register `projectDetail` component, along with its associated controller and template
+    angular.module('view.projectDetail').component('projectDetail', {
+        templateUrl: 'view/project-detail/project-detail.template.html',
+        controller: ['$routeParams', 'Project',
+            function ProjectDetailController($routeParams, Project) {
                 var self = this;
-                self.data = Portfolio.query(function (event) {
+                self.project = Project.get({projectId: $routeParams.projectId}, function (project) {
                     // data loaded
                 });
             }
         ]
     });
 })();
-(function () {
-    'use strict';
 
-// Define the `contactPage` module
-    angular.module('view.contactPage', ['ngResource', 'core.portfolio']);
-})();
-(function () {
-    'use strict';
-
-// Register `contactPage` component, along with its associated controller and template
-    angular.module('view.contactPage').component('contactPage', {
-        templateUrl: 'view/contact-page/contact-page.template.html',
-        controller: ['Portfolio',
-            function ContactPageController(Portfolio) {
-                var self = this;
-                self.data = Portfolio.query(function (event) {
-                    // data loaded
-                });
-            }
-        ]
-    });
-})();
-(function () {
-    'use strict';
-
-// Define the `projectList` module
-    angular.module('view.projectList', ['core.portfolio']);
-})();
 (function () {
     'use strict';
 
@@ -401,61 +456,40 @@ ga('create', 'UA-92897917-1', 'auto');
 (function () {
     'use strict';
 
-// Define the `projectDetail` module
-    angular.module('view.projectDetail', [
-        'ngRoute',
-        'core.portfolio'
-    ]);
-})();
-(function () {
-    'use strict';
-
-// Register `projectDetail` component, along with its associated controller and template
-    angular.module('view.projectDetail').component('projectDetail', {
-        templateUrl: 'view/project-detail/project-detail.template.html',
-        controller: ['$routeParams', 'Project',
-            function ProjectDetailController($routeParams, Project) {
-                var self = this;
-                self.project = Project.get({projectId: $routeParams.projectId}, function (project) {
-                    // data loaded
-                });
-            }
-        ]
-    });
-})();
-
-(function () {
-    'use strict';
-
-// Define the `resumePage` module
-    angular.module('view.resumePage', ['core.portfolio']);
-})();
-(function () {
-    'use strict';
-
 // Register `resumePage` component, along with its associated controller and template
     angular.module('view.resumePage').component('resumePage', {
         templateUrl: 'view/resume-page/resume-page.template.html',
-        controller: ['Portfolio',
-            function ResumePageController(Portfolio) {
+        controller: ['Resume',
+            function ResumePageController(Resume) {
                 var self = this;
-                var googleDiv;
-                self.data = Portfolio.query(function (event) {
-                    $.get("https://docs.google.com/document/d/1CRXE9zrw79gAWVs_UbUbYlU5mm1lpb34-mUjLfr2fBI/pub?embedded=true", function (html) {
-                        googleDiv = $("#google-resume-doc");
-                        var contents = googleDiv.contents();
-                        contents.html(html);
-                        contents.find('a[href^="http://"]').attr("target", "_blank");
-                        contents.find('a[href^="https://"]').attr("target", "_blank");
-                        var styleDiv = googleDiv.find('style');
-                        var styles = styleDiv.html();
-                        styles = styles.replace('h1', '.container h1');
-                        styles = styles.replace('h6', '.container h6');
-                        styles = styles.replace(/Calibri/g, 'Lato');
-                        styles = styles.replace(/Arial/g, 'Lato');
-                        styles = styles.replace(/#ff6600/g, '#99cfcf');
-                        styleDiv.html(styles);
-                    });
+                
+                var googleDiv, contents, styleDiv, styles;
+                Resume.then(function(htmldoc) {
+                    googleDiv = $("#google-resume-doc");
+                    contents = googleDiv.contents();
+                    contents.html(htmldoc.data);
+                    contents.find('a[href^="http://"]').attr("target", "_blank");
+                    contents.find('a[href^="https://"]').attr("target", "_blank");
+                    styleDiv = googleDiv.find('style');
+                    styles = styleDiv.html();
+                    styles = styles.replace(/\.c/g, '.container .c');
+                    styles = styles.replace(/\.container \.com/g, '.com');
+                    styles = styles.replace(/h1{/, '.container h1{');
+                    styles = styles.replace(/h2{/, '.container h2{');
+                    styles = styles.replace(/h3{/, '.container h3{');
+                    styles = styles.replace(/h4{/, '.container h4{');
+                    styles = styles.replace(/h5{/, '.container h5{');
+                    styles = styles.replace(/h6{/, '.container h6{');
+                    styles = styles.replace(/p{/, '.container p{');
+                    styles = styles.replace(/\.title{/, '.container .title{');
+                    styles = styles.replace(/\.subtitle{/, '.container .subtitle{');
+                    styles = styles.replace(/Calibri/g, 'Lato');
+                    styles = styles.replace(/Arial/g, 'Lato');
+                    styles = styles.replace(/#ff6600/g, '#99cfcf');
+                    styles = styles.replace(/li{/g, '.container li{');
+                    // console.log(styles);
+                    styleDiv.html(styles);
+                    googleDiv.addClass("loaded");
                 });
             }
         ]

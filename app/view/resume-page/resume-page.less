@@ -7,21 +7,48 @@ resume-page {
   h1{
     font-size:2.3em;
   }
+  #google-resume-doc.loaded {
+    animation: 1s fade-in;
+    opacity:1;
+    margin:0 0 80px;
+    background-color:white;
+    box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
+    .container {
+      padding: 31.7pt 57.6pt 27pt 57.6pt;
+    }
+  }
   #google-resume-doc {
     max-width:816px;
     width:100%;
     border:0;
-    box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
-    margin:0 0 80px;
-    background-color:white;
+
     .container {
       max-width: 496.8pt;
-      padding: 31.7pt 57.6pt 27pt 57.6pt;
+      padding:0;
       .c16 {
         font-weight:300;
       }
       .c18 {
         margin-left:0;
+      }
+    }
+  }
+}
+
+@media (max-width:640px) {
+  resume-page {
+    #google-resume-doc.loaded {
+      .container {
+        padding: 5.7pt 23.6pt 5.7pt 23.6pt;
+      }
+    }
+  }
+}
+@media (max-width:480px) {
+  resume-page {
+    #google-resume-doc.loaded {
+      .container {
+        padding: 2.7pt 13.6pt 2.7pt 13.6pt;
       }
     }
   }

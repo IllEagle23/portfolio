@@ -20,13 +20,23 @@ module.exports = function (config) {
         
         frameworks: ['jasmine'],
         
-        browsers: ['Chrome', 'Firefox'],
+        browsers: ['Chrome', 'Firefox', 'Cordova'],
         
         plugins: [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine'
-        ]
-        
+        ],
+    
+        cordovaSettings: {
+            platforms: ['android', 'ios'],
+            mode: 'emulate',
+            hostip: '10.0.1.11:8000',
+            plugins: [
+                'org.apache.cordova.console'
+            ]
+        },
+        reporters: ['dots', 'progress'],
+        singleRun: true
     });
 };

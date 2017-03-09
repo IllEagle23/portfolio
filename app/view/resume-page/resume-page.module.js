@@ -2,5 +2,5 @@
     'use strict';
 
 // Define the `resumePage` module
-    angular.module('view.resumePage', ['core.portfolio']);
+    angular.module('view.resumePage', ['core.resume']);
 })();

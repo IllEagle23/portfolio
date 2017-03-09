@@ -30,24 +30,14 @@ module.exports = function(grunt) {
                     'app/core/portfolio/portfolio.service.js',
                     'app/core/project/project.module.js',
                     'app/core/project/project.service.js',
+                    'app/core/google/resume.module.js',
+                    'app/core/google/resume.service.js',
                     'app/core/global-navigation/global-navigation.module.js',
                     'app/core/global-navigation/global-navigation.component.js',
                     'app/core/google/google-analytics-object.js',
                     'app/view/view.module.js',
-                    'app/view/home-page/home-page.module.js',
-                    'app/view/home-page/home-page.component.js',
-                    'app/view/portfolio-page/portfolio-page.module.js',
-                    'app/view/portfolio-page/portfolio-page.component.js',
-                    'app/view/about-page/about-page.module.js',
-                    'app/view/about-page/about-page.component.js',
-                    'app/view/contact-page/contact-page.module.js',
-                    'app/view/contact-page/contact-page.component.js',
-                    'app/view/project-list/project-list.module.js',
-                    'app/view/project-list/project-list.component.js',
-                    'app/view/project-detail/project-detail.module.js',
-                    'app/view/project-detail/project-detail.component.js',
-                    'app/view/resume-page/resume-page.module.js',
-                    'app/view/resume-page/resume-page.component.js',
+                    'app/view/**/*.module.js',
+                    'app/view/**/*.component.js',
                     '!app/**/*.spec.js',
                     '!app/bower_components/**/*.js'],
                 dest: 'dist/js/app.js'
@@ -155,6 +145,10 @@ module.exports = function(grunt) {
             html: {
                 files: ['app/index.html', 'app/**/*.template.html'],
                 tasks: ['htmlmin:distribution', 'copy:static']
+            },
+            data: {
+                files: ['app/portfolioData/**/*.json'],
+                tasks: ['copy:static']
             }
         }
     });
