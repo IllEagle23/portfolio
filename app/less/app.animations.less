@@ -1,8 +1,8 @@
 .project-list-item.ng-enter,
 .project-list-item.ng-enter-prepare{
   // overflow: hidden;
-  animation: 1s fade-in;
-  // this breaks mobile safari??
+  animation: .5s fade-in;
+  // this breaks mobile safari when using ng-animate??
   // transition: 5s linear all;
   opacity: 0;
 }
@@ -20,13 +20,13 @@
 }
 
 .view-frame.ng-enter {
-  animation: 1s fade-in;
+  animation: .5s fade-in;
   z-index: 100;
 }
 
 .view-frame.ng-leave {
-  animation: 1s fade-out;
-  z-index: 99;
+  animation: .5s fade-out;
+  z-index: 200;
 }
 
 @keyframes fade-in {

@@ -456,7 +456,7 @@ ga('create', 'UA-92897917-1', 'auto');
 })();
 (function () {
     'use strict';
-
+var isLoaded;
 // Register `resumePage` component, along with its associated controller and template
     angular.module('view.resumePage').component('resumePage', {
         templateUrl: 'view/resume-page/resume-page.template.html',
@@ -465,6 +465,7 @@ ga('create', 'UA-92897917-1', 'auto');
                 var self = this;
                 
                 var googleDiv, contents, styleDiv, styles;
+                
                 Resume.then(function(htmldoc) {
                     googleDiv = $("#google-resume-doc");
                     contents = googleDiv.contents();
@@ -473,6 +474,7 @@ ga('create', 'UA-92897917-1', 'auto');
                     contents.find('a[href^="https://"]').attr("target", "_blank");
                     styleDiv = googleDiv.find('style');
                     styles = styleDiv.html();
+                    styleDiv.html("");
                     styles = styles.replace(/\.c/g, '.container .c');
                     styles = styles.replace(/\.container \.com/g, '.com');
                     styles = styles.replace(/h1{/, '.container h1{');
@@ -489,8 +491,12 @@ ga('create', 'UA-92897917-1', 'auto');
                     styles = styles.replace(/#ff6600/g, '#99cfcf');
                     styles = styles.replace(/li{/g, '.container li{');
                     // console.log(styles);
+                    // setTimeout(function () {
+                        googleDiv.addClass("loaded");
+                    // }, 1000);
                     styleDiv.html(styles);
-                    googleDiv.addClass("loaded");
+                    
+                    // console.log('added class');
                 });
             }
         ]
