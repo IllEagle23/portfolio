@@ -304,21 +304,6 @@ project-detail ul li {
 project-detail ul li h1 {
   font-size: 2.3em;
 }
-.project-list-item.ng-enter,
-.project-list-item.ng-leave,
-.project-list-item.ng-move {
-  transition: .5s linear all;
-}
-.project-list-item.ng-enter,
-.project-list-item.ng-leave.ng-leave-active,
-.project-list-item.ng-move {
-  opacity: 0;
-}
-.project-list-item.ng-enter.ng-enter-active,
-.project-list-item.ng-leave,
-.phone-list-item.ng-move.ng-move-active {
-  opacity: 1;
-}
 .view-frame.ng-enter,
 .view-frame.ng-leave {
   left: 0;
