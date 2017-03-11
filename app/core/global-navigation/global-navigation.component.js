@@ -61,6 +61,9 @@
                         self.data[self.dataPath][self.title].isSelected = "inactive";
                     }
                 };
+                self.NavItemSwipeLeft = function NavItemSwipeLeft () {
+                    console.log("swiped");
+                };
                 // Listen to $rootScope for $routeChangeSuccess
                 // Fires once for each navigation component in view
                 $scope.$on('$routeChangeSuccess', function () {

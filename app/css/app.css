@@ -350,3 +350,13 @@ project-detail ul li h1 {
     opacity: 0;
   }
 }
+@media (max-width: 640px) {
+  .view-frame.ng-enter {
+    animation: 0s fade-in;
+    z-index: 100;
+  }
+  .view-frame.ng-leave {
+    animation: 0s fade-out;
+    z-index: 99;
+  }
+}
