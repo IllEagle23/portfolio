@@ -12,12 +12,79 @@ project-list{
   ul {
     list-style: none;
     padding:0;
-    li.project-list-item {
+    margin:0;
+    li:nth-child(odd) {
+      background-color:rgba(255,255, 255, .75);
+    }
+    li:nth-child(even) {
+      background-color:rgba(240,240, 240, .75);
+    }
+    li:hover {
+      h3 {
+        top:-30px;
+        transition: top .25s ease-out;
+      }
+    }
+    li {
+      width:33.3%;
+      height:250px;
+      display:inline-block;
+      overflow:hidden;
+      float:left;
+      position:relative;
+      cursor:pointer;
+      a::before {
+        display: inline-block;
+        vertical-align: middle;
+        content: "";
+        height: 100%;
+      }
       a {
         text-decoration: none;
         color: @MainFontColor;
-        h3 {
+        display:block;
+        height:100%;
+        .valign {
+          display:inline-block;
         }
+        img {
+          transform: translateX(-50%) translateY(-50%) translateZ(0);
+          left:50%;
+          top:50%;
+          position:absolute;
+        }
+      }
+      h3 {
+        margin:0;
+        position:relative;
+        top:0px;
+        height:20px;
+        font-size:15px;
+        color:#eee;
+        font-weight:300;
+        background:rgba(0,0,0,.75);
+        letter-spacing:.05em;
+        padding:5px;
+        transition: top .25s ease-in;
+        // -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+}
+@media (max-width:768px) {
+  project-list {
+    ul {
+      li {
+        width:100%;
+      }
+    }
+  }
+}
+@media (max-width:1080px) and (min-width:769px) {
+  project-list {
+    ul {
+      li {
+        width:50%;
       }
     }
   }

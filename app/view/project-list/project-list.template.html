@@ -2,7 +2,10 @@
     <li ng-repeat="project in $ctrl.projects.project"
         class="project-list-item">
         <a href="#!/projects/{{project.id}}" ng-click="$ctrl.ProjectDetail(project.id)">
-            <h3>{{project.title}}</h3>
+            <div class="valign">
+                <img src="img/brand-logos/medium-hotwire-logo.png" />
+            </div>
         </a>
+        <h3>Lorem ipsum, dolar sit amet, other tasks</h3>
     </li>
 </ul>
