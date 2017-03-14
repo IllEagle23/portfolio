@@ -4,13 +4,14 @@
       "title": "Home",
       "url": ""
     },
-    "about": {
-      "title": "About",
-      "url": "about"
+    "resume": {
+      "title": "Resume",
+      "url": "resume"
     },
-    "portfolio": {
-      "title": "Portfolio",
-      "url": "portfolio"
+    "linkedin": {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/selfconstructv/",
+      "linktype": "external"
     },
     "contact": {
       "title": "Contact",
@@ -34,7 +35,7 @@
   },
   "project": [
     {
-      "title": "FPO title very long and wordy for space",
+      "title": "Hotwire",
       "img": "img/stadium-background.jpg",
       "id": "project0"
     },{

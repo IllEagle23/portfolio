@@ -178,13 +178,13 @@ home-page #biz-card::before {
 home-page #biz-card {
   width: 100%;
   height: calc(90vh - 25px);
-  box-sizing: border-box;
   max-height: 720px;
-  background-color: #eee;
+  background-color: #99cfcf;
   display: inline-block;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   padding: 40px 20px;
+  box-sizing: border-box;
 }
 home-page #biz-card .container {
   box-sizing: border-box;
@@ -237,7 +237,7 @@ home-page #biz-card .container a span::before {
 }
 home-page #biz-card .container a:hover {
   transition: color 0.25s ease-in;
-  color: rgba(31, 45, 61, 0.7);
+  color: #333;
 }
 about-page {
   background-color: #99cfcf;
@@ -324,10 +324,70 @@ project-list h1 {
 project-list ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
-project-list ul li.project-list-item a {
+project-list ul li:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+project-list ul li:nth-child(even) {
+  background-color: rgba(240, 240, 240, 0.75);
+}
+project-list ul li:hover h3 {
+  top: -30px;
+  transition: top 0.25s ease-out;
+}
+project-list ul li {
+  width: 33.3%;
+  height: 250px;
+  display: inline-block;
+  overflow: hidden;
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+project-list ul li a::before {
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  height: 100%;
+}
+project-list ul li a {
   text-decoration: none;
   color: rgba(31, 45, 61, 0.5);
+  display: block;
+  height: 100%;
+}
+project-list ul li a .valign {
+  display: inline-block;
+}
+project-list ul li a img {
+  transform: translateX(-50%) translateY(-50%) translateZ(0);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+}
+project-list ul li h3 {
+  margin: 0;
+  position: relative;
+  top: 0px;
+  height: 20px;
+  font-size: 15px;
+  color: #eee;
+  font-weight: 300;
+  background: rgba(0, 0, 0, 0.75);
+  letter-spacing: .05em;
+  padding: 5px;
+  transition: top 0.25s ease-in;
+}
+@media (max-width: 768px) {
+  project-list ul li {
+    width: 100%;
+  }
+}
+@media (max-width: 1080px) and (min-width: 769px) {
+  project-list ul li {
+    width: 50%;
+  }
 }
 /* View: Project detail */
 project-detail {
