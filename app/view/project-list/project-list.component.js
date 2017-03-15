@@ -10,13 +10,8 @@
                 // UNIT TEST
                 
                 self.projects = Portfolio.query(function (event) {
+                    
                 });
-                // E2E TEST
-                self.ProjectDetail = function ProjectDetail(id) {
-                    event.preventDefault();
-                    Portfolio.SetNextRoute("portfolio/" + id);
-                    Portfolio.SetLocation();
-                };
             }
         ]
     });
