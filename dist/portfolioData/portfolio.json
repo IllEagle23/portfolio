@@ -40,56 +40,50 @@
   "project": [
     {
       "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
       "id": "project0",
       "clientId": "hotwire",
       "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     },
     {
-      "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "title": "The Longest Shortest Time",
+      "img": ["img/brand-logos/longestshortest/lst-text-logo.png"],
       "id": "project0",
       "clientId": "longest-shortest-time",
+      "description": "PM, UX, WordPress, JS, CSS, HTML, PHP"
+    },
+    {
+      "title": "Jamie Lloyd",
+      "img": ["img/portfolio-logo-type.png", "img/portfolio-logo-outline.png"],
+      "imgclass": "medium",
+      "id": "project0",
+      "clientId": "jamie-lloyd",
       "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     },
     {
+      "title": "Budweiser",
+      "img": ["img/brand-logos/budweiser/budweiser-logo-small.png"],
+      "id": "project0",
+      "clientId": "budweiser",
+      "description": "Creative Direction, Motion Design"
+    },
+    {
       "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
       "id": "project0",
       "clientId": "hotwire",
       "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     },
     {
       "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
       "id": "project0",
       "clientId": "hotwire",
       "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     },
     {
       "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
-      "id": "project0",
-      "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
-    },
-    {
-      "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
-      "id": "project0",
-      "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
-    },
-    {
-      "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
-      "id": "project0",
-      "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
-    },
-    {
-      "title": "Hotwire",
-      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
       "id": "project0",
       "clientId": "hotwire",
       "description": "Lorem ipsum, dolar sit amet, infusio, futility"
