@@ -20,7 +20,7 @@
             }).when('/portfolio', {
                 title: 'Jamie Lloyd, Portfolio 2017 : Portfolio',
                 template: '<portfolio-page></portfolio-page>'
-            }).when('/portfolio/:projectId', {
+            }).when('/portfolio/:clientId/:projectId', {
                 title: 'Jamie Lloyd, Portfolio 2017 : Project :projectId',
                 template: '<project-detail></project-detail>'
             }).when('/resume', {
