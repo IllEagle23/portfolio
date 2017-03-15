@@ -43,14 +43,16 @@
       "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
       "id": "project0",
       "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility",
+      "bkgclass": "white"
     },
     {
       "title": "The Longest Shortest Time",
       "img": ["img/brand-logos/longestshortest/lst-text-logo.png"],
       "id": "project0",
       "clientId": "longest-shortest-time",
-      "description": "PM, UX, WordPress, JS, CSS, HTML, PHP"
+      "description": "PM, UX, WordPress, JS, CSS, HTML, PHP",
+      "bkgclass": "lst-yellow"
     },
     {
       "title": "Jamie Lloyd",
@@ -58,7 +60,7 @@
       "imgclass": "medium",
       "id": "project0",
       "clientId": "jamie-lloyd",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+      "description": "Angular, CSS, HTML"
     },
     {
       "title": "Budweiser",
@@ -68,18 +70,20 @@
       "description": "Creative Direction, Motion Design"
     },
     {
-      "title": "Hotwire",
-      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
+      "title": "Walmart",
+      "img": ["img/brand-logos/walmart/download.svg"],
       "id": "project0",
-      "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+      "clientId": "walmart",
+      "description": "Motion Design",
+      "bkgclass": "walmart-blue"
     },
     {
-      "title": "Hotwire",
-      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
+      "title": "iShares",
+      "img": ["img/brand-logos/ishares/ishares-logo.png"],
       "id": "project0",
-      "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+      "clientId": "ishares",
+      "description": "Branding, Creative Direction, Lorem Ipsum",
+      "bkgclass": "white"
     },
     {
       "title": "Hotwire",
