@@ -8,6 +8,10 @@
       "title": "Resume",
       "url": "resume"
     },
+    "portfolio": {
+      "title": "Portfolio",
+      "url": "portfolio"
+    },
     "linkedin": {
       "title": "LinkedIn",
       "url": "https://www.linkedin.com/in/selfconstructv/",
@@ -36,37 +40,59 @@
   "project": [
     {
       "title": "Hotwire",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
-    },{
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
-    },{
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
-    },{
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     },
     {
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
-    },{
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
-    },{
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
-    },{
-      "title": "FPO title very long and wordy for space",
-      "img": "img/stadium-background.jpg",
-      "id": "project0"
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "longest-shortest-time",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+    },
+    {
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+    },
+    {
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+    },
+    {
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+    },
+    {
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+    },
+    {
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
+    },
+    {
+      "title": "Hotwire",
+      "img": "img/brand-logos/hotwire/medium-hotwire-logo.png",
+      "id": "project0",
+      "clientId": "hotwire",
+      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     }
   ]
 }
