@@ -43,7 +43,7 @@
       "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
       "id": "project0",
       "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility",
+      "description": "PM, UX, Prototyping, R&D",
       "bkgclass": "white"
     },
     {
@@ -84,13 +84,6 @@
       "clientId": "ishares",
       "description": "Branding, Creative Direction, Lorem Ipsum",
       "bkgclass": "white"
-    },
-    {
-      "title": "Hotwire",
-      "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
-      "id": "project0",
-      "clientId": "hotwire",
-      "description": "Lorem ipsum, dolar sit amet, infusio, futility"
     }
   ]
 }
