@@ -7,22 +7,20 @@
         // Test the controller
         describe('ProjectDetailController', function () {
             var $httpBackend, ctrl, Project;
-            var projectData = {
-                "title": "Project 0 title for detail screenzzz",
-                "description": "FPO description"
-            };
+            var projectHtml = "<h1>Test project html file load</h1>";
             beforeEach(inject(function ($componentController, _$httpBackend_, $routeParams, _Project_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('portfolioData/projects/project0.json').respond(projectData);
-                $routeParams.projectId = 'project0';
+                $httpBackend.expectGET('portfolioData/projects/hotwire/test-project.html').respond(projectHtml);
+                $routeParams.clientId = 'hotwire';
+                $routeParams.projectId = 'test-project';
                 ctrl = $componentController('projectDetail');
                 Project = _Project_;
             }));
             it('should fetch the project detail', function () {
                 jasmine.addCustomEqualityTester(angular.equals);
-                expect(ctrl.project).toEqual({});
+                expect(ctrl.projectRequest).toEqual({});
                 $httpBackend.flush();
-                expect(ctrl.project).toEqual(projectData);
+                expect(ctrl.projectRequest.$$state.value.data).toEqual(projectHtml);
             });
         });
     });

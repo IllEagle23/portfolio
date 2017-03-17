@@ -1,14 +1,20 @@
 (function () {
     'use strict';
     
-    angular.module('core.project').factory('Project', ['$resource',
-        function ($resource) {
-            return $resource('portfolioData/projects/:projectId.json', {}, {
-                query: {
-                    method: 'GET',
-                    params: {projectId: 'project0'}
-                }
-            });
+    angular.module('core.project').factory('Project', ['$http',
+        function ($http) {
+            var data, httpRequest;
+            var self = this;
+            self.request = function (projectId) {
+                httpRequest = $http
+                    .get('portfolioData/projects/' + projectId)
+                    .then(function (response) {
+                        data = response;
+                        return data;
+                    });
+                return httpRequest;
+            };
+            return self;
         }
     ]);
 })();

@@ -7,8 +7,12 @@
         controller: ['$routeParams', 'Project',
             function ProjectDetailController($routeParams, Project) {
                 var self = this;
-                self.project = Project.get({projectId: $routeParams.projectId}, function (project) {
-                    // data loaded
+                var projectDiv, contents;
+                self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
+                self.projectRequest.then(function(htmldoc) {
+                    projectDiv = $("#project-div");
+                    contents = projectDiv.contents();
+                    contents.html(htmldoc.data);
                 });
             }
         ]
