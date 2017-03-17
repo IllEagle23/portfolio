@@ -11,17 +11,19 @@
                     params: {projectId: 'portfolio'}
                 }
             });
-            // On initial app load look into location object for current route
-            self.data.SetDefaultRoute = function SetDefaultRoute () {
-                self.currentRoute = $location.$$path;
-                // Known default from location object will be / due to app config
-                // Change to /home for comparison on nav item click
-                self.data.CheckForHome();
+            self.data.SetDefaultRoute = function SetMainRoute (_route_) {
+                self.mainRoute = _route_;
+                self.data.CheckForSlash();
                 self.data.SetTopRoute();
             };
-            self.data.CheckForHome = function CheckForHome () {
+            
+            // On initial app load look into location object for current route
+            self.data.SetLoadRoute = function SetLoadRoute () {
+                self.currentRoute = $location.$$path;
+            };
+            self.data.CheckForSlash = function CheckForSlash () {
                 if (self.currentRoute == "/" || self.currentRoute === "" || self.currentRoute === undefined) {
-                    self.currentRoute = "/home";
+                    self.currentRoute = "/" + self.mainRoute;
                 }
             };
             // Return current route for comparison to clicked nav item
@@ -34,7 +36,7 @@
                 // Navigating with back and forward on browser via keyboard input
                 // should still change nav item selected when not using the mouse to click
                 self.currentRoute = _currentRoute_;
-                self.data.CheckForHome();
+                self.data.CheckForSlash();
                 self.data.SetTopRoute();
             };
             // Clean current route of slashes and sub-routes for css
@@ -49,7 +51,7 @@
             self.data.SetPreviousRoute = function SetPreviousRoute (_previousRoute_) {
                 self.previousRoute = _previousRoute_;
                 if (self.previousRoute === "" || self.previousRoute === undefined) {
-                    self.previousRoute = 'home';
+                    self.previousRoute = self.mainRoute;
                 }
             };
             // Return previous route
@@ -61,8 +63,8 @@
             };
             // Set window location to incoming id
             self.data.SetLocation = function SetLocation () {
-                // If /home is sent the route changes twice due to app config
-                if (self.nextRoute == '/home') {self.nextRoute = '/';}
+                // If /default is sent the route changes twice due to app config
+                if (self.nextRoute == ('/' + self.mainRoute)) {self.nextRoute = '/';}
                 $location.path(self.nextRoute);
             };
             // Listen to $rootScope for route change event
@@ -75,7 +77,7 @@
                 self.data.SetCurrentRoute(next.$$route.originalPath);
                 document.title = next.$$route.title;
             };
-            self.data.SetDefaultRoute();
+            self.data.SetLoadRoute();
             return self.data;
         }
     ]);
