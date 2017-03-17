@@ -41,7 +41,7 @@
     {
       "title": "Hotwire",
       "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
-      "id": "project0",
+      "id": "test-project",
       "clientId": "hotwire",
       "description": "PM, UX, Prototyping, R&D",
       "bkgclass": "white"
@@ -49,7 +49,7 @@
     {
       "title": "The Longest Shortest Time",
       "img": ["img/brand-logos/longestshortest/lst-text-logo.png"],
-      "id": "project0",
+      "id": "test-project",
       "clientId": "longest-shortest-time",
       "description": "PM, UX, WordPress, JS, CSS, HTML, PHP",
       "bkgclass": "lst-yellow"
@@ -58,21 +58,21 @@
       "title": "Jamie Lloyd",
       "img": ["img/portfolio-logo-type.png", "img/portfolio-logo-outline.png"],
       "imgclass": "medium",
-      "id": "project0",
+      "id": "test-project",
       "clientId": "jamie-lloyd",
       "description": "Angular, CSS, HTML"
     },
     {
       "title": "Budweiser",
       "img": ["img/brand-logos/budweiser/budweiser-logo-small.png"],
-      "id": "project0",
+      "id": "test-project",
       "clientId": "budweiser",
       "description": "Creative Direction, Motion Design"
     },
     {
       "title": "Walmart",
       "img": ["img/brand-logos/walmart/download.svg"],
-      "id": "project0",
+      "id": "test-project",
       "clientId": "walmart",
       "description": "Motion Design",
       "bkgclass": "walmart-blue"
@@ -80,9 +80,9 @@
     {
       "title": "iShares",
       "img": ["img/brand-logos/ishares/ishares-logo.png"],
-      "id": "project0",
+      "id": "test-project",
       "clientId": "ishares",
-      "description": "Branding, Creative Direction, Lorem Ipsum",
+      "description": "Branding, Creative Direction, Motion Design",
       "bkgclass": "white"
     }
   ]

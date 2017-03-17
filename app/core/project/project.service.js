@@ -5,9 +5,9 @@
         function ($http) {
             var data, httpRequest;
             var self = this;
-            self.request = function () {
+            self.request = function (projectId) {
                 httpRequest = $http
-                    .get('portfolioData/projects/' + self.projectId)
+                    .get('portfolioData/projects/' + projectId)
                     .then(function (response) {
                         data = response;
                         return data;

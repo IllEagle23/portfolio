@@ -23,11 +23,10 @@
         //     $httpBackend.verifyNoOutstandingRequest();
         // });
         it('should fetch the project html from `/portfolioData/projects/test-project.html`', function () {
-            Project.projectId = "test-project.html";
-            var project = Project.request();
-            expect(project).toEqual({});
+            var projectRequest = Project.request("test-project.html");
+            expect(projectRequest).toEqual({});
             $httpBackend.flush();
-            expect(project.$$state.value.data).toEqual(projectHtml);
+            expect(projectRequest.$$state.value.data).toEqual(projectHtml);
         });
     });
 })();

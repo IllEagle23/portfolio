@@ -8,8 +8,7 @@
             function ProjectDetailController($routeParams, Project) {
                 var self = this;
                 var projectDiv, contents;
-                Project.projectId = "test-project.html";
-                self.projectRequest = Project.request();
+                self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
                 self.projectRequest.then(function(htmldoc) {
                     projectDiv = $("#project-div");
                     contents = projectDiv.contents();
