@@ -23,18 +23,15 @@
             
             
             $routeProvider.when('/', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Home',
-                template: '<home-page></home-page>'
+                title: 'Jamie Lloyd, Portfolio 2017 : Portfolio',
+                template: '<portfolio-page></portfolio-page>'
             }).when('/about', {
                 title: 'Jamie Lloyd, Portfolio 2017 : About',
                 template: '<about-page></about-page>'
             }).when('/contact', {
                 title: 'Jamie Lloyd, Portfolio 2017 : Contact',
                 template: '<contact-page></contact-page>'
-            }).when('/portfolio', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Portfolio',
-                template: '<portfolio-page></portfolio-page>'
-            }).when('/portfolio/:projectId', {
+            }).when('/portfolio/:clientId/:projectId', {
                 title: 'Jamie Lloyd, Portfolio 2017 : Project :projectId',
                 template: '<project-detail></project-detail>'
             }).when('/resume', {
@@ -82,17 +79,19 @@
                     params: {projectId: 'portfolio'}
                 }
             });
-            // On initial app load look into location object for current route
-            self.data.SetDefaultRoute = function SetDefaultRoute () {
-                self.currentRoute = $location.$$path;
-                // Known default from location object will be / due to app config
-                // Change to /home for comparison on nav item click
-                self.data.CheckForHome();
+            self.data.SetDefaultRoute = function SetMainRoute (_route_) {
+                self.mainRoute = _route_;
+                self.data.CheckForSlash();
                 self.data.SetTopRoute();
             };
-            self.data.CheckForHome = function CheckForHome () {
+            
+            // On initial app load look into location object for current route
+            self.data.SetLoadRoute = function SetLoadRoute () {
+                self.currentRoute = $location.$$path;
+            };
+            self.data.CheckForSlash = function CheckForSlash () {
                 if (self.currentRoute == "/" || self.currentRoute === "" || self.currentRoute === undefined) {
-                    self.currentRoute = "/home";
+                    self.currentRoute = "/" + self.mainRoute;
                 }
             };
             // Return current route for comparison to clicked nav item
@@ -105,7 +104,7 @@
                 // Navigating with back and forward on browser via keyboard input
                 // should still change nav item selected when not using the mouse to click
                 self.currentRoute = _currentRoute_;
-                self.data.CheckForHome();
+                self.data.CheckForSlash();
                 self.data.SetTopRoute();
             };
             // Clean current route of slashes and sub-routes for css
@@ -120,7 +119,7 @@
             self.data.SetPreviousRoute = function SetPreviousRoute (_previousRoute_) {
                 self.previousRoute = _previousRoute_;
                 if (self.previousRoute === "" || self.previousRoute === undefined) {
-                    self.previousRoute = 'home';
+                    self.previousRoute = self.mainRoute;
                 }
             };
             // Return previous route
@@ -132,8 +131,8 @@
             };
             // Set window location to incoming id
             self.data.SetLocation = function SetLocation () {
-                // If /home is sent the route changes twice due to app config
-                if (self.nextRoute == '/home') {self.nextRoute = '/';}
+                // If /default is sent the route changes twice due to app config
+                if (self.nextRoute == ('/' + self.mainRoute)) {self.nextRoute = '/';}
                 $location.path(self.nextRoute);
             };
             // Listen to $rootScope for route change event
@@ -146,7 +145,7 @@
                 self.data.SetCurrentRoute(next.$$route.originalPath);
                 document.title = next.$$route.title;
             };
-            self.data.SetDefaultRoute();
+            self.data.SetLoadRoute();
             return self.data;
         }
     ]);
@@ -157,23 +156,28 @@
     'use strict';
 
 // Define the `core.project` module
-    angular.module('core.project', ['ngResource']);
+    angular.module('core.project', []);
 })();
 (function () {
     'use strict';
     
-    angular.module('core.project').factory('Project', ['$resource',
-        function ($resource) {
-            return $resource('portfolioData/projects/:projectId.json', {}, {
-                query: {
-                    method: 'GET',
-                    params: {projectId: 'project0'}
-                }
-            });
+    angular.module('core.project').factory('Project', ['$http',
+        function ($http) {
+            var data, httpRequest;
+            var self = this;
+            self.request = function (projectId) {
+                httpRequest = $http
+                    .get('portfolioData/projects/' + projectId)
+                    .then(function (response) {
+                        data = response;
+                        return data;
+                    });
+                return httpRequest;
+            };
+            return self;
         }
     ]);
 })();
-
 (function () {
     'use strict';
 
@@ -188,12 +192,11 @@
         function ($http) {
             var data;
             return $http
-            .get('https://docs.google.com/document/d/1CRXE9zrw79gAWVs_UbUbYlU5mm1lpb34-mUjLfr2fBI/pub?embedded=true')
-            .then(function (response)
-            {
-                data = response;
-                return data;
-            });
+                .get('https://docs.google.com/document/d/1CRXE9zrw79gAWVs_UbUbYlU5mm1lpb34-mUjLfr2fBI/pub?embedded=true')
+                .then(function (response) {
+                    data = response;
+                    return data;
+                });
         }
     ]);
 })();
@@ -214,12 +217,13 @@
         controller: ['$attrs', '$scope', 'Portfolio', '$route',
             function NavigationController($attrs, $scope, Portfolio, $route) {
                 var self = this;
+                Portfolio.SetDefaultRoute($attrs.defaultRoute);
                 self.dataPath = $attrs.datapath;
                 // Read from resource
                 self.data = Portfolio.query(function () {
                     // Check if datapath has topRoute as an object
                     // It will otherwise be undefined and fail
-                    // For example the footer datapath may not have a "Home" object
+                    // For example the footer datapath will likely not have the same header nav object
                     if (self.data[self.dataPath][Portfolio.GetTopRoute()] !== undefined) {
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
@@ -331,7 +335,7 @@ ga('create', 'UA-92897917-1', 'auto');
 // Define the `projectDetail` module
     angular.module('view.projectDetail', [
         'ngRoute',
-        'core.portfolio'
+        'core.project'
     ]);
 })();
 (function () {
@@ -423,8 +427,12 @@ ga('create', 'UA-92897917-1', 'auto');
         controller: ['$routeParams', 'Project',
             function ProjectDetailController($routeParams, Project) {
                 var self = this;
-                self.project = Project.get({projectId: $routeParams.projectId}, function (project) {
-                    // data loaded
+                var projectDiv, contents;
+                self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
+                self.projectRequest.then(function(htmldoc) {
+                    projectDiv = $("#project-div");
+                    contents = projectDiv.contents();
+                    contents.html(htmldoc.data);
                 });
             }
         ]
@@ -443,13 +451,8 @@ ga('create', 'UA-92897917-1', 'auto');
                 // UNIT TEST
                 
                 self.projects = Portfolio.query(function (event) {
+                    
                 });
-                // E2E TEST
-                self.ProjectDetail = function ProjectDetail(id) {
-                    event.preventDefault();
-                    Portfolio.SetNextRoute("portfolio/" + id);
-                    Portfolio.SetLocation();
-                };
             }
         ]
     });
@@ -475,21 +478,21 @@ var isLoaded;
                     styleDiv = googleDiv.find('style');
                     styles = styleDiv.html();
                     styleDiv.html("");
-                    styles = styles.replace(/\.c/g, '.container .c');
-                    styles = styles.replace(/\.container \.com/g, '.com');
-                    styles = styles.replace(/h1{/, '.container h1{');
-                    styles = styles.replace(/h2{/, '.container h2{');
-                    styles = styles.replace(/h3{/, '.container h3{');
-                    styles = styles.replace(/h4{/, '.container h4{');
-                    styles = styles.replace(/h5{/, '.container h5{');
-                    styles = styles.replace(/h6{/, '.container h6{');
-                    styles = styles.replace(/p{/, '.container p{');
-                    styles = styles.replace(/\.title{/, '.container .title{');
-                    styles = styles.replace(/\.subtitle{/, '.container .subtitle{');
+                    styles = styles.replace(/\.c/g, '.doc-container .c');
+                    styles = styles.replace(/\.doc-container \.com/g, '.com');
+                    styles = styles.replace(/h1{/, '.doc-container h1{');
+                    styles = styles.replace(/h2{/, '.doc-container h2{');
+                    styles = styles.replace(/h3{/, '.doc-container h3{');
+                    styles = styles.replace(/h4{/, '.doc-container h4{');
+                    styles = styles.replace(/h5{/, '.doc-container h5{');
+                    styles = styles.replace(/h6{/, '.doc-container h6{');
+                    styles = styles.replace(/p{/, '.doc-container p{');
+                    styles = styles.replace(/\.title{/, '.doc-container .title{');
+                    styles = styles.replace(/\.subtitle{/, '.doc-container .subtitle{');
                     styles = styles.replace(/Calibri/g, 'Lato');
                     styles = styles.replace(/Arial/g, 'Lato');
                     styles = styles.replace(/#ff6600/g, '#99cfcf');
-                    styles = styles.replace(/li{/g, '.container li{');
+                    styles = styles.replace(/li{/g, '.doc-container li{');
                     // console.log(styles);
                     // setTimeout(function () {
                         googleDiv.addClass("loaded");

@@ -1,10 +1,84 @@
 portfolio-page {
-  background-color:@MainBlue;
-  max-width: 1080px;
+  background-color: @MainBlue;
+  // max-width: 1080px;
   width: 100%;
   display: block;
-  margin: 20px auto 0;
-  h1{
-    font-size:2.3em;
+  margin: 0;
+  // This awesome class makes the content float vertically center of containing div
+  #biz-card::before {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    height: 100%;
+  }
+  #biz-card {
+    width: 100%;
+    height: calc(~"90vh - 25px");
+    box-sizing: border-box;
+    max-height:720px;
+    background-color: @MainBlue;
+    display: inline-block;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    padding:40px 20px;
+    .container {
+      box-sizing: border-box;
+      display:inline-block;
+      vertical-align:middle;
+      //padding:40px 20px;
+      h1 {
+        font-size: 2.3em;
+        margin: 0 0 10px;
+        //color:@BoldFontColor;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        //color:@BoldFontColor;
+        li::before {
+          content: '\00B7';
+          display: inline-block;
+          margin-right: 20px;
+        }
+        li:first-child::before {
+          content: "";
+          margin:0;
+          display:block;
+        }
+        li:first-child {
+          margin-left: 0;
+        }
+        li {
+          display: inline-block;
+          list-style: none;
+          margin-left: 20px;
+        }
+      }
+      a {
+        margin: 15px 0 0;
+        transition: color .25s ease-out;
+        color: @MainFontColor;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-block;
+        span {
+          display: block;
+          height: 20px;
+        }
+        span::before {
+          content: '\02C7';
+          font-size: 200%;
+          font-weight: 300;
+          display: block;
+        }
+      }
+      a:hover {
+        transition: color .25s ease-in;
+        color: #333;
+      }
+    }
   }
 }
+
+// \02C7 = ˇ = shift + option + T
+// \00B7 = • = option + 8

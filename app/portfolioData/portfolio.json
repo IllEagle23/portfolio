@@ -1,16 +1,12 @@
 {
   "globalHeader": {
-    "home": {
-      "title": "Home",
+    "portfolio": {
+      "title": "Portfolio",
       "url": ""
     },
     "resume": {
       "title": "Resume",
       "url": "resume"
-    },
-    "portfolio": {
-      "title": "Portfolio",
-      "url": "portfolio"
     },
     "linkedin": {
       "title": "LinkedIn",

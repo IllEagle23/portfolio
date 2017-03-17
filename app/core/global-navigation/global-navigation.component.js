@@ -9,12 +9,13 @@
         controller: ['$attrs', '$scope', 'Portfolio', '$route',
             function NavigationController($attrs, $scope, Portfolio, $route) {
                 var self = this;
+                Portfolio.SetDefaultRoute($attrs.defaultRoute);
                 self.dataPath = $attrs.datapath;
                 // Read from resource
                 self.data = Portfolio.query(function () {
                     // Check if datapath has topRoute as an object
                     // It will otherwise be undefined and fail
-                    // For example the footer datapath may not have a "Home" object
+                    // For example the footer datapath will likely not have the same header nav object
                     if (self.data[self.dataPath][Portfolio.GetTopRoute()] !== undefined) {
                         // Set default nav item active based on current route on page load / refresh
                         self.data[self.dataPath][Portfolio.GetTopRoute()].isSelected = 'active';
