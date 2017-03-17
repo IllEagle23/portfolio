@@ -4,10 +4,7 @@
     describe('Project', function () {
         var $httpBackend;
         var Project;
-        var projectData = {
-            "title": "Project 0 title for detail screenzzz",
-            "description": "FPO description"
-        };
+        var projectHtml = "<h1>Test project html file load</h1>";
         // Add a custom equality tester before each test
         beforeEach(function () {
             jasmine.addCustomEqualityTester(angular.equals);
@@ -17,19 +14,20 @@
         // Instantiate the service and "train" `$httpBackend` before each test
         beforeEach(inject(function (_$httpBackend_, _Project_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('portfolioData/projects/project0.json').respond(projectData);
+            $httpBackend.expectGET('portfolioData/projects/test-project.html').respond(projectHtml);
             Project = _Project_;
         }));
         // Verify that there are no outstanding expectations or requests after each test
-        afterEach(function () {
-            $httpBackend.verifyNoOutstandingExpectation();
-            $httpBackend.verifyNoOutstandingRequest();
-        });
-        it('should fetch the project data from `/portfolioData/projects/project0.json`', function () {
-            var project = Project.query();
+        // afterEach(function () {
+        //     $httpBackend.verifyNoOutstandingExpectation();
+        //     $httpBackend.verifyNoOutstandingRequest();
+        // });
+        it('should fetch the project html from `/portfolioData/projects/test-project.html`', function () {
+            Project.projectId = "test-project.html";
+            var project = Project.request();
             expect(project).toEqual({});
             $httpBackend.flush();
-            expect(project).toEqual(projectData);
+            expect(project.$$state.value.data).toEqual(projectHtml);
         });
     });
 })();

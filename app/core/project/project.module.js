@@ -2,5 +2,5 @@
     'use strict';
 
 // Define the `core.project` module
-    angular.module('core.project', ['ngResource']);
+    angular.module('core.project', []);
 })();

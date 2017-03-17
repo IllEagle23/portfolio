@@ -143,7 +143,7 @@ module.exports = function(grunt) {
                 tasks: ['jshint:all', 'concat:app', 'concat:bower', 'uglify:app', 'concat:all']
             },
             html: {
-                files: ['app/index.html', 'app/**/*.template.html'],
+                files: ['app/index.html', 'app/**/*.template.html', 'app/portfolioData/**/*.html'],
                 tasks: ['htmlmin:distribution', 'copy:static']
             },
             data: {
