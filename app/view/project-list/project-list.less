@@ -70,7 +70,7 @@ project-list{
         margin:0;
         position:relative;
         top:0;
-        height:20px;
+        min-height:20px;
         font-size:15px;
         color:#eee;
         font-weight:300;
@@ -83,11 +83,25 @@ project-list{
     }
   }
 }
+@media (max-width:420px) {
+  project-list {
+    ul {
+      li {
+        h3 {
+          font-size:14px;
+        }
+      }
+    }
+  }
+}
 @media (max-width:768px) {
   project-list {
     ul {
       li {
         width:100%;
+        h3 {
+          top:-30px;
+        }
       }
     }
   }
