@@ -11,12 +11,12 @@
             var $httpBackend, ctrl, Portfolio, $attrs, event, $route;
             beforeEach(inject(function ($componentController, _$httpBackend_, _Portfolio_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('portfolioData/portfolio.json').respond({globalHeader: {'home': {'title': 'Home'}, 'about': {'title': 'About'}}});
-                $attrs = { 'datapath': 'globalHeader' };
+                $httpBackend.expectGET('portfolioData/portfolio.json').respond({globalHeader: {'portfolio': {'title': 'Portfolio'}, 'resume': {'title': 'Resume'}}});
+                $attrs = { 'datapath': 'globalHeader', 'defaultRoute': 'portfolio' };
                 event = {};
                 event.preventDefault = function () {};
                 $route = {};
-                $route.current = {title:'Jamie Lloyd, Portfolio 2017 : Home'};
+                $route.current = {title:'Jamie Lloyd, Portfolio 2017 : Portfolio'};
                 ctrl = $componentController('globalNavigation', {$attrs: $attrs, event:event, $route:$route});
                 Portfolio = _Portfolio_;
                 jasmine.addCustomEqualityTester(angular.equals);
@@ -24,35 +24,35 @@
                 $httpBackend.flush();
             }));
             it('should create a `portfolio` property with 1 nav item fetched with `$http`', function () {
-                expect(ctrl.data).toEqual({globalHeader: {'home': {'title': 'Home', 'isSelected': 'active'}, 'about': {'title': 'About'}}});
-                expect(ctrl.data.globalHeader.home.isSelected).toEqual('active');
+                expect(ctrl.data).toEqual({globalHeader: {'portfolio': {'title': 'Portfolio', 'isSelected': 'active'}, 'resume': {'title': 'Resume'}}});
+                expect(ctrl.data.globalHeader.portfolio.isSelected).toEqual('active');
             });
-            it('should simulate the about route rollover', function () {
+            it('should simulate the resume route rollover', function () {
                 Portfolio.GetTopRoute = function () {
-                    return 'home';
+                    return 'portfolio';
                 };
-                ctrl.NavItemMouseEnter('About');
-                expect(ctrl.title).toEqual('about');
-                expect(ctrl.data.globalHeader.about.isSelected).toEqual('active');
+                ctrl.NavItemMouseEnter('Resume');
+                expect(ctrl.title).toEqual('resume');
+                expect(ctrl.data.globalHeader.resume.isSelected).toEqual('active');
             });
-            it('should simulate the about route rollout', function () {
+            it('should simulate the resume route rollout', function () {
                 Portfolio.GetTopRoute = function () {
-                    return 'home';
+                    return 'portfolio';
                 };
-                ctrl.NavItemMouseLeave('About');
-                expect(ctrl.title).toEqual('about');
-                expect(ctrl.data.globalHeader.about.isSelected).toEqual('inactive');
+                ctrl.NavItemMouseLeave('Resume');
+                expect(ctrl.title).toEqual('resume');
+                expect(ctrl.data.globalHeader.resume.isSelected).toEqual('inactive');
             });
             it('should simulate change to about route success', function () {
                 Portfolio.GetPreviousRoute = function () {
-                    return 'home';
+                    return 'portfolio';
                 };
                 Portfolio.GetTopRoute = function () {
-                    return 'about';
+                    return 'resume';
                 };
                 ctrl.SetNavItemSelected();
-                expect(ctrl.data.globalHeader.home.isSelected).toEqual('inactive');
-                expect(ctrl.data.globalHeader.about.isSelected).toEqual('active');
+                expect(ctrl.data.globalHeader.portfolio.isSelected).toEqual('inactive');
+                expect(ctrl.data.globalHeader.resume.isSelected).toEqual('active');
             });
         });
     });

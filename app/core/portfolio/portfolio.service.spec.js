@@ -7,8 +7,8 @@
         var $location = {};
         var portfolioData = {
             "globalHeader": {
-                "home": {
-                    "title": "Home"
+                "portfolio": {
+                    "title": "Portfolio"
                 }
             }
         };
@@ -20,6 +20,7 @@
             $httpBackend = _$httpBackend_;
             $httpBackend.expectGET('portfolioData/portfolio.json').respond(portfolioData);
             Portfolio = _Portfolio_;
+            Portfolio.SetDefaultRoute('portfolio');
             projects = Portfolio.query();
             $location.$$path = '/';
             expect(projects).toEqual({});
@@ -33,16 +34,16 @@
         it('should fetch the portfolio data from `/portfolioData/portfolio.json`', function () {
             expect(projects).toEqual(portfolioData);
         });
-        it('should set the default route on app load to `/home`', function () {
-            expect(Portfolio.GetCurrentRoute()).toEqual('/home');
-            expect(Portfolio.GetTopRoute()).toEqual('home');
+        it('should set the default route on app load to `/portfolio`', function () {
+            expect(Portfolio.GetCurrentRoute()).toEqual('/portfolio');
+            expect(Portfolio.GetTopRoute()).toEqual('portfolio');
         });
         it('should set current route to `about` and previous route to`home`', function () {
-            Portfolio.SetCurrentRoute('/about');
-            expect(Portfolio.GetCurrentRoute()).toEqual('/about');
-            Portfolio.SetPreviousRoute('/home');
-            expect(Portfolio.GetPreviousRoute()).toEqual('/home');
-            expect(Portfolio.GetTopRoute()).toEqual('about');
+            Portfolio.SetCurrentRoute('/resume');
+            expect(Portfolio.GetCurrentRoute()).toEqual('/resume');
+            Portfolio.SetPreviousRoute('/portfolio');
+            expect(Portfolio.GetPreviousRoute()).toEqual('/portfolio');
+            expect(Portfolio.GetTopRoute()).toEqual('resume');
         });
     });
 })();
