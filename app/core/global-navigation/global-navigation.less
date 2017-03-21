@@ -1,67 +1,75 @@
 global-navigation {
-  width:100%;
-  display:block;
+  width: 100%;
+  display: block;
   #header {
-    z-index:1000;
+    z-index: 1000;
     width: 100%;
-    height:55px;
+    height: 55px;
     box-sizing: border-box;
-    box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.19), 3px 0 3px 0 rgba(0,0,0,0.19), 0 3px 3px 0 rgba(0,0,0,0.23);
-    background-color:white;
-    position:fixed;
+    box-shadow: @ShadowColors;
+    background-color: @HeaderBKGColor;
+    position: fixed;
     #main-logo {
       display: inline-block;
-      height:100%;
+      height: 100%;
       a:hover {
-        .line-art {//
+        .line-art { //
           span.outline img {
             // animation: 0.25s logo-roll-over;
-            opacity:.75;
+            opacity: .75;
           }
         }
       }
       a {
-        margin-top:8px;
-        text-decoration:none;
+        margin-top: 5px;
+        text-decoration: none;
         display: inline-block;
-        height:100%;
+        height: 100%;
         .line-art {
-          position:relative;
+          position: relative;
           display: inline-block;
           vertical-align: top;
-          margin:0 0 0 5px;
+          margin: 0 5px;
+          width: @LogoSize;
+          height: @LogoSize;
           span.outline img {
-            width:40px;
-            position:absolute;
-            opacity:.5;
-            display:inline-block;
+            width: @LogoSize;
+            position: absolute;
+            opacity: .5;
+            display: inline-block;
           }
           span.outline.home img {
-            opacity:.75;
+            opacity: .75;
           }
           span.initials img {
-            width:40px;
-            position:absolute;
-            opacity:.5;
-            display:inline-block;
+            width: @LogoSize;
+            position: absolute;
+            opacity: .5;
+            display: inline-block;
           }
+        }
+        .name-title {
+          display: inline-block;
+          vertical-align: top;
+          line-height: 1.1em;
+          margin-top: 6px;
         }
         h1 {
           font-weight: 500;
           font-size: 1.5em;
-          margin: 5px 0 0 40px;
-          padding-top:0;
+          margin: 0;
+          padding-top: 0;
           color: @MainFontColor;
-          display:inline-block;
+          display: block;
         }
         h6 {
-          margin: 11px 0 0 5px;
+          margin: 0;
           font-weight: 300;
           font-size: 1em;
           letter-spacing: .015em;
           color: @BoldFontColor;
-          display:inline-block;
-          vertical-align:top;
+          display: block;
+          vertical-align: top;
         }
       }
     }
@@ -72,10 +80,33 @@ global-navigation {
     }
   }
   #footer {
-    background-color:@MainBlue;
-    //position:absolute;
-    //bottom:0;
-
+    background-color: @FooterBKGColor;
+    height: 55px;
+    position: relative;
+    overflow: hidden;
+    .main-nav {
+      float: right;
+      display: inline-block;
+      height: 39px;
+    }
+    .inner-shadow-div {
+      width: 100%;
+      height: 5px;
+      display: inline-block;
+      float: left;
+      position: relative;
+      top: -5px;
+      box-sizing: border-box;
+      box-shadow: @ShadowColors;
+      background-color: white;
+    }
+    .copyright {
+      display: inline-block;
+      vertical-align: top;
+      margin: 16px 5px 0;
+      font-size: .7em;
+      font-weight: 300;
+    }
   }
   .main-nav {
     ul {
@@ -87,10 +118,10 @@ global-navigation {
         padding: 0 0 5px;
         margin: 0 10px;
         vertical-align: top;
-        font-size:16px;
+        font-size: 16px;
         a {
           text-decoration: none;
-          color: @MainFontColor;
+          color: @MainBlueDarkest;
           font-weight: 300;
           span {
             display: block;
@@ -99,7 +130,7 @@ global-navigation {
             width: 0;
             display: block;
             height: 2px;
-            background-color: @MainFontColor;
+            background-color: @MainBlueDarkest;
             margin: 5px auto;
           }
         }
@@ -161,30 +192,35 @@ global-navigation {
     width: 0;
   }
 }
-@media (max-width:370px) {
+
+@media (max-width: 370px) {
   global-navigation {
     #header {
       .main-nav {
         ul {
+          padding: 20px 0 0;
           li {
-            font-size:13px;
+            font-size: 13px;
           }
         }
       }
     }
   }
 }
-@media (max-width:640px) {
+
+@media (max-width: 640px) {
   global-navigation {
     #header {
-        #main-logo {
-          a {
-            h1, h6 {
-              display:none;
-            }
+      #main-logo {
+        a {
+          .line-art {
+            margin: 0 0 0 5px;
           }
-
+          h1, h6 {
+            display: none;
+          }
         }
+      }
     }
   }
 }

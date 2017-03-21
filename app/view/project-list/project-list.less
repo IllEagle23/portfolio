@@ -13,11 +13,14 @@ project-list{
     list-style: none;
     padding:0;
     margin:0;
+    display:inline-block;
+    vertical-align:middle;
+    width:100%;
     li:nth-child(odd) {
-      background-color:rgba(255,255, 255, .75);
+      background-color:@OddLIColor;
     }
     li:nth-child(even) {
-      background-color:rgba(240,240, 240, .75);
+      background-color:@EvenLIColor;
     }
     li:hover {
       h3 {
@@ -28,11 +31,14 @@ project-list{
     li.white {
       background-color:white;
     }
+    li.off-white{
+      background-color:@BizCardWhite;
+    }
     li.lst-yellow {
-      background-color:#f4ff3c;
+      background-color:@LSTYellow;
     }
     li.walmart-blue {
-      background-color:#007bc4;
+      background-color:@WalmartBlue;
     }
     li {
       width:33.3333%;
@@ -72,9 +78,9 @@ project-list{
         top:0;
         min-height:20px;
         font-size:15px;
-        color:#eee;
+        color:@DescriptionFontColor;
         font-weight:300;
-        background:rgba(0,0,0,.75);
+        background:@DescriptionBackground;
         letter-spacing:.05em;
         padding:5px;
         transition: top .25s ease-in;

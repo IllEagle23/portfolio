@@ -1,15 +1,14 @@
-<!--Right side mobile nav?-->
 <div id="header" ng-init="$ctrl.SetDocumentTitle()">
     <div id="main-logo">
-        <!--Research SVG for line art logo-->
-        <!-- design placeholder -->
         <a href="#!/">
             <span class="line-art">
                 <span ng-class="$ctrl.RouteClass()" class="outline"><img src="img/portfolio-logo-outline.png" /></span>
                 <span class="initials"><img src="img/portfolio-logo-type.png" /></span>
             </span>
-            <h1>Jamie Lloyd</h1>
-            <h6>UXD</h6>
+            <span class="name-title">
+                <h1>Jamie Lloyd</h1>
+                <h6>UX Developer</h6>
+            </span>
         </a>
     </div>
     <div class="main-nav">
@@ -39,7 +38,3 @@
         </ul>
     </div>
 </div>
-
-<!--ng-class="{bold: isBold(), italic: isItalic(), underline: isUnderlined()}"-->
-
-<!--  Binding class="ng-class:navItem.isSelected" on the LI causes need for double click on mobile, not sure why? Appears to be related to :hover of anchor and how iOS handles gestures. -->

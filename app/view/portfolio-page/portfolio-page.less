@@ -1,6 +1,5 @@
 portfolio-page {
   background-color: @MainBlue;
-  // max-width: 1080px;
   width: 100%;
   display: block;
   margin: 0;
@@ -29,9 +28,10 @@ portfolio-page {
       h1 {
         font-size: 2.3em;
         margin: 0 0 10px;
-        //color:@BoldFontColor;
+        color:@BizCardWhite;
+        font-weight:300;
       }
-      ul {
+      ul.skill-list {
         margin: 0;
         padding: 0;
         //color:@BoldFontColor;
@@ -70,11 +70,13 @@ portfolio-page {
           font-size: 200%;
           font-weight: 300;
           display: block;
+          margin:7px 0 0;
         }
+
       }
       a:hover {
         transition: color .25s ease-in;
-        color: #333;
+        color: @BizCardWhite;
       }
     }
   }
