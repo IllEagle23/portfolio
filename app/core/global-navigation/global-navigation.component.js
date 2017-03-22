@@ -9,7 +9,10 @@
         controller: ['$attrs', '$scope', 'Portfolio', '$route',
             function NavigationController($attrs, $scope, Portfolio, $route) {
                 var self = this;
-                Portfolio.SetDefaultRoute($attrs.defaultRoute);
+                if ($attrs.defaultRoute !== undefined) {
+                    Portfolio.SetDefaultRoute($attrs.defaultRoute);
+                }
+                
                 self.dataPath = $attrs.datapath;
                 // Read from resource
                 self.data = Portfolio.query(function () {

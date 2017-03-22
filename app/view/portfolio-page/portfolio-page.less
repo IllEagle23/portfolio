@@ -1,6 +1,5 @@
 portfolio-page {
-  background-color: @MainBlue;
-  // max-width: 1080px;
+  // background-color: @MainBlue;
   width: 100%;
   display: block;
   margin: 0;
@@ -13,14 +12,15 @@ portfolio-page {
   }
   #biz-card {
     width: 100%;
-    height: calc(~"90vh - 25px");
+    height: calc(~"100vh - 110px");
     box-sizing: border-box;
-    max-height:720px;
+    // max-height:720px;
     background-color: @MainBlue;
     display: inline-block;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     padding:40px 20px;
+    box-shadow: @Marquee80;
     .container {
       box-sizing: border-box;
       display:inline-block;
@@ -29,9 +29,10 @@ portfolio-page {
       h1 {
         font-size: 2.3em;
         margin: 0 0 10px;
-        //color:@BoldFontColor;
+        color:@BizCardWhite;
+        font-weight:300;
       }
-      ul {
+      ul.skill-list {
         margin: 0;
         padding: 0;
         //color:@BoldFontColor;
@@ -70,11 +71,13 @@ portfolio-page {
           font-size: 200%;
           font-weight: 300;
           display: block;
+          margin:7px 0 0;
         }
+
       }
       a:hover {
         transition: color .25s ease-in;
-        color: #333;
+        color: @BizCardWhite;
       }
     }
   }
@@ -82,6 +85,7 @@ portfolio-page {
 @media (max-width:360px) {
   portfolio-page {
     #biz-card {
+      box-shadow: @Marquee50;
       .container {
         h1 {
           font-size:1.7em;
@@ -99,7 +103,27 @@ portfolio-page {
     }
   }
 }
-@media (min-width:361px) and (max-width:525px) {
+@media (min-width:361px) and (max-width:385px) {
+  portfolio-page {
+    #biz-card {
+      .container {
+        h1 {
+          font-size:1.8em;
+        }
+        ul {
+          li::before {
+            margin-right:10px;
+          }
+          li {
+            font-size:14px;
+            margin-left:10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width:386px) and (max-width:525px) {
   portfolio-page {
     #biz-card {
       .container {
@@ -119,6 +143,25 @@ portfolio-page {
     }
   }
 }
+@media (max-width:768px) {
+  portfolio-page {
+    #biz-card {
+      .container {
+        max-width:400px;
+        h1 {
 
+        }
+        ul.skill-list {
+          li:before {
+            margin-right:10px;
+          }
+          li {
+            margin-left:10px;
+          }
+        }
+      }
+    }
+  }
+}
 // \02C7 = ˇ = shift + option + T
 // \00B7 = • = option + 8

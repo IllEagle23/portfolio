@@ -129,6 +129,12 @@ module.exports = function(grunt) {
                         cwd: 'app/',
                         src:['img/**', 'portfolioData/**', 'robots.txt', 'google015368be708b51fe.html'],
                         dest:'dist/'
+                    },
+                    {
+                        expand:true,
+                        cwd: 'app/bower_components/font-awesome',
+                        src:['fonts/**'],
+                        dest:'dist/'
                     }
                 ]
             }

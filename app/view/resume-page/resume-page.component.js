@@ -32,15 +32,15 @@ var isLoaded;
                     styles = styles.replace(/\.subtitle{/, '.doc-container .subtitle{');
                     styles = styles.replace(/Calibri/g, 'Lato');
                     styles = styles.replace(/Arial/g, 'Lato');
-                    styles = styles.replace(/#ff6600/g, '#99cfcf');
+                    styles = styles.replace(/#ff6600/g, '#758799');
+                    // styles = styles.replace(/#ff6600/g, '#99AFC6');
                     styles = styles.replace(/li{/g, '.doc-container li{');
-                    // console.log(styles);
-                    // setTimeout(function () {
-                        googleDiv.addClass("loaded");
-                    // }, 1000);
-                    styleDiv.html(styles);
+                    styles = styles.replace(/background-color:#999999/g, 'background-color: #758799');
                     
-                    // console.log('added class');
+                    
+                    googleDiv.addClass("loaded");
+                    // console.log(styles);
+                    styleDiv.html(styles);
                 });
             }
         ]

@@ -8,32 +8,31 @@
       "title": "Resume",
       "url": "resume"
     },
-    "linkedin": {
-      "title": "LinkedIn",
-      "url": "https://www.linkedin.com/in/selfconstructv/",
-      "linktype": "external"
-    },
     "contact": {
       "title": "Contact",
       "url": "contact"
-    }
-  },
-  "globalFooter": {
-    "resume": {
-      "title": "Resume",
-      "url": "resume"
     },
     "linkedin": {
       "title": "LinkedIn",
       "url": "https://www.linkedin.com/in/selfconstructv/",
       "linktype": "external"
-    },
+    }
+  },
+  "globalFooter": {
     "experiments": {
       "title": "Experiments",
       "url": "experiments"
     }
   },
   "project": [
+    {
+      "title": "Jamie Lloyd",
+      "img": ["img/portfolio-logo-type.png", "img/portfolio-logo-outline.png"],
+      "imgclass": "medium",
+      "id": "test-project",
+      "clientId": "jamie-lloyd",
+      "description": "UX, UI, Angular, CSS, HTML"
+    },
     {
       "title": "Hotwire",
       "img": ["img/brand-logos/hotwire/medium-hotwire-logo.png"],
@@ -51,27 +50,20 @@
       "bkgclass": "lst-yellow"
     },
     {
-      "title": "Jamie Lloyd",
-      "img": ["img/portfolio-logo-type.png", "img/portfolio-logo-outline.png"],
-      "imgclass": "medium",
-      "id": "test-project",
-      "clientId": "jamie-lloyd",
-      "description": "Angular, CSS, HTML"
-    },
-    {
-      "title": "Budweiser",
-      "img": ["img/brand-logos/budweiser/budweiser-logo-small.png"],
-      "id": "test-project",
-      "clientId": "budweiser",
-      "description": "Creative Direction, Motion Design"
-    },
-    {
       "title": "Walmart",
       "img": ["img/brand-logos/walmart/download.svg"],
       "id": "test-project",
       "clientId": "walmart",
       "description": "Motion Design",
       "bkgclass": "walmart-blue"
+    },
+    {
+      "title": "Budweiser",
+      "img": ["img/brand-logos/budweiser/budweiser-logo-small.png"],
+      "id": "test-project",
+      "clientId": "budweiser",
+      "description": "Creative Direction, Motion Design",
+      "bkgclass": "off-white"
     },
     {
       "title": "iShares",
