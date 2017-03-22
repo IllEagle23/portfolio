@@ -6,8 +6,6 @@
     
     angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
         function config($locationProvider, $routeProvider) {
-            
-            
             $routeProvider.when('/', {
                 title: 'Jamie Lloyd, Portfolio 2017 : Portfolio',
                 template: '<portfolio-page></portfolio-page>'
@@ -27,7 +25,6 @@
                 title: 'Jamie Lloyd, Portfolio 2017 : Experiments',
                 template: '<experiements></experiements>'
             }).otherwise('/');
-            
             // $locationProvider.html5Mode(true);
             // breaks on route reload if not default when using node
             // htaccess fix worked on MT
