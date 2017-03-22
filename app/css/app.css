@@ -21,53 +21,16 @@ body #app-wrap {
   background-color: #99AFC6;
   padding: 55px 0 0;
   min-height: calc(100vh - 110px);
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
 }
 .view-frame {
-  background-color: #99AFC6;
   display: inline-block;
   width: 100%;
 }
-.quote {
-  display: block;
-  max-width: 768px;
-  margin: 0 auto;
-}
-blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #758799;
-  margin: 1.5em 0 0 0;
-  padding: 1.5em 10px 0.5em;
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-blockquote:before {
-  color: #758799;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  margin-top: 5px;
-  vertical-align: -0.4em;
-}
-blockquote:after {
-  color: #758799;
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.25em;
-  vertical-align: -0.7em;
-}
-blockquote p {
-  display: inline;
-}
-cite {
-  background: #f9f9f9;
-  border-left: 10px solid #758799;
-  margin: 0;
-  padding: 0 10px 0.5em;
-  width: calc(100vw - 30px);
-  display: inline-block;
-  max-width: 738px;
-  text-align: right;
+@media (max-width: 360px) {
+  .view-container {
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+  }
 }
 global-navigation {
   width: 100%;
@@ -349,7 +312,6 @@ contact-page h1 {
   font-size: 2.3em;
 }
 portfolio-page {
-  background-color: #99AFC6;
   width: 100%;
   display: block;
   margin: 0;
@@ -362,14 +324,14 @@ portfolio-page #biz-card::before {
 }
 portfolio-page #biz-card {
   width: 100%;
-  height: calc(90vh - 25px);
+  height: calc(100vh - 110px);
   box-sizing: border-box;
-  max-height: 720px;
   background-color: #99AFC6;
   display: inline-block;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   padding: 40px 20px;
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
 }
 portfolio-page #biz-card .container {
   box-sizing: border-box;
@@ -428,6 +390,9 @@ portfolio-page #biz-card .container a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 @media (max-width: 360px) {
+  portfolio-page #biz-card {
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+  }
   portfolio-page #biz-card .container h1 {
     font-size: 1.7em;
   }
@@ -439,7 +404,19 @@ portfolio-page #biz-card .container a:hover {
     margin-left: 5px;
   }
 }
-@media (min-width: 361px) and (max-width: 525px) {
+@media (min-width: 361px) and (max-width: 385px) {
+  portfolio-page #biz-card .container h1 {
+    font-size: 1.8em;
+  }
+  portfolio-page #biz-card .container ul li::before {
+    margin-right: 10px;
+  }
+  portfolio-page #biz-card .container ul li {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 386px) and (max-width: 525px) {
   portfolio-page #biz-card .container h1 {
     font-size: 2em;
   }
@@ -448,6 +425,17 @@ portfolio-page #biz-card .container a:hover {
   }
   portfolio-page #biz-card .container ul li {
     font-size: 14px;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 768px) {
+  portfolio-page #biz-card .container {
+    max-width: 400px;
+  }
+  portfolio-page #biz-card .container ul.skill-list li:before {
+    margin-right: 10px;
+  }
+  portfolio-page #biz-card .container ul.skill-list li {
     margin-left: 10px;
   }
 }
@@ -503,7 +491,6 @@ resume-page #google-resume-doc .doc-container {
 }
 /* View: Project list */
 project-list {
-  background-color: #99AFC6;
   width: 100%;
   display: block;
   margin: 0 auto;
@@ -632,6 +619,48 @@ project-detail ul li {
 }
 project-detail ul li h1 {
   font-size: 2.3em;
+}
+.quote {
+  display: block;
+  max-width: 768px;
+  margin: 0 auto;
+}
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #758799;
+  margin: 1.5em 0 0 0;
+  padding: 1.5em 10px 0.5em;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+blockquote:before {
+  color: #758799;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  margin-top: 5px;
+  vertical-align: -0.4em;
+}
+blockquote:after {
+  color: #758799;
+  content: close-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.25em;
+  vertical-align: -0.7em;
+}
+blockquote p {
+  display: inline;
+}
+cite {
+  background: #f9f9f9;
+  border-left: 10px solid #758799;
+  margin: 0;
+  padding: 0 10px 0.5em;
+  width: calc(100vw - 30px);
+  display: inline-block;
+  max-width: 738px;
+  text-align: right;
 }
 .project-list-item.ng-enter,
 .project-list-item.ng-enter-prepare {

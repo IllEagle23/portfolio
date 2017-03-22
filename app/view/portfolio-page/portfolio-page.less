@@ -1,5 +1,5 @@
 portfolio-page {
-  background-color: @MainBlue;
+  // background-color: @MainBlue;
   width: 100%;
   display: block;
   margin: 0;
@@ -12,14 +12,15 @@ portfolio-page {
   }
   #biz-card {
     width: 100%;
-    height: calc(~"90vh - 25px");
+    height: calc(~"100vh - 110px");
     box-sizing: border-box;
-    max-height:720px;
+    // max-height:720px;
     background-color: @MainBlue;
     display: inline-block;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     padding:40px 20px;
+    box-shadow: @Marquee80;
     .container {
       box-sizing: border-box;
       display:inline-block;
@@ -84,6 +85,7 @@ portfolio-page {
 @media (max-width:360px) {
   portfolio-page {
     #biz-card {
+      box-shadow: @Marquee50;
       .container {
         h1 {
           font-size:1.7em;
@@ -101,7 +103,27 @@ portfolio-page {
     }
   }
 }
-@media (min-width:361px) and (max-width:525px) {
+@media (min-width:361px) and (max-width:385px) {
+  portfolio-page {
+    #biz-card {
+      .container {
+        h1 {
+          font-size:1.8em;
+        }
+        ul {
+          li::before {
+            margin-right:10px;
+          }
+          li {
+            font-size:14px;
+            margin-left:10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width:386px) and (max-width:525px) {
   portfolio-page {
     #biz-card {
       .container {
@@ -121,6 +143,25 @@ portfolio-page {
     }
   }
 }
+@media (max-width:768px) {
+  portfolio-page {
+    #biz-card {
+      .container {
+        max-width:400px;
+        h1 {
 
+        }
+        ul.skill-list {
+          li:before {
+            margin-right:10px;
+          }
+          li {
+            margin-left:10px;
+          }
+        }
+      }
+    }
+  }
+}
 // \02C7 = ˇ = shift + option + T
 // \00B7 = • = option + 8

@@ -22,55 +22,16 @@ body {
   background-color:@MainBlue;
   padding:55px 0 0;
   min-height:calc(~"100vh - 110px");
+  box-shadow: @Marquee80;
 }
 .view-frame {
-  background-color:@MainBlue;
   display:inline-block;
   width:100%;
 }
-
-// https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
-.quote {
-  display:block;
-  max-width:768px;
-  margin: 0 auto;
-}
-blockquote {
-  background: @BlockQuoteBKG;
-  border-left: 10px solid @BlockQuoteColor;
-  margin: 1.5em 0 0 0;
-  padding: 1.5em 10px 0.5em;
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-blockquote:before {
-  color: @BlockQuoteColor;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  margin-top:5px;
-  vertical-align: -0.4em;
-}
-blockquote:after {
-  color: @BlockQuoteColor;
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.25em;
-  vertical-align: -0.7em;
-}
-blockquote p {
-  display: inline;
-}
-cite {
-  background: @BlockQuoteBKG;
-  border-left: 10px solid @BlockQuoteColor;
-  margin: 0;
-  padding: 0 10px 0.5em;
-  width: calc(~"100vw - 30px");
-  display: inline-block;
-  max-width: 738px;
-  text-align: right;
+@media (max-width:360px) {
+  .view-container {
+    box-shadow: @Marquee50;
+  }
 }
 @import "../core/global-navigation/global-navigation.less";
 @import "../view/home-page/home-page.less";
