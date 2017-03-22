@@ -1,5 +1,4 @@
 html {
-  height: 100%;
   background-color: white;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -15,17 +14,20 @@ body {
 }
 body #app-wrap {
   min-height: 100%;
-  background-color: #99AFC6;
 }
 .view-container {
   background-color: #99AFC6;
-  padding: 55px 0 0;
+  margin: 55px 0 0;
+  padding: 0;
   min-height: calc(100vh - 110px);
   box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
 }
 .view-frame {
   display: inline-block;
   width: 100%;
+}
+h1 {
+  font-weight: 300;
 }
 @media (max-width: 360px) {
   .view-container {
@@ -44,6 +46,7 @@ global-navigation #header {
   box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
   background-color: white;
   position: fixed;
+  top: 0;
 }
 global-navigation #header #main-logo {
   display: inline-block;
@@ -302,7 +305,6 @@ about-page h1 {
   font-size: 2.3em;
 }
 contact-page {
-  background-color: #99AFC6;
   max-width: 1080px;
   width: 100%;
   display: block;
@@ -341,7 +343,7 @@ portfolio-page #biz-card .container {
 portfolio-page #biz-card .container h1 {
   font-size: 2.3em;
   margin: 0 0 10px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 300;
 }
 portfolio-page #biz-card .container ul.skill-list {
@@ -387,7 +389,7 @@ portfolio-page #biz-card .container a span::before {
 }
 portfolio-page #biz-card .container a:hover {
   transition: color 0.25s ease-in;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
 }
 @media (max-width: 360px) {
   portfolio-page #biz-card {
@@ -440,24 +442,27 @@ portfolio-page #biz-card .container a:hover {
   }
 }
 resume-page {
-  background-color: #99AFC6;
   max-width: 816px;
   display: block;
-  margin: 20px auto 0;
+  margin: 5px auto 0;
+  padding: 0 0 5px 0;
 }
-resume-page a#resume-download {
+resume-page a.resume-download.bottom {
+  margin: 5px 0 0;
+}
+resume-page a.resume-download {
   width: 100%;
   background-color: white;
   text-decoration: none;
   color: #758799;
   display: inline-block;
   text-align: center;
-  margin: 0 0 20px;
+  margin: 0 0 5px;
   padding: 5px 0;
   font-weight: 300;
   box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
 }
-resume-page a#resume-download span.fa {
+resume-page a.resume-download span.fa {
   margin: 0 0 0 5px;
 }
 resume-page h1 {
@@ -471,7 +476,7 @@ resume-page #google-resume-doc {
   max-width: 816px;
   width: 100%;
   border: 0;
-  margin: 0 0 80px;
+  margin: 0;
   background-color: white;
   -webkit-font-smoothing: antialiased;
 }
@@ -521,7 +526,7 @@ project-list ul li.white {
   background-color: white;
 }
 project-list ul li.off-white {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
 }
 project-list ul li.lst-yellow {
   background-color: #f4ff3c;
@@ -537,6 +542,7 @@ project-list ul li {
   float: left;
   position: relative;
   cursor: pointer;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
 }
 project-list ul li a::before {
   display: inline-block;

@@ -50,6 +50,7 @@ module.exports = function(grunt) {
                     'app/bower_components/angular-resource/angular-resource.min.js',
                     'app/bower_components/angular-route/angular-route.min.js',
                     'app/bower_components/angular-touch/angular-touch.min.js',
+                    'app/bower_components/angular-scroll/angular-scroll.min.js',
                     'app/bower_components/angulartics/dist/angulartics.min.js',
                     'app/bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js'
                 ],
@@ -76,7 +77,7 @@ module.exports = function(grunt) {
                     paths: ['app/less']
                 },
                 files: {
-                    'app/css/app.css': 'app/less/app.less'
+                    'dist/css/app.css': 'app/less/app.less'
                 }
             }
         },
