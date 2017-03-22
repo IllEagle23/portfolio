@@ -7,9 +7,8 @@ var isLoaded;
         controller: ['Resume',
             function ResumePageController(Resume) {
                 var self = this;
-                
+                self.resumeURL = 'https://docs.google.com/document/d/1CRXE9zrw79gAWVs_UbUbYlU5mm1lpb34-mUjLfr2fBI/pub';
                 var googleDiv, contents, styleDiv, styles;
-                
                 Resume.then(function(htmldoc) {
                     googleDiv = $("#google-resume-doc");
                     contents = googleDiv.contents();
@@ -36,8 +35,6 @@ var isLoaded;
                     // styles = styles.replace(/#ff6600/g, '#99AFC6');
                     styles = styles.replace(/li{/g, '.doc-container li{');
                     styles = styles.replace(/background-color:#999999/g, 'background-color: #758799');
-                    
-                    
                     googleDiv.addClass("loaded");
                     // console.log(styles);
                     styleDiv.html(styles);

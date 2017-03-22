@@ -9,7 +9,8 @@
         'view',
         'ngTouch',
         'angulartics',
-        'angulartics.google.analytics'
+        'angulartics.google.analytics',
+        'duScroll'
     ]);
 })();
 (function () {
@@ -411,12 +412,17 @@ ga('create', 'UA-92897917-1', 'auto');
 // Register `portfolioPage` component, along with its associated controller and template
     angular.module('view.portfolioPage').component('portfolioPage', {
         templateUrl: 'view/portfolio-page/portfolio-page.template.html',
-        controller: ['Portfolio',
-            function PortfolioPageController(Portfolio) {
+        controller: ['Portfolio', '$document',
+            function PortfolioPageController(Portfolio, $document) {
                 var self = this;
                 self.data = Portfolio.query(function (event) {
                     // data loaded
+                    self.projectElement = angular.element(document.getElementById('#scroll-top'));
                 });
+                self.ScrollClick = function ScrollClick () {
+                    event.preventDefault();
+                    $document.scrollTo(self.projectElement, 55, 500);
+                };
             }
         ]
     });
@@ -469,9 +475,8 @@ var isLoaded;
         controller: ['Resume',
             function ResumePageController(Resume) {
                 var self = this;
-                
+                self.resumeURL = 'https://docs.google.com/document/d/1CRXE9zrw79gAWVs_UbUbYlU5mm1lpb34-mUjLfr2fBI/pub';
                 var googleDiv, contents, styleDiv, styles;
-                
                 Resume.then(function(htmldoc) {
                     googleDiv = $("#google-resume-doc");
                     contents = googleDiv.contents();
@@ -498,8 +503,6 @@ var isLoaded;
                     // styles = styles.replace(/#ff6600/g, '#99AFC6');
                     styles = styles.replace(/li{/g, '.doc-container li{');
                     styles = styles.replace(/background-color:#999999/g, 'background-color: #758799');
-                    
-                    
                     googleDiv.addClass("loaded");
                     // console.log(styles);
                     styleDiv.html(styles);

@@ -9,6 +9,7 @@
         'view',
         'ngTouch',
         'angulartics',
-        'angulartics.google.analytics'
+        'angulartics.google.analytics',
+        'duScroll'
     ]);
 })();

@@ -1,6 +1,5 @@
 @import "variables.less";
 html {
-  height:100%;
   background-color:@HtmlBKG;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -15,18 +14,21 @@ body {
   color:@MainFontColor;
   #app-wrap {
     min-height:100%;
-    background-color:@MainBlue;
   }
 }
 .view-container {
   background-color:@MainBlue;
-  padding:55px 0 0;
+  margin:55px 0 0;
+  padding:0;
   min-height:calc(~"100vh - 110px");
   box-shadow: @Marquee80;
 }
 .view-frame {
   display:inline-block;
   width:100%;
+}
+h1 {
+  font-weight:300;
 }
 @media (max-width:360px) {
   .view-container {
