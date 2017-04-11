@@ -18,7 +18,7 @@
         beforeEach(inject(function (_$httpBackend_, _Portfolio_) {
             jasmine.addCustomEqualityTester(angular.equals);
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('portfolioData/portfolio.json').respond(portfolioData);
+            $httpBackend.expectGET('content/portfolioData/portfolio.json').respond(portfolioData);
             Portfolio = _Portfolio_;
             Portfolio.SetDefaultRoute('portfolio');
             projects = Portfolio.query();

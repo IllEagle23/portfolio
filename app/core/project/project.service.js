@@ -7,7 +7,7 @@
             var self = this;
             self.request = function (projectId) {
                 httpRequest = $http
-                    .get('portfolioData/projects/' + projectId)
+                    .get('content/portfolioData/projects/' + projectId)
                     .then(function (response) {
                         data = response;
                         return data;

@@ -1,70 +1,132 @@
 /* View: Project detail */
 project-detail {
-  max-width: 1080px;
   width: 100%;
   display: block;
   margin: 0 auto;
   height:100%;
-  h1 {
-    font-size:2.3em;
+  article {
+    //margin-bottom:1.5em;
   }
-  ul {
-    list-style: none;
-    margin:0;
+  section > p.intro {
+    font-size:110%;
+  }
+  section > p {
+    max-width:768px;
+    display:block;
+    margin:1.5em auto 0;
+    color:white;
+    font-weight:300;
+    font-size:16px;
+    b {
+      color:@MainFontColor;
+      font-size:120%;
+    }
+  }
+  section.full-bleed {
     padding:0;
-    li {
-      position:relative;
-      display:inline-block;
+  }
+  section {
+    padding:0 10px;
+    .brand-header {
+      img {
+        display:block;
+        max-width:200px;
+        width:100%;
+        margin: 1.5em auto;
+      }
+      .border-bottom {
+        width: 100%;
+        height: 8px;
+        margin-top:5px;
+      }
+    }
+    .quote {
+      display:block;
+      max-width:768px;
+      margin: 0 auto;
+    }
+    blockquote {
+      background: @BlockQuoteBKG;
+      border-left: 10px solid @BlockQuoteColor;
+      margin: 1.5em 0 0 0;
+      padding: 1.5em 10px 0.5em;
+      quotes: "\201C" "\201D" "\2018" "\2019";
+      font-weight:300;
+    }
+    blockquote:before {
+      color: @BlockQuoteColor;
+      content: open-quote;
+      font-size: 4em;
+      line-height: 0.1em;
+      margin-right: 0.25em;
+      margin-top:5px;
+      vertical-align: -0.4em;
+    }
+    blockquote:after {
+      color: @BlockQuoteColor;
+      content: close-quote;
+      font-size: 4em;
+      line-height: 0.1em;
+      margin-left: 0.25em;
+      vertical-align: -0.7em;
+    }
+    blockquote p {
+      display: inline;
+      font-size:120%;
+    }
+    cite {
+      background: @BlockQuoteBKG;
+      border-left: 10px solid @BlockQuoteColor;
+      margin: 0;
+      padding: 0 10px 0.5em;
+      width: calc(~"100vw - 50px");
+      display: inline-block;
+      max-width: 738px;
+      text-align: right;
+    }
+    h1 {
+      font-size:2.7em;
+      color:@OffWhite;
+      margin:.75em auto 0;
+      max-width:768px;
+      width:100%;
+      font-weight:600;
+      -webkit-font-smoothing: antialiased;
+      line-height:1em;
+    }
+    h2 {
+      font-size:2.3em;
+      color:@OffWhite;
+      margin:.75em auto 0;
+      max-width:768px;
+      width:100%;
+      font-weight:300;
+      -webkit-font-smoothing: antialiased;
+      line-height:1em;
+    }
+    h3 {
+      color:@OffWhite;
+      margin:0 auto;
+      max-width:768px;
+      width:100%;
+      font-weight:300;
+    }
+    ul {
+      list-style: none;
       margin:0;
       padding:0;
-      vertical-align: top;
-      cursor:pointer;
-      h1 {
-        font-size:2.3em;
+      li {
+        position:relative;
+        display:inline-block;
+        margin:0;
+        padding:0;
+        vertical-align: top;
+        cursor:pointer;
+        h1 {
+          font-size:2.3em;
+        }
       }
     }
   }
 }
 // https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
-.quote {
-  display:block;
-  max-width:768px;
-  margin: 0 auto;
-}
-blockquote {
-  background: @BlockQuoteBKG;
-  border-left: 10px solid @BlockQuoteColor;
-  margin: 1.5em 0 0 0;
-  padding: 1.5em 10px 0.5em;
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-blockquote:before {
-  color: @BlockQuoteColor;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  margin-top:5px;
-  vertical-align: -0.4em;
-}
-blockquote:after {
-  color: @BlockQuoteColor;
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 0.25em;
-  vertical-align: -0.7em;
-}
-blockquote p {
-  display: inline;
-}
-cite {
-  background: @BlockQuoteBKG;
-  border-left: 10px solid @BlockQuoteColor;
-  margin: 0;
-  padding: 0 10px 0.5em;
-  width: calc(~"100vw - 30px");
-  display: inline-block;
-  max-width: 738px;
-  text-align: right;
-}

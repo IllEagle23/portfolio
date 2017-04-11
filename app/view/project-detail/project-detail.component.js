@@ -4,15 +4,16 @@
 // Register `projectDetail` component, along with its associated controller and template
     angular.module('view.projectDetail').component('projectDetail', {
         templateUrl: 'view/project-detail/project-detail.template.html',
-        controller: ['$routeParams', 'Project',
-            function ProjectDetailController($routeParams, Project) {
+        controller: ['$routeParams', 'Project', '$scope', '$compile',
+            function ProjectDetailController($routeParams, Project, $scope, $compile) {
                 var self = this;
-                var projectDiv, contents;
+                var article, video;
+                self.testVar = "test data binding";
                 self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
                 self.projectRequest.then(function(htmldoc) {
-                    projectDiv = $("#project-div");
-                    contents = projectDiv.contents();
-                    contents.html(htmldoc.data);
+                    article = $("article");
+                    article.html(htmldoc.data);
+                    $compile(article.contents())($scope);
                 });
             }
         ]

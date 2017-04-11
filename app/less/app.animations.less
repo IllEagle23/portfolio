@@ -20,7 +20,7 @@
 }
 
 .view-frame.ng-enter {
-  animation: .5s fade-in;
+  animation: 1.5s fade-in;
   z-index: 100;
 }
 
@@ -38,6 +38,8 @@
   from { opacity: 1; }
   to   { opacity: 0; }
 }
+// mobile device swipe can perform default slide back and fwd browser behavior.
+// Looks weird compounded with fade
 
 @media (max-width:640px) {
   .view-frame.ng-enter {

@@ -9,7 +9,7 @@
             var $httpBackend, ctrl, $scope;
             beforeEach(inject(function ($componentController, _$httpBackend_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('portfolioData/portfolio.json')
+                $httpBackend.expectGET('content/portfolioData/portfolio.json')
                     .respond({name: 'Project 1'}, {name: 'Project 2'});
                 $scope = {};
                 ctrl = $componentController('projectList', {$scope: $scope});

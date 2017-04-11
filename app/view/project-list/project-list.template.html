@@ -2,7 +2,7 @@
     <li ng-repeat="project in $ctrl.projects.project"
         class="project-list-item {{project.bkgclass}}">
         <a href="#!/portfolio/{{project.clientId}}/{{project.id}}" id="{{project.clientId}}">
-            <div class="valign">
+            <div>
                 <img ng-repeat="img in project.img" ng-src="{{img}}" class="{{project.imgclass}}" />
             </div>
         </a>

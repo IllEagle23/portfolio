@@ -21,28 +21,28 @@
     
     angular.module('portfolioApp').config(['$locationProvider', '$routeProvider',
         function config($locationProvider, $routeProvider) {
-            
-            
             $routeProvider.when('/', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Portfolio',
+                title: 'Jamie Lloyd, Portfolio',
                 template: '<portfolio-page></portfolio-page>'
             }).when('/about', {
-                title: 'Jamie Lloyd, Portfolio 2017 : About',
+                title: 'Jamie Lloyd, Portfolio : About',
                 template: '<about-page></about-page>'
             }).when('/contact', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Contact',
+                title: 'Jamie Lloyd, Portfolio : Contact',
                 template: '<contact-page></contact-page>'
             }).when('/portfolio/:clientId/:projectId', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Project :projectId',
+                title: 'Jamie Lloyd, Portfolio',
                 template: '<project-detail></project-detail>'
             }).when('/resume', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Resume',
+                title: 'Jamie Lloyd, Portfolio : Resume',
                 template: '<resume-page></resume-page>'
             }).when('/experiments', {
-                title: 'Jamie Lloyd, Portfolio 2017 : Experiments',
+                title: 'Jamie Lloyd, Portfolio : Experiments',
                 template: '<experiements></experiements>'
+            }).when('/archives', {
+                title: 'Jamie Lloyd, Portfolio : Archives',
+                template: '<archives></archives>'
             }).otherwise('/');
-            
             // $locationProvider.html5Mode(true);
             // breaks on route reload if not default when using node
             // htaccess fix worked on MT
@@ -51,6 +51,7 @@
         }
     ]);
 })();
+
 (function () {
     'use strict';
 
@@ -59,7 +60,7 @@
 // `core` modules are global
 // Research core module getter and setter functionality
     
-    angular.module('core', ['core.portfolio', 'core.globalNavigation', 'core.project', 'core.resume']);
+    angular.module('core', ['core.portfolio', 'core.globalNavigation', 'core.project', 'core.resume', 'core.jlvideo']);
 })();
 (function () {
     'use strict';
@@ -74,7 +75,7 @@
         function ($location, $resource, $rootScope) {
             var self = this;
             // Load resource
-            self.data = $resource('portfolioData/:projectId.json', {}, {
+            self.data = $resource('content/portfolioData/:projectId.json', {}, {
                 query: {
                     method: 'GET',
                     params: {projectId: 'portfolio'}
@@ -139,6 +140,7 @@
             // Listen to $rootScope for route change event
             $rootScope.$on('$routeChangeStart', function (scope, next, current) {
                 self.SetRoutes(scope, next, current);
+                $('html,body').animate({scrollTop:0},500);
             });
             // Redefine previous and current route on route change, set document title to route title
             self.SetRoutes = function SetRoutes(scope, next, current) {
@@ -168,7 +170,7 @@
             var self = this;
             self.request = function (projectId) {
                 httpRequest = $http
-                    .get('portfolioData/projects/' + projectId)
+                    .get('content/portfolioData/projects/' + projectId)
                     .then(function (response) {
                         data = response;
                         return data;
@@ -303,6 +305,43 @@ ga('create', 'UA-92897917-1', 'auto');
 (function () {
     'use strict';
 
+// Define the `core.jlvideo` module
+    angular.module('core.jlvideo', ['core.project']);
+})();
+(function () {
+    'use strict';
+    
+    angular.module('core.jlvideo').component('jlvideo', {
+        templateUrl: function($element, $attrs) {
+            return $attrs.templateUrl;
+        },
+        controller: ['$attrs', '$scope', '$element',
+            function JlvideoController ($attrs, $scope, $element) {
+                var self = this;
+                self.attrs = $attrs;
+                self.playButtonVisible = "show";
+                self.VideoClick = function VideoClick () {
+                    self.video = document.getElementById($attrs.videoId);
+                    if (self.video.paused === true) {
+                        // self.video.src = $attrs.src;
+                        self.video.play();
+                        self.playButtonVisible = "hide";
+                    }
+                    $("#" + $attrs.videoId).attr("controls", "true");
+                    self.video.addEventListener("pause", function () {
+                        $scope.$apply(function () {
+                            self.playButtonVisible = "show";
+                        });
+                    });
+                    // Pause / stop event listener to turn play button back on
+                };
+            }
+        ]
+    });
+})();
+(function () {
+    'use strict';
+
 // Define the `views` module
 // `views` modules are global
 // Research core module getter and setter functionality
@@ -433,15 +472,16 @@ ga('create', 'UA-92897917-1', 'auto');
 // Register `projectDetail` component, along with its associated controller and template
     angular.module('view.projectDetail').component('projectDetail', {
         templateUrl: 'view/project-detail/project-detail.template.html',
-        controller: ['$routeParams', 'Project',
-            function ProjectDetailController($routeParams, Project) {
+        controller: ['$routeParams', 'Project', '$scope', '$compile',
+            function ProjectDetailController($routeParams, Project, $scope, $compile) {
                 var self = this;
-                var projectDiv, contents;
+                var article, video;
+                self.testVar = "test data binding";
                 self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
                 self.projectRequest.then(function(htmldoc) {
-                    projectDiv = $("#project-div");
-                    contents = projectDiv.contents();
-                    contents.html(htmldoc.data);
+                    article = $("article");
+                    article.html(htmldoc.data);
+                    $compile(article.contents())($scope);
                 });
             }
         ]
@@ -457,8 +497,6 @@ ga('create', 'UA-92897917-1', 'auto');
         controller: ['Portfolio',
             function ProjectListController(Portfolio) {
                 var self = this;
-                // UNIT TEST
-                
                 self.projects = Portfolio.query(function (event) {
                     
                 });

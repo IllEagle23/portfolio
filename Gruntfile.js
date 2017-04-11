@@ -35,6 +35,8 @@ module.exports = function(grunt) {
                     'app/core/global-navigation/global-navigation.module.js',
                     'app/core/global-navigation/global-navigation.component.js',
                     'app/core/google/google-analytics-object.js',
+                    'app/core/jlvideo/jlvideo.module.js',
+                    'app/core/jlvideo/jlvideo.component.js',
                     'app/view/view.module.js',
                     'app/view/**/*.module.js',
                     'app/view/**/*.component.js',
@@ -85,7 +87,7 @@ module.exports = function(grunt) {
             distribution: {
                 files: [{
                     expand: true,
-                    cwd: 'app/css',
+                    cwd: 'dist/css',
                     src: ['*.css', '!*.min.css'],
                     dest: 'dist/css',
                     ext: '.min.css'
@@ -128,7 +130,7 @@ module.exports = function(grunt) {
                     {
                         expand:true,
                         cwd: 'app/',
-                        src:['img/**', 'portfolioData/**', 'robots.txt', 'google015368be708b51fe.html'],
+                        src:['robots.txt', 'google015368be708b51fe.html', 'content/**'],
                         dest:'dist/'
                     },
                     {
@@ -150,11 +152,11 @@ module.exports = function(grunt) {
                 tasks: ['jshint:all', 'concat:app', 'concat:bower', 'uglify:app', 'concat:all']
             },
             html: {
-                files: ['app/index.html', 'app/**/*.template.html', 'app/portfolioData/**/*.html'],
+                files: ['app/index.html', 'app/**/*.template.html', 'app/content/portfolioData/**/*.html'],
                 tasks: ['htmlmin:distribution', 'copy:static']
             },
             data: {
-                files: ['app/portfolioData/**/*.json'],
+                files: ['app/content/portfolioData/**/*.json'],
                 tasks: ['copy:static']
             }
         }
