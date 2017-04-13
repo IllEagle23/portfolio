@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    describe('Project', function () {
+    describe('Factory: Project', function () {
         var $httpBackend;
         var Project;
         var projectHtml = "<h1>Test project html file load</h1>";
@@ -14,7 +14,7 @@
         // Instantiate the service and "train" `$httpBackend` before each test
         beforeEach(inject(function (_$httpBackend_, _Project_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('portfolioData/projects/test-project.html').respond(projectHtml);
+            $httpBackend.expectGET('content/portfolioData/projects/test-project.html').respond(projectHtml);
             Project = _Project_;
         }));
         // Verify that there are no outstanding expectations or requests after each test
@@ -22,7 +22,7 @@
         //     $httpBackend.verifyNoOutstandingExpectation();
         //     $httpBackend.verifyNoOutstandingRequest();
         // });
-        it('should fetch the project html from `/portfolioData/projects/test-project.html`', function () {
+        it('should fetch the project html from `content/portfolioData/projects/test-project.html`', function () {
             var projectRequest = Project.request("test-project.html");
             expect(projectRequest).toEqual({});
             $httpBackend.flush();

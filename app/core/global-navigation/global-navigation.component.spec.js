@@ -11,7 +11,7 @@
             var $httpBackend, ctrl, Portfolio, $attrs, event, $route;
             beforeEach(inject(function ($componentController, _$httpBackend_, _Portfolio_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('portfolioData/portfolio.json').respond({globalHeader: {'portfolio': {'title': 'Portfolio'}, 'resume': {'title': 'Resume'}}});
+                $httpBackend.expectGET('content/portfolioData/portfolio.json').respond({globalHeader: {'portfolio': {'title': 'Portfolio'}, 'resume': {'title': 'Resume'}}});
                 $attrs = { 'datapath': 'globalHeader', 'defaultRoute': 'portfolio' };
                 event = {};
                 event.preventDefault = function () {};

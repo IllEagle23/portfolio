@@ -4,6 +4,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  -webkit-text-size-adjust: 100%;
 }
 body {
   font-family: Lato, 'sans-serif';
@@ -216,6 +217,57 @@ global-navigation .main-nav ul li a.inactive span.bottom-border {
   global-navigation #header #main-logo a h6 {
     display: none;
   }
+}
+jlvideo {
+  position: relative;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+jlvideo .video-marquee video {
+  margin: 0 auto;
+  display: block;
+  max-width: 1080px;
+  width: 100%;
+}
+jlvideo .video-marquee .video-controls:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  height: 100%;
+}
+jlvideo .video-marquee .video-controls.fade-in {
+  animation: 0.5s fade-in;
+}
+jlvideo .video-marquee .video-controls.fade-out {
+  animation: 0.5s fade-out;
+}
+jlvideo .video-marquee .video-controls.hide {
+  display: none;
+}
+jlvideo .video-marquee .video-controls {
+  text-align: center;
+  width: 100%;
+  max-height: 720px;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+}
+jlvideo .video-marquee .video-controls .fa-play {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 80px;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.85);
+}
+@media (max-width: 1008px) {
+  project-detail section .video-marquee {
+    padding-bottom: 0;
+  }
+}
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 home-page {
   background-color: #99AFC6;
@@ -522,18 +574,6 @@ project-list ul li:hover h3 {
   top: -30px;
   transition: top 0.25s ease-out;
 }
-project-list ul li.white {
-  background-color: white;
-}
-project-list ul li.off-white {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-project-list ul li.lst-yellow {
-  background-color: #f4ff3c;
-}
-project-list ul li.walmart-blue {
-  background-color: #007bc4;
-}
 project-list ul li {
   width: 33.3333%;
   height: 250px;
@@ -581,6 +621,27 @@ project-list ul li h3 {
   padding: 5px;
   transition: top 0.25s ease-in;
 }
+.white {
+  background-color: white !important;
+}
+.off-white {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+.black {
+  background-color: black !important;
+}
+.lst-yellow {
+  background-color: #f4ff3c !important;
+}
+.walmart-blue {
+  background-color: #007bc4 !important;
+}
+.budweiser-red {
+  background-color: #9C131A;
+}
+.ishares-green {
+  background-color: #b3cb4a;
+}
 @media (max-width: 420px) {
   project-list ul li h3 {
     font-size: 14px;
@@ -601,44 +662,65 @@ project-list ul li h3 {
 }
 /* View: Project detail */
 project-detail {
-  max-width: 1080px;
   width: 100%;
   display: block;
   margin: 0 auto;
   height: 100%;
 }
-project-detail h1 {
-  font-size: 2.3em;
+project-detail section > p.intro {
+  font-size: 110%;
 }
-project-detail ul {
-  list-style: none;
-  margin: 0;
+project-detail section > p {
+  max-width: 768px;
+  display: block;
+  margin: 1.5em auto 0;
+  color: white;
+  font-weight: 300;
+  font-size: 16px;
+}
+project-detail section > p b {
+  color: rgba(31, 45, 61, 0.5);
+  font-size: 120%;
+}
+project-detail section.full-bleed {
   padding: 0;
 }
-project-detail ul li {
-  position: relative;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  vertical-align: top;
-  cursor: pointer;
+project-detail section {
+  padding: 0 10px;
 }
-project-detail ul li h1 {
-  font-size: 2.3em;
+project-detail section .brand-header.budweiser img {
+  max-width: 200px;
+  width: 100%;
 }
-.quote {
+project-detail section .brand-header.top img {
+  margin: 0 auto;
+}
+project-detail section .brand-header img {
+  display: block;
+  margin: 1.5em auto;
+}
+project-detail section .brand-header .border-bottom {
+  width: 100%;
+  height: 8px;
+  margin-top: 5px;
+}
+project-detail section .brand-header .lst {
+  background: #333;
+}
+project-detail section .quote {
   display: block;
   max-width: 768px;
   margin: 0 auto;
 }
-blockquote {
+project-detail section blockquote {
   background: #f9f9f9;
   border-left: 10px solid #758799;
   margin: 1.5em 0 0 0;
   padding: 1.5em 10px 0.5em;
   quotes: "\201C" "\201D" "\2018" "\2019";
+  font-weight: 300;
 }
-blockquote:before {
+project-detail section blockquote:before {
   color: #758799;
   content: open-quote;
   font-size: 4em;
@@ -647,7 +729,7 @@ blockquote:before {
   margin-top: 5px;
   vertical-align: -0.4em;
 }
-blockquote:after {
+project-detail section blockquote:after {
   color: #758799;
   content: close-quote;
   font-size: 4em;
@@ -655,18 +737,62 @@ blockquote:after {
   margin-left: 0.25em;
   vertical-align: -0.7em;
 }
-blockquote p {
+project-detail section blockquote p {
   display: inline;
+  font-size: 120%;
 }
-cite {
+project-detail section cite {
   background: #f9f9f9;
   border-left: 10px solid #758799;
   margin: 0;
   padding: 0 10px 0.5em;
-  width: calc(100vw - 30px);
+  width: calc(100vw - 50px);
   display: inline-block;
   max-width: 738px;
   text-align: right;
+}
+project-detail section h1 {
+  font-size: 2.7em;
+  color: rgba(255, 255, 255, 0.95);
+  margin: .75em auto 0;
+  max-width: 768px;
+  width: 100%;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1em;
+}
+project-detail section h2 {
+  font-size: 2.3em;
+  color: rgba(255, 255, 255, 0.95);
+  margin: .75em auto 0;
+  max-width: 768px;
+  width: 100%;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1em;
+}
+project-detail section h3 {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 auto;
+  max-width: 768px;
+  width: 100%;
+  font-weight: 300;
+}
+project-detail section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+project-detail section ul li {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  cursor: pointer;
+}
+project-detail section ul li h1 {
+  font-size: 2.3em;
 }
 .project-list-item.ng-enter,
 .project-list-item.ng-enter-prepare {
@@ -676,15 +802,10 @@ cite {
 .project-list-item.ng-enter.ng-enter-active {
   opacity: 1;
 }
-.view-frame.ng-enter,
-.view-frame.ng-leave {
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 55px;
-}
 .view-frame.ng-enter {
+  opacity: 0;
   animation: 0.5s fade-in;
+  animation-delay: 0.5s;
   z-index: 100;
 }
 .view-frame.ng-leave {

@@ -5,7 +5,7 @@
         function ($location, $resource, $rootScope) {
             var self = this;
             // Load resource
-            self.data = $resource('portfolioData/:projectId.json', {}, {
+            self.data = $resource('content/portfolioData/:projectId.json', {}, {
                 query: {
                     method: 'GET',
                     params: {projectId: 'portfolio'}
@@ -70,6 +70,7 @@
             // Listen to $rootScope for route change event
             $rootScope.$on('$routeChangeStart', function (scope, next, current) {
                 self.SetRoutes(scope, next, current);
+                $('html,body').animate({scrollTop:0},500);
             });
             // Redefine previous and current route on route change, set document title to route title
             self.SetRoutes = function SetRoutes(scope, next, current) {
