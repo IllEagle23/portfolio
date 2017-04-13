@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    describe('Project', function () {
+    describe('Factory: Project', function () {
         var $httpBackend;
         var Project;
         var projectHtml = "<h1>Test project html file load</h1>";

@@ -19,6 +19,10 @@
     }
   },
   "globalFooter": {
+    "archives": {
+      "title": "Archives",
+      "url": "archives"
+    },
     "experiments": {
       "title": "Experiments",
       "url": "experiments"
@@ -44,7 +48,7 @@
     {
       "title": "The Longest Shortest Time",
       "img": ["content/img/brand-logos/longestshortest/lst-text-logo.png"],
-      "id": "test-project",
+      "id": "site-launch",
       "clientId": "longest-shortest-time",
       "description": "PM, UX, WordPress, JS, CSS, HTML, PHP",
       "bkgclass": "lst-yellow"

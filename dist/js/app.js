@@ -319,26 +319,58 @@ ga('create', 'UA-92897917-1', 'auto');
             function JlvideoController ($attrs, $scope, $element) {
                 var self = this;
                 self.attrs = $attrs;
-                self.playButtonVisible = "show";
+                // self.playButtonVisible = "fade-in";
                 self.VideoClick = function VideoClick () {
-                    self.video = document.getElementById($attrs.videoId);
+                    if (self.video === undefined) {
+                        self.SetVideo();
+                    }
                     if (self.video.paused === true) {
                         // self.video.src = $attrs.src;
                         self.video.play();
-                        self.playButtonVisible = "hide";
+                        self.playButtonVisible = "fade-out";
                     }
-                    $("#" + $attrs.videoId).attr("controls", "true");
+                };
+                self.SetVideo = function SetVideo () {
+                    self.video = document.getElementById($attrs.videoId);
+                    self.videoControls = document.getElementById($attrs.videoId + "-controls");
+                    self.video.addEventListener("seeking", function () {
+                        self.seeking = true;
+                    });
                     self.video.addEventListener("pause", function () {
+                        setTimeout(function () {
+                            if (self.seeking !== true) {
+                                $scope.$apply(function () {
+                                    self.playButtonVisible = "fade-in";
+                                    $("#" + $attrs.videoId).removeAttr("controls");
+                                });
+                            }
+                        }, 1);
+                    });
+                    self.video.addEventListener("seeked", function () {
+                        self.seeking = false;
+                    });
+                    self.videoControls.addEventListener("animationend", function () {
                         $scope.$apply(function () {
-                            self.playButtonVisible = "show";
+                            if (self.playButtonVisible === "fade-out") {
+                                self.playButtonVisible = "hide";
+                                $("#" + $attrs.videoId).attr("controls", "true");
+                            }
                         });
                     });
-                    // Pause / stop event listener to turn play button back on
                 };
             }
         ]
     });
 })();
+
+/*
+* Todo:
+* Animate play button show / hide
+*
+*
+* */
+
+
 (function () {
     'use strict';
 
@@ -476,10 +508,10 @@ ga('create', 'UA-92897917-1', 'auto');
             function ProjectDetailController($routeParams, Project, $scope, $compile) {
                 var self = this;
                 var article, video;
-                self.testVar = "test data binding";
+                self.projectId = $routeParams.projectId;
                 self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
                 self.projectRequest.then(function(htmldoc) {
-                    article = $("article");
+                    article = $("#" + $routeParams.projectId);
                     article.html(htmldoc.data);
                     $compile(article.contents())($scope);
                 });
@@ -487,7 +519,6 @@ ga('create', 'UA-92897917-1', 'auto');
         ]
     });
 })();
-
 (function () {
     'use strict';
 

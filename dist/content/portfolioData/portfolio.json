@@ -1,0 +1,81 @@
+{
+  "globalHeader": {
+    "portfolio": {
+      "title": "Portfolio",
+      "url": ""
+    },
+    "resume": {
+      "title": "Resume",
+      "url": "resume"
+    },
+    "contact": {
+      "title": "Contact",
+      "url": "contact"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/selfconstructv/",
+      "linktype": "external"
+    }
+  },
+  "globalFooter": {
+    "archives": {
+      "title": "Archives",
+      "url": "archives"
+    },
+    "experiments": {
+      "title": "Experiments",
+      "url": "experiments"
+    }
+  },
+  "project": [
+    {
+      "title": "Jamie Lloyd",
+      "img": ["content/img/portfolio-logo-type.png", "content/img/portfolio-logo-outline.png"],
+      "imgclass": "medium",
+      "id": "test-project",
+      "clientId": "jamie-lloyd",
+      "description": "UX, UI, Angular, JS, CSS, HTML"
+    },
+    {
+      "title": "Hotwire",
+      "img": ["content/img/brand-logos/hotwire/medium-hotwire-logo.png"],
+      "id": "test-project",
+      "clientId": "hotwire",
+      "description": "PM, UX, Prototyping, R&D",
+      "bkgclass": "white  "
+    },
+    {
+      "title": "The Longest Shortest Time",
+      "img": ["content/img/brand-logos/longestshortest/lst-text-logo.png"],
+      "id": "site-launch",
+      "clientId": "longest-shortest-time",
+      "description": "PM, UX, WordPress, JS, CSS, HTML, PHP",
+      "bkgclass": "lst-yellow"
+    },
+    {
+      "title": "Walmart",
+      "img": ["content/img/brand-logos/walmart/download.svg"],
+      "id": "50-year-anniversary",
+      "clientId": "walmart",
+      "description": "Motion Design",
+      "bkgclass": "walmart-blue"
+    },
+    {
+      "title": "Budweiser",
+      "img": ["content/img/brand-logos/budweiser/budweiser-logo-small.png"],
+      "id": "king-of-the-road",
+      "clientId": "budweiser",
+      "description": "Creative Direction, Motion Design",
+      "bkgclass": "off-white"
+    },
+    {
+      "title": "iShares",
+      "img": ["content/img/brand-logos/ishares/ishares-logo.png"],
+      "id": "10-year-anniversary",
+      "clientId": "ishares",
+      "description": "Branding, Creative Direction, Motion Design",
+      "bkgclass": "white"
+    }
+  ]
+}

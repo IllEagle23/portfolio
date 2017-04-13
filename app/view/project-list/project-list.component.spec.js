@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    describe('projectList', function () {
+    describe('View: projectList', function () {
         // Load the module that contains the `projectList` component before each test
         beforeEach(module('view.projectList'));
         // Test the controller

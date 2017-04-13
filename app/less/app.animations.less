@@ -13,19 +13,21 @@
 
 .view-frame.ng-enter,
 .view-frame.ng-leave {
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 55px;
+  //left: 0;
+  //position: absolute;
+  //right: 0;
+  //top: 55px;
 }
 
 .view-frame.ng-enter {
-  animation: 1.5s fade-in;
+  opacity:0;
+  animation: 0.5s fade-in;
+  animation-delay: 0.5s;
   z-index: 100;
 }
 
 .view-frame.ng-leave {
-  animation: .5s fade-out;
+  animation: 0.5s fade-out;
   z-index: 200;
 }
 

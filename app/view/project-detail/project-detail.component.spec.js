@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     
-    describe('projectDetail', function () {
+    describe('View: projectDetail', function () {
         // Load the module and it's dependencies before each test
         beforeEach(module('view.projectDetail', 'core.project'));
         // Test the controller

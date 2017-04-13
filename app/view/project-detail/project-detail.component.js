@@ -8,10 +8,10 @@
             function ProjectDetailController($routeParams, Project, $scope, $compile) {
                 var self = this;
                 var article, video;
-                self.testVar = "test data binding";
+                self.projectId = $routeParams.projectId;
                 self.projectRequest = Project.request($routeParams.clientId + "/" + $routeParams.projectId + ".html");
                 self.projectRequest.then(function(htmldoc) {
-                    article = $("article");
+                    article = $("#" + $routeParams.projectId);
                     article.html(htmldoc.data);
                     $compile(article.contents())($scope);
                 });
