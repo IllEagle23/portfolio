@@ -1,5 +1,5 @@
 <div class="video-marquee">
-    <video id="{{$ctrl.attrs.videoId}}" src="{{$ctrl.attrs.src}}" poster="{{$ctrl.attrs.poster}}"></video>
+    <video draggable="false" id="{{$ctrl.attrs.videoId}}" src="{{$ctrl.attrs.src}}" poster="{{$ctrl.attrs.poster}}"></video>
     <div id="{{$ctrl.attrs.videoId}}-controls" class="video-controls ng-class:$ctrl.playButtonVisible" ng-click="$ctrl.VideoClick()">
         <i class="fa fa-play" aria-hidden="true"></i>
     </div>
