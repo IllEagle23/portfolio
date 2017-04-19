@@ -29,7 +29,8 @@
                             // console.log("seeking event");
                             $scope.$apply(function () {
                                 if (self.playButtonVisible !== "hide") {
-                                    self.playButtonVisible = "fade-out";
+                                    // THIS IS CAUSING THE BLINK PROBLEM
+                                    // self.playButtonVisible = "fade-out";
                                 }
                             });
                         }

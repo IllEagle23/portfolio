@@ -67,7 +67,7 @@ global-navigation #header {
   height: 55px;
   box-sizing: border-box;
   box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
-  background-color: white;
+  background-color: #eee;
   position: fixed;
   top: 0;
 }
@@ -259,7 +259,7 @@ jlvideo .video-marquee .video-controls:before {
   height: 100%;
 }
 jlvideo .video-marquee .video-controls.fade-in {
-  animation: 0.5s fade-in;
+  animation: 2.5s fade-in;
 }
 jlvideo .video-marquee .video-controls.fade-out {
   animation: 0.5s fade-out;
@@ -522,6 +522,9 @@ resume-page {
   margin: 5px auto 0;
   padding: 0 0 5px 0;
 }
+resume-page a.resume-download.bottom {
+  margin: 20px 0 15px;
+}
 resume-page a.resume-download {
   width: 100%;
   background-color: white;
@@ -529,7 +532,7 @@ resume-page a.resume-download {
   color: #758799;
   display: inline-block;
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 0 20px;
   padding: 5px 0;
   font-weight: 300;
   box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
@@ -568,6 +571,7 @@ resume-page #google-resume-doc .doc-container {
 }
 /* View: Project list */
 project-list {
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
   width: 100%;
   display: block;
   margin: 0 auto;
@@ -668,7 +672,7 @@ project-detail {
   height: 100%;
 }
 project-detail section > p.intro {
-  font-size: 110%;
+  font-size: 120%;
 }
 project-detail section > p {
   max-width: 768px;
@@ -689,7 +693,8 @@ project-detail section.full-bleed.margin {
 project-detail section.full-bleed.header {
   display: inline-block;
   width: 100%;
-  background-color: #99AFC6;
+  text-align: center;
+  margin-bottom: 4.5em;
 }
 project-detail section {
   padding: 0 10px;
@@ -759,7 +764,7 @@ project-detail section cite {
 }
 project-detail section h1 {
   font-size: 2.7em;
-  margin: .75em auto 0;
+  margin: 1.75em auto 0;
   max-width: 768px;
   width: 100%;
   font-weight: 600;
