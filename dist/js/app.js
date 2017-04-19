@@ -336,7 +336,7 @@ ga('create', 'UA-92897917-1', 'auto');
                     self.video.addEventListener("seeking", function () {
                         if (self.seeking !== true) {
                             self.seeking = true;
-                            console.log("seeking event");
+                            // console.log("seeking event");
                             $scope.$apply(function () {
                                 if (self.playButtonVisible !== "hide") {
                                     self.playButtonVisible = "fade-out";
@@ -345,7 +345,7 @@ ga('create', 'UA-92897917-1', 'auto');
                         }
                     });
                     self.video.addEventListener("seeked", function () {
-                        console.log("seeked event");
+                        // console.log("seeked event");
                     });
                     self.video.addEventListener("play", function () {
                         if (self.seeking === true) {
@@ -358,23 +358,18 @@ ga('create', 'UA-92897917-1', 'auto');
                                 }
                             });
                         }
-                        console.log("play event");
+                        // console.log("play event");
                     });
                     self.video.addEventListener("playing", function () {
-                        console.log("playing event");
+                        // console.log("playing event");
                     });
                     self.video.addEventListener("pause", function () {
-                        setTimeout(function () {
-                            // if (self.seeking !== true) {
-                                console.log("pause event");
-                                $scope.$apply(function () {
-                                    if (self.playButtonVisible !== "fade-in") {
-                                        self.playButtonVisible = "fade-in";
-                                    }
-                                    // $("#" + $attrs.videoId).removeAttr("controls");
-                                });
-                            // }
-                        }, 0);
+                        // console.log("pause event");
+                        $scope.$apply(function () {
+                            if (self.playButtonVisible !== "fade-in") {
+                                self.playButtonVisible = "fade-in";
+                            }
+                        });
                     });
                     self.videoControls.addEventListener("animationend", function () {
                         $scope.$apply(function () {

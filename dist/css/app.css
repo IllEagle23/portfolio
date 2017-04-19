@@ -35,17 +35,15 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  color: rgba(31, 45, 61, 0.5);
+  color: rgba(31, 45, 61, 0.75);
 }
 body #app-wrap {
   min-height: 100%;
 }
 .view-container {
-  background-color: #99AFC6;
   margin: 55px 0 0;
   padding: 0;
   min-height: calc(100vh - 110px);
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
 }
 .view-frame {
   display: inline-block;
@@ -68,7 +66,7 @@ global-navigation #header {
   width: 100%;
   height: 55px;
   box-sizing: border-box;
-  box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
   background-color: white;
   position: fixed;
   top: 0;
@@ -76,9 +74,6 @@ global-navigation #header {
 global-navigation #header #main-logo {
   display: inline-block;
   height: 100%;
-}
-global-navigation #header #main-logo a:hover .line-art span.outline img {
-  opacity: .75;
 }
 global-navigation #header #main-logo a {
   margin-top: 5px;
@@ -97,7 +92,7 @@ global-navigation #header #main-logo a .line-art {
 global-navigation #header #main-logo a .line-art span.outline img {
   width: 45px;
   position: absolute;
-  opacity: .5;
+  opacity: 1;
   display: inline-block;
 }
 global-navigation #header #main-logo a .line-art span.outline.home img {
@@ -106,7 +101,7 @@ global-navigation #header #main-logo a .line-art span.outline.home img {
 global-navigation #header #main-logo a .line-art span.initials img {
   width: 45px;
   position: absolute;
-  opacity: .5;
+  opacity: 1;
   display: inline-block;
 }
 global-navigation #header #main-logo a .name-title {
@@ -120,7 +115,7 @@ global-navigation #header #main-logo a h1 {
   font-size: 1.5em;
   margin: 0;
   padding-top: 0;
-  color: rgba(31, 45, 61, 0.5);
+  color: rgba(31, 45, 61, 0.95);
   display: block;
 }
 global-navigation #header #main-logo a h6 {
@@ -128,7 +123,7 @@ global-navigation #header #main-logo a h6 {
   font-weight: 300;
   font-size: 1em;
   letter-spacing: .015em;
-  color: rgba(31, 45, 61, 0.7);
+  color: rgba(31, 45, 61, 0.95);
   display: block;
   vertical-align: top;
 }
@@ -156,7 +151,7 @@ global-navigation #footer .inner-shadow-div {
   position: relative;
   top: -5px;
   box-sizing: border-box;
-  box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
+  box-shadow: -3px 0px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
   background-color: white;
 }
 global-navigation #footer .copyright {
@@ -248,6 +243,9 @@ jlvideo {
   display: block;
   width: 100%;
 }
+jlvideo .video-marquee {
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
+}
 jlvideo .video-marquee video {
   margin: 0 auto;
   display: block;
@@ -277,7 +275,7 @@ jlvideo .video-marquee .video-controls {
   display: inline-block;
   position: absolute;
   top: 0;
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.5);
 }
 jlvideo .video-marquee .video-controls .fa-play {
   color: rgba(255, 255, 255, 0.95);
@@ -350,7 +348,7 @@ home-page #biz-card .container ul li {
 home-page #biz-card .container a {
   margin: 15px 0 0;
   transition: color 0.25s ease-out;
-  color: rgba(31, 45, 61, 0.5);
+  color: rgba(31, 45, 61, 0.75);
   text-decoration: none;
   font-weight: 700;
   display: inline-block;
@@ -409,7 +407,7 @@ portfolio-page #biz-card {
   text-align: center;
   -webkit-font-smoothing: antialiased;
   padding: 40px 20px;
-  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
 }
 portfolio-page #biz-card .container {
   box-sizing: border-box;
@@ -425,6 +423,7 @@ portfolio-page #biz-card .container h1 {
 portfolio-page #biz-card .container ul.skill-list {
   margin: 0;
   padding: 0;
+  color: rgba(255, 255, 255, 0.95);
 }
 portfolio-page #biz-card .container ul.skill-list li::before {
   content: '\00B7';
@@ -447,7 +446,7 @@ portfolio-page #biz-card .container ul.skill-list li {
 portfolio-page #biz-card .container a {
   margin: 15px 0 0;
   transition: color 0.25s ease-out;
-  color: rgba(31, 45, 61, 0.5);
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   font-weight: 700;
   display: inline-block;
@@ -465,7 +464,7 @@ portfolio-page #biz-card .container a span::before {
 }
 portfolio-page #biz-card .container a:hover {
   transition: color 0.25s ease-in;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(31, 45, 61, 0.75);
 }
 @media (max-width: 360px) {
   portfolio-page #biz-card {
@@ -523,9 +522,6 @@ resume-page {
   margin: 5px auto 0;
   padding: 0 0 5px 0;
 }
-resume-page a.resume-download.bottom {
-  margin: 5px 0 0;
-}
 resume-page a.resume-download {
   width: 100%;
   background-color: white;
@@ -533,10 +529,10 @@ resume-page a.resume-download {
   color: #758799;
   display: inline-block;
   text-align: center;
-  margin: 0 0 5px;
+  margin: 20px 0;
   padding: 5px 0;
   font-weight: 300;
-  box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
 }
 resume-page a.resume-download span.fa {
   margin: 0 0 0 5px;
@@ -548,7 +544,7 @@ resume-page #google-resume-doc.loaded .doc-container {
   padding: 31.7pt 57.6pt 27pt 57.6pt;
 }
 resume-page #google-resume-doc {
-  box-shadow: -3px -3px 3px 0 rgba(0, 0, 0, 0.19), 3px 0 3px 0 rgba(0, 0, 0, 0.19), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
   max-width: 816px;
   width: 100%;
   border: 0;
@@ -616,7 +612,7 @@ project-list ul li a::before {
 }
 project-list ul li a {
   text-decoration: none;
-  color: rgba(31, 45, 61, 0.5);
+  color: rgba(31, 45, 61, 0.75);
   display: block;
   height: 100%;
 }
@@ -638,9 +634,9 @@ project-list ul li h3 {
   top: 0;
   min-height: 20px;
   font-size: 15px;
-  color: #eee;
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 300;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.5);
   letter-spacing: .05em;
   padding: 5px;
   transition: top 0.25s ease-in;
@@ -652,6 +648,7 @@ project-list ul li h3 {
 }
 @media (max-width: 768px) {
   project-list ul li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
     width: 100%;
   }
   project-list ul li h3 {
@@ -677,16 +674,22 @@ project-detail section > p {
   max-width: 768px;
   display: block;
   margin: 1.5em auto 0;
-  color: white;
   font-weight: 300;
   font-size: 16px;
 }
 project-detail section > p b {
-  color: rgba(31, 45, 61, 0.5);
   font-size: 120%;
 }
 project-detail section.full-bleed {
   padding: 0;
+}
+project-detail section.full-bleed.margin {
+  margin-top: 2em;
+}
+project-detail section.full-bleed.header {
+  display: inline-block;
+  width: 100%;
+  background-color: #99AFC6;
 }
 project-detail section {
   padding: 0 10px;
@@ -716,7 +719,7 @@ project-detail section .quote {
   margin: 0 auto;
 }
 project-detail section blockquote {
-  background: #f9f9f9;
+  background: #f0f0f0;
   border-left: 10px solid #758799;
   margin: 1.5em 0 0 0;
   padding: 1.5em 10px 0.5em;
@@ -745,7 +748,7 @@ project-detail section blockquote p {
   font-size: 120%;
 }
 project-detail section cite {
-  background: #f9f9f9;
+  background: #f0f0f0;
   border-left: 10px solid #758799;
   margin: 0;
   padding: 0 10px 0.5em;
@@ -756,7 +759,6 @@ project-detail section cite {
 }
 project-detail section h1 {
   font-size: 2.7em;
-  color: rgba(255, 255, 255, 0.95);
   margin: .75em auto 0;
   max-width: 768px;
   width: 100%;
@@ -766,7 +768,6 @@ project-detail section h1 {
 }
 project-detail section h2 {
   font-size: 2.3em;
-  color: rgba(255, 255, 255, 0.95);
   margin: .75em auto 0;
   max-width: 768px;
   width: 100%;
@@ -775,7 +776,6 @@ project-detail section h2 {
   line-height: 1em;
 }
 project-detail section h3 {
-  color: rgba(255, 255, 255, 0.95);
   margin: 0 auto;
   max-width: 768px;
   width: 100%;

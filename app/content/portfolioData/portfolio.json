@@ -33,14 +33,14 @@
       "title": "Jamie Lloyd",
       "img": ["content/img/portfolio-logo-type.png", "content/img/portfolio-logo-outline.png"],
       "imgclass": "medium",
-      "id": "test-project",
+      "id": "you-are-here",
       "clientId": "jamie-lloyd",
       "description": "UX, UI, Angular, JS, CSS, HTML"
     },
     {
       "title": "Hotwire",
       "img": ["content/img/brand-logos/hotwire/medium-hotwire-logo.png"],
-      "id": "test-project",
+      "id": "ux-development",
       "clientId": "hotwire",
       "description": "PM, UX, Prototyping, R&D",
       "bkgclass": "white  "

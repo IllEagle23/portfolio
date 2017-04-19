@@ -4,8 +4,8 @@
 @MainBlue: #99AFC6;
 @MainBlueDark: #758799;
 @MainBlueDarkest: rgba(31, 45, 61, .8);
-@MainFontColor: rgba(31,45,61,.5);
-@BoldFontColor: rgba(31,45,61,.7);
+@MainFontColor: rgba(31,45,61,.75);
+@BoldFontColor: rgba(31,45,61,.95);
 
 // Brand colors
 @LSTYellow: #f4ff3c;
@@ -44,10 +44,23 @@
 // Project list
 @OddLIColor: rgba(255,255, 255, .85);
 @EvenLIColor: rgba(240,240, 240, .75);
-@DescriptionBackground: rgba(0,0,0,.75);
+@DescriptionBackground: rgba(0,0,0,.5);
 @DescriptionFontColor: #eee;
 
-@ShadowColors: -3px -3px 3px 0 rgba(0,0,0,0.19), 3px 0 3px 0 rgba(0,0,0,0.19), 0 3px 3px 0 rgba(0,0,0,0.23);
+@ShadowColors:
+        -3px 0px 3px 0 rgba(0,0,0,0.19),
+        3px 0 3px 0 rgba(0,0,0,0.19),
+        0 3px 3px 0 rgba(0,0,0,0.23);
+
+@ShadowColorsFull:
+        -3px 0px 3px 0 rgba(0,0,0,0.19),
+        3px 0 3px 0 rgba(0,0,0,0.19),
+        0 3px 3px 0 rgba(0,0,0,0.19),
+        0 -3px 3px 0 rgba(0,0,0,0.19);
+
+@GoogleDocShadow:
+        0 0 0 0.75pt #d1d1d1,
+        0 0 3pt 0.75pt #ccc;
 
 // Global nav
 @HeaderBKGColor: white;
@@ -59,8 +72,9 @@
 
 // Article
 @BlockQuoteColor: @MainBlueDark;
-@BlockQuoteBKG: #f9f9f9;
+@BlockQuoteBKG: #f0f0f0;
 
 @Marquee80: inset 0 0 200px rgba(0,0,0,.8);
 @Marquee50: inset 0 0 200px rgba(0,0,0,.5);
+@Marquee50Small: inset 0 0 150px rgba(0,0,0,.5);
 @ProjectMarquee: inset 0 0 100px rgba(0,0,0,.2);

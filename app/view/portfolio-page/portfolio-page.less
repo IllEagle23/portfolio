@@ -19,7 +19,7 @@ portfolio-page {
     text-align: center;
     -webkit-font-smoothing: antialiased;
     padding:40px 20px;
-    box-shadow: @Marquee80;
+    box-shadow: @Marquee50;
     .container {
       box-sizing: border-box;
       display:inline-block;
@@ -33,6 +33,7 @@ portfolio-page {
       ul.skill-list {
         margin: 0;
         padding: 0;
+        color:@OffWhite;
         li::before {
           content: '\00B7';
           display: inline-block;
@@ -55,7 +56,7 @@ portfolio-page {
       a {
         margin: 15px 0 0;
         transition: color .25s ease-out;
-        color: @MainFontColor;
+        color: @OffWhite;
         text-decoration: none;
         font-weight: 700;
         display: inline-block;
@@ -74,7 +75,7 @@ portfolio-page {
       }
       a:hover {
         transition: color .25s ease-in;
-        color: @OffWhite;
+        color: @MainFontColor;
       }
     }
   }

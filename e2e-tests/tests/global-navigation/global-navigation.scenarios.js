@@ -109,7 +109,7 @@ describe('Portfolio navigation', function () {
         });
         it('should navigate to the hotwire detail page from the portfolio page', function () {
             projectTestButton.click();
-            expect(browser.getLocationAbsUrl()).toBe('/portfolio/hotwire/test-project');
+            expect(browser.getLocationAbsUrl()).toBe('/portfolio/hotwire/ux-development');
             expect(hasClass(portfolioLI, 'active')).toBe(true);
             expect(hasClass(resumeLI, 'inactive')).toBe(true);
             expect(hasClass(linkedinLI, 'inactive')).toBe(true);
