@@ -65,7 +65,7 @@ project-list{
         top:0;
         min-height:20px;
         font-size:15px;
-        color:@DescriptionFontColor;
+        color:@OffWhite;
         font-weight:300;
         background:@DescriptionBackground;
         letter-spacing:.05em;
@@ -74,27 +74,6 @@ project-list{
       }
     }
   }
-}
-.white {
-  background-color:white !important;
-}
-.off-white{
-  background-color:@OffWhite !important;
-}
-.black {
-  background-color:black !important;
-}
-.lst-yellow {
-  background-color:@LSTYellow !important;
-}
-.walmart-blue {
-  background-color:@WalmartBlue !important;
-}
-.budweiser-red {
-  background-color:#9C131A;
-}
-.ishares-green {
-  background-color:rgb(179, 203, 74);
 }
 @media (max-width:420px) {
   project-list {
@@ -110,7 +89,9 @@ project-list{
 @media (max-width:768px) {
   project-list {
     ul {
+
       li {
+        border-bottom:1px solid rgba(0,0,0,.7);
         width:100%;
         h3 {
           top:-30px;

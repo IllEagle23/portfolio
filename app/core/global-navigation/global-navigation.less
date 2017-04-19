@@ -6,7 +6,7 @@ global-navigation {
     width: 100%;
     height: 55px;
     box-sizing: border-box;
-    box-shadow: @ShadowColors;
+    box-shadow: @GoogleDocShadow;
     background-color: @HeaderBKGColor;
     position: fixed;
     top:0;
@@ -17,7 +17,7 @@ global-navigation {
         .line-art { //
           span.outline img {
             // animation: 0.25s logo-roll-over;
-            opacity: .75;
+            // opacity: .75;
           }
         }
       }
@@ -36,7 +36,7 @@ global-navigation {
           span.outline img {
             width: @LogoSize;
             position: absolute;
-            opacity: .5;
+            opacity: 1;
             display: inline-block;
           }
           span.outline.home img {
@@ -45,7 +45,7 @@ global-navigation {
           span.initials img {
             width: @LogoSize;
             position: absolute;
-            opacity: .5;
+            opacity: 1;
             display: inline-block;
           }
         }
@@ -60,7 +60,7 @@ global-navigation {
           font-size: 1.5em;
           margin: 0;
           padding-top: 0;
-          color: @MainFontColor;
+          color: @BoldFontColor;
           display: block;
         }
         h6 {
