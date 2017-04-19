@@ -275,12 +275,15 @@ jlvideo .video-marquee .video-controls {
   display: inline-block;
   position: absolute;
   top: 0;
-  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.15);
 }
 jlvideo .video-marquee .video-controls .fa-play {
   color: rgba(255, 255, 255, 0.95);
   font-size: 80px;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.85);
+  position: relative;
+  top: 40px;
+  left: 40px;
 }
 @media (max-width: 1008px) {
   project-detail section .video-marquee {
@@ -769,7 +772,7 @@ project-detail section h1 {
   width: 100%;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
-  line-height: 1em;
+  line-height: 0.9em;
 }
 project-detail section h2 {
   font-size: 2.3em;
