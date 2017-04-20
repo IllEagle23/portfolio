@@ -41,8 +41,6 @@
                     self.video.addEventListener("play", function () {
                         if (self.seeking === true) {
                             self.seeking = false;
-                        }
-                        else {
                             $scope.$apply(function () {
                                 if (self.playButtonVisible !== "fade-out") {
                                     self.playButtonVisible = "fade-out";
