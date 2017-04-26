@@ -15,6 +15,9 @@
             }).when('/contact', {
                 title: 'Jamie Lloyd, Portfolio : Contact',
                 template: '<contact-page></contact-page>'
+            }).when('/portfolio/:clientId', {
+                title: 'Jamie Lloyd, Portfolio, Client Name',
+                template: '<client-detail></client-detail>'
             }).when('/portfolio/:clientId/:projectId', {
                 title: 'Jamie Lloyd, Portfolio',
                 template: '<project-detail></project-detail>'

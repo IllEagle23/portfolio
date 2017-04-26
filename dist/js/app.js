@@ -30,6 +30,9 @@
             }).when('/contact', {
                 title: 'Jamie Lloyd, Portfolio : Contact',
                 template: '<contact-page></contact-page>'
+            }).when('/portfolio/:clientId', {
+                title: 'Jamie Lloyd, Portfolio, Client Name',
+                template: '<client-detail></client-detail>'
             }).when('/portfolio/:clientId/:projectId', {
                 title: 'Jamie Lloyd, Portfolio',
                 template: '<project-detail></project-detail>'
@@ -315,8 +318,8 @@ ga('create', 'UA-92897917-1', 'auto');
         templateUrl: function($element, $attrs) {
             return $attrs.templateUrl;
         },
-        controller: ['$attrs', '$scope', '$element',
-            function JlvideoController ($attrs, $scope, $element) {
+        controller: ['$attrs', '$scope', '$element', '$document',
+            function JlvideoController ($attrs, $scope, $element, $document) {
                 var self = this;
                 self.attrs = $attrs;
                 // self.playButtonVisible = "fade-in";
@@ -328,9 +331,11 @@ ga('create', 'UA-92897917-1', 'auto');
                         // self.video.src = $attrs.src;
                         self.video.play();
                         self.playButtonVisible = "fade-out";
+                        $document.scrollTo(self.videoTop, 55, 500);
                     }
                 };
                 self.SetVideo = function SetVideo () {
+                    self.videoTop = angular.element(document.getElementById('#video-top ' + $attrs.videoId));
                     self.video = document.getElementById($attrs.videoId);
                     self.videoControls = document.getElementById($attrs.videoId + "-controls");
                     self.video.addEventListener("seeking", function () {

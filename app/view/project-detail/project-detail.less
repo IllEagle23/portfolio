@@ -8,24 +8,34 @@ project-detail {
     //margin-bottom:1.5em;
   }
   section > p.intro {
-    em{
-      font-size:400%;
-      font-weight:600;
-      color:@BlockQuoteColor;
-    }
     font-size:120%;
     line-height:1.17em;
   }
   section > p {
+    em{
+      font-size:200%;
+      font-weight:600;
+      color:@BlockQuoteColor;
+    }
     max-width:768px;
     display:block;
     margin:1.5em auto 0;
+    line-height:1.2em;
     // color:white;
     font-weight:300;
     font-size:16px;
     b {
-      // color:@MainFontColor;
+      color:@BlockQuoteColor;
       font-size:120%;
+    }
+    a {
+      text-decoration:none;
+      font-weight:500;
+      color:@BlockQuoteColor;
+      font-size:110%;
+    }
+    a:hover {
+      text-decoration:underline;
     }
   }
   section.full-bleed {
@@ -74,7 +84,7 @@ project-detail {
       background: @BlockQuoteBKG;
       border-left: 10px solid @BlockQuoteColor;
       margin: 1.5em 0 0 0;
-      padding: 1.5em 10px 0.5em;
+      padding: 1.5em 10px 0.4em;
       quotes: "\201C" "\201D" "\2018" "\2019";
       font-weight:300;
     }
@@ -110,8 +120,8 @@ project-detail {
       text-align: right;
     }
     h1 {
-      font-size:2.7em;
-      // color:@OffWhite;
+      font-size:2.9em;
+      color:@BlockQuoteColor;
       margin:1.75em auto 0;
       max-width:768px;
       width:100%;
