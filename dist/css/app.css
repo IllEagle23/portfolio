@@ -4,11 +4,17 @@
 .off-white {
   background-color: rgba(255, 255, 255, 0.95) !important;
 }
+.mobile-offwhite {
+  background-color: #fbfbfb !important;
+}
 .black {
   background-color: black !important;
 }
 .lst-yellow {
   background-color: #f4ff3c !important;
+}
+.lst-blue {
+  background-color: #20d0ca !important;
 }
 .walmart-blue {
   background-color: #007bc4 !important;
@@ -21,6 +27,12 @@
 }
 .ishares-blue {
   background-color: #3b9ed6;
+}
+.jl-blue {
+  background-color: #99AFC6;
+}
+.hotwire-red {
+  background-color: #b90005;
 }
 html {
   background-color: white;
@@ -51,11 +63,6 @@ body #app-wrap {
 }
 h1 {
   font-weight: 300;
-}
-@media (max-width: 360px) {
-  .view-container {
-    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
-  }
 }
 global-navigation {
   width: 100%;
@@ -246,11 +253,23 @@ jlvideo {
 jlvideo .video-marquee {
   box-shadow: 0 0 0 0.75pt #d1d1d1, 0 0 3pt 0.75pt #ccc;
 }
+jlvideo .video-marquee .video-padding.padded {
+  padding: 1.5em;
+}
 jlvideo .video-marquee video {
   margin: 0 auto;
   display: block;
   max-width: 1080px;
   width: 100%;
+}
+jlvideo .video-marquee video.longest-shortest {
+  max-width: none;
+}
+jlvideo .video-marquee video.mobile-ios {
+  max-width: 378px;
+  width: 100%;
+  max-height: 788px;
+  height: 100%;
 }
 jlvideo .video-marquee .video-controls:before {
   display: inline-block;
@@ -259,7 +278,7 @@ jlvideo .video-marquee .video-controls:before {
   height: 100%;
 }
 jlvideo .video-marquee .video-controls.fade-in {
-  animation: 2.5s fade-in;
+  animation: 0.5s fade-in;
 }
 jlvideo .video-marquee .video-controls.fade-out {
   animation: 0.5s fade-out;
@@ -270,7 +289,6 @@ jlvideo .video-marquee .video-controls.hide {
 jlvideo .video-marquee .video-controls {
   text-align: center;
   width: 100%;
-  max-height: 720px;
   height: 100%;
   display: inline-block;
   position: absolute;
@@ -282,8 +300,7 @@ jlvideo .video-marquee .video-controls .fa-play {
   font-size: 80px;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.85);
   position: relative;
-  top: 40px;
-  left: 40px;
+  top: 25px;
 }
 @media (max-width: 1008px) {
   project-detail section .video-marquee {
@@ -323,7 +340,7 @@ home-page #biz-card .container {
   vertical-align: middle;
 }
 home-page #biz-card .container h1 {
-  font-size: 2.3em;
+  font-size: 2.6em;
   margin: 0 0 10px;
 }
 home-page #biz-card .container ul {
@@ -418,7 +435,7 @@ portfolio-page #biz-card .container {
   vertical-align: middle;
 }
 portfolio-page #biz-card .container h1 {
-  font-size: 2.3em;
+  font-size: 2.7em;
   margin: 0 0 10px;
   color: rgba(255, 255, 255, 0.95);
   font-weight: 300;
@@ -676,16 +693,33 @@ project-detail {
 }
 project-detail section > p.intro {
   font-size: 120%;
+  line-height: 1.17em;
 }
 project-detail section > p {
   max-width: 768px;
   display: block;
   margin: 1.5em auto 0;
+  line-height: 1.2em;
   font-weight: 300;
   font-size: 16px;
 }
+project-detail section > p em {
+  font-size: 200%;
+  font-weight: 600;
+  color: #758799;
+}
 project-detail section > p b {
+  color: #758799;
   font-size: 120%;
+}
+project-detail section > p a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #758799;
+  font-size: 110%;
+}
+project-detail section > p a:hover {
+  text-decoration: underline;
 }
 project-detail section.full-bleed {
   padding: 0;
@@ -693,9 +727,7 @@ project-detail section.full-bleed {
 project-detail section.full-bleed.margin {
   margin-top: 2em;
 }
-project-detail section.full-bleed.header {
-  display: inline-block;
-  width: 100%;
+project-detail section.header {
   text-align: center;
   margin-bottom: 4.5em;
 }
@@ -727,10 +759,10 @@ project-detail section .quote {
   margin: 0 auto;
 }
 project-detail section blockquote {
-  background: #f0f0f0;
+  background: #eee;
   border-left: 10px solid #758799;
   margin: 1.5em 0 0 0;
-  padding: 1.5em 10px 0.5em;
+  padding: 1.5em 10px 0.4em;
   quotes: "\201C" "\201D" "\2018" "\2019";
   font-weight: 300;
 }
@@ -755,8 +787,16 @@ project-detail section blockquote p {
   display: inline;
   font-size: 120%;
 }
+project-detail section blockquote p a {
+  text-decoration: none;
+  color: #758799;
+  font-weight: 600;
+}
+project-detail section blockquote p a:hover {
+  text-decoration: underline;
+}
 project-detail section cite {
-  background: #f0f0f0;
+  background: #eee;
   border-left: 10px solid #758799;
   margin: 0;
   padding: 0 10px 0.5em;
@@ -766,26 +806,29 @@ project-detail section cite {
   text-align: right;
 }
 project-detail section h1 {
-  font-size: 2.7em;
+  font-size: 2.9em;
+  color: #758799;
   margin: 1.75em auto 0;
   max-width: 768px;
   width: 100%;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
-  line-height: 0.9em;
+  line-height: 1em;
 }
 project-detail section h2 {
   font-size: 2.3em;
   margin: .75em auto 0;
-  max-width: 768px;
+  max-width: 400px;
   width: 100%;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   line-height: 1em;
+  text-align: center;
 }
 project-detail section h3 {
+  font-size: 1.4em;
   margin: 0 auto;
-  max-width: 768px;
+  max-width: 400px;
   width: 100%;
   font-weight: 300;
 }

@@ -5,11 +5,23 @@ jlvideo {
   width: 100%;
   .video-marquee {
     box-shadow:@GoogleDocShadow;
+    .video-padding.padded {
+      padding:1.5em;
+    }
     video {
       margin: 0 auto;
       display: block;
       max-width: 1080px;
       width: 100%;
+    }
+    video.longest-shortest {
+      max-width:none;
+    }
+    video.mobile-ios {
+      max-width: 378px;
+      width: 100%;
+      max-height:788px;
+      height:100%;
     }
     .video-controls:before {
       display: inline-block;
@@ -18,7 +30,8 @@ jlvideo {
       height: 100%;
     }
     .video-controls.fade-in {
-      animation: 2.5s fade-in;
+      animation: 0.5s fade-in;
+      // animation-delay:1s;
     }
     //.video-controls.fade-out-add-active {
     //  display:inline-block;
@@ -33,7 +46,7 @@ jlvideo {
       text-align: center;
       // max-width: 1080px;
       width: 100%;
-      max-height: 720px;
+      //max-height: 720px;
       height: 100%;
       display: inline-block;
       position: absolute;
@@ -44,8 +57,7 @@ jlvideo {
         font-size: 80px;
         text-shadow:0 0 15px rgba(0,0,0,.85);
         position:relative;
-        top:40px;
-        left:40px;
+        top:25px;
       }
     }
   }

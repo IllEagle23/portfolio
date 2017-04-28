@@ -9,17 +9,33 @@ project-detail {
   }
   section > p.intro {
     font-size:120%;
+    line-height:1.17em;
   }
   section > p {
+    em{
+      font-size:200%;
+      font-weight:600;
+      color:@BlockQuoteColor;
+    }
     max-width:768px;
     display:block;
     margin:1.5em auto 0;
+    line-height:1.2em;
     // color:white;
     font-weight:300;
     font-size:16px;
     b {
-      // color:@MainFontColor;
+      color:@BlockQuoteColor;
       font-size:120%;
+    }
+    a {
+      text-decoration:none;
+      font-weight:500;
+      color:@BlockQuoteColor;
+      font-size:110%;
+    }
+    a:hover {
+      text-decoration:underline;
     }
   }
   section.full-bleed {
@@ -28,9 +44,7 @@ project-detail {
   section.full-bleed.margin {
     margin-top:2em;
   }
-  section.full-bleed.header {
-    display:inline-block;
-    width:100%;
+  section.header {
     text-align:center;
     margin-bottom:4.5em;
   }
@@ -70,7 +84,7 @@ project-detail {
       background: @BlockQuoteBKG;
       border-left: 10px solid @BlockQuoteColor;
       margin: 1.5em 0 0 0;
-      padding: 1.5em 10px 0.5em;
+      padding: 1.5em 10px 0.4em;
       quotes: "\201C" "\201D" "\2018" "\2019";
       font-weight:300;
     }
@@ -94,6 +108,14 @@ project-detail {
     blockquote p {
       display: inline;
       font-size:120%;
+      a {
+        text-decoration: none;
+        color:@BlockQuoteColor;
+        font-weight:600;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
     }
     cite {
       background: @BlockQuoteBKG;
@@ -106,29 +128,31 @@ project-detail {
       text-align: right;
     }
     h1 {
-      font-size:2.7em;
-      // color:@OffWhite;
+      font-size:2.9em;
+      color:@BlockQuoteColor;
       margin:1.75em auto 0;
       max-width:768px;
       width:100%;
       font-weight:600;
       -webkit-font-smoothing: antialiased;
-      line-height:0.9em;
+      line-height:1em;
     }
     h2 {
       font-size:2.3em;
       // color:@OffWhite;
       margin:.75em auto 0;
-      max-width:768px;
+      max-width:400px;
       width:100%;
       font-weight:300;
       -webkit-font-smoothing: antialiased;
       line-height:1em;
+      text-align:center;
     }
     h3 {
       // color:@OffWhite;
+      font-size:1.4em;
       margin:0 auto;
-      max-width:768px;
+      max-width:400px;
       width:100%;
       font-weight:300;
     }

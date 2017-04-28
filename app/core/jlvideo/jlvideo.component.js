@@ -5,8 +5,8 @@
         templateUrl: function($element, $attrs) {
             return $attrs.templateUrl;
         },
-        controller: ['$attrs', '$scope', '$element',
-            function JlvideoController ($attrs, $scope, $element) {
+        controller: ['$attrs', '$scope', '$element', '$document',
+            function JlvideoController ($attrs, $scope, $element, $document) {
                 var self = this;
                 self.attrs = $attrs;
                 // self.playButtonVisible = "fade-in";
@@ -18,9 +18,11 @@
                         // self.video.src = $attrs.src;
                         self.video.play();
                         self.playButtonVisible = "fade-out";
+                        $document.scrollTo(self.videoTop, 55, 500);
                     }
                 };
                 self.SetVideo = function SetVideo () {
+                    self.videoTop = angular.element(document.getElementById('#video-top ' + $attrs.videoId));
                     self.video = document.getElementById($attrs.videoId);
                     self.videoControls = document.getElementById($attrs.videoId + "-controls");
                     self.video.addEventListener("seeking", function () {
@@ -41,8 +43,6 @@
                     self.video.addEventListener("play", function () {
                         if (self.seeking === true) {
                             self.seeking = false;
-                        }
-                        else {
                             $scope.$apply(function () {
                                 if (self.playButtonVisible !== "fade-out") {
                                     self.playButtonVisible = "fade-out";

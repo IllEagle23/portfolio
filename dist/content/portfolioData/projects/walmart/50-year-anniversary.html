@@ -1,28 +1,33 @@
-<section class="full-bleed header">
-    <h1>Walmart, 50th anniversary</h1>
+<section class="header">
+    <h1>Walmart 50th anniversary</h1>
     <h3>Motion Design, Flash / AS 3</h3>
 </section>
 <section class="full-bleed">
-    <div class="video-marquee white">
-        <jlvideo class="top white" template-url="core/jlvideo/jlvideo.template.html" src="content/video/walmart-50.mov" poster="content/img/walmart-poster.png" video-id="walmart-50"></jlvideo>
-    </div>
+    <jlvideo class="top white" template-url="core/jlvideo/jlvideo.template.html" src="content/video/walmart-50.mov" poster="content/img/walmart-poster.png" video-id="walmart-50"></jlvideo>
 </section>
 <section>
     <div class="quote">
         <blockquote>
-            <p>Jamie always has impeccable attention to detail. He turned something quite complicated into something very simple and elegant. </p>
+            <p>Jamie has impeccable attention to detail. He turned something quite complicated into something very simple and elegant.</p>
         </blockquote>
-        <cite>James B., Owner, Creative Director, Digital Agua., 2011</cite>
+        <cite>James B. Owner, Creative Director, Digital Agua. 2012</cite>
     </div>
 </section>
 <section>
-    <h2>From the big picture, to the subtle details.</h2>
+    <h2>Decades of progress, summed up in minutes.</h2>
     <p class="intro">
-        Back when Flash / Action Script was still cool, I had the distinct pleasure of working with Whittman Hart in L.A. on a project to overhaul the Budweiser online presence. The Creative Director was a good friend, and we had a blast working on the conceptual development together.
+        It's late 2011, Walmart is about to celebrate their 50th anniversary of the founding of the company by Sam Walton in 1962.
     </p>
     <p>
         <b>Request:</b><br/>
-        Make Dale Earnhardt Jr. look bad ass in an interactive rich media promo for Budweiser.
+        Create animated / interactive time line for Walmart's 50th anniversary.
+    </p>
+    <p>
+        <b>Solution:</b><br/>
+        Simple flash MVC architecture for UI with restful API that returns xml for application data. There are five different view types, each of which takes unique data points and animates them into and out of frame. The timeline is broken up into either whole decades, or "early" and "late" decade periods. For example, there is one section for 1960's, but two sections for early and late 1970's, respectively. Each section has three total views of the five available.
+    </p>
+    <p>
+        The gird view being the most complex, as the layout was determined by the data returned from the api. Position, width, height, color, and content of each grid item were determined by the xml nodes.
     </p>
 </section>
 <section class="full-bleed margin">
