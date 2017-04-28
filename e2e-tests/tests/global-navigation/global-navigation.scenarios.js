@@ -34,14 +34,14 @@ describe('Portfolio navigation', function () {
     resumeLI = element(by.cssContainingText('li a', 'Resume'));
     linkedinButton = element(by.id('LinkedIn'));
     linkedinLI = element(by.cssContainingText('li a', 'LinkedIn'));
-    contactButton = element(by.id('Contact'));
-    contactLI = element(by.cssContainingText('li a', 'Contact'));
+    // contactButton = element(by.id('Contact'));
+    // contactLI = element(by.cssContainingText('li a', 'Contact'));
     mainLogoButton = element(by.id('main-logo'));
     projectTestButton = element(by.id('hotwire'));
     
     describe('View : Navigation', function() {
-        it('should have 4 items in the global header', function() {
-            expect(globalHeader.count()).toBe(4);
+        it('should have 3 items in the global header', function() {
+            expect(globalHeader.count()).toBe(3);
         });
         it('should default to portfolio nav item active on load', function() {
             expect(hasClass(portfolioLI, 'active')).toBe(true);
@@ -67,45 +67,45 @@ describe('Portfolio navigation', function () {
                 });
             });
         });
-        it('should navigate to the contact page from the resume page', function () {
-            contactButton.click();
-            expect(browser.getLocationAbsUrl()).toBe('/contact');
-            expect(hasClass(contactLI, 'active')).toBe(true);
-            expect(hasClass(resumeLI, 'inactive')).toBe(true);
-            expect(hasClass(portfolioLI, 'inactive')).toBe(true);
-            expect(hasClass(linkedinLI, 'inactive')).toBe(true);
-        });
-        it('should navigate to the portfolio page from the contact page via the logo button', function () {
+        // it('should navigate to the contact page from the resume page', function () {
+        //     contactButton.click();
+        //     expect(browser.getLocationAbsUrl()).toBe('/contact');
+        //     expect(hasClass(contactLI, 'active')).toBe(true);
+        //     expect(hasClass(resumeLI, 'inactive')).toBe(true);
+        //     expect(hasClass(portfolioLI, 'inactive')).toBe(true);
+        //     expect(hasClass(linkedinLI, 'inactive')).toBe(true);
+        // });
+        it('should navigate to the portfolio page from the resume page via the logo button', function () {
             mainLogoButton.click();
             expect(browser.getLocationAbsUrl()).toBe('/');
             expect(hasClass(portfolioLI, 'active')).toBe(true);
-            expect(hasClass(contactLI, 'inactive')).toBe(true);
+            // expect(hasClass(contactLI, 'inactive')).toBe(true);
             expect(hasClass(resumeLI, 'inactive')).toBe(true);
             expect(hasClass(linkedinLI, 'inactive')).toBe(true);
         });
-        it('should navigate back to the contact page from the portfolio page', function () {
-            browser.navigate().back();
-            expect(browser.getLocationAbsUrl()).toBe('/contact');
-            expect(hasClass(contactLI, 'active')).toBe(true);
-            expect(hasClass(resumeLI, 'inactive')).toBe(true);
-            expect(hasClass(linkedinLI, 'inactive')).toBe(true);
-            expect(hasClass(portfolioLI, 'inactive')).toBe(true);
-        });
-        it('should navigate back to the resume page from the contact page', function () {
+        it('should navigate back to the resume page from the portfolio page', function () {
             browser.navigate().back();
             expect(browser.getLocationAbsUrl()).toBe('/resume');
+            // expect(hasClass(contactLI, 'active')).toBe(true);
             expect(hasClass(resumeLI, 'active')).toBe(true);
-            expect(hasClass(portfolioLI, 'inactive')).toBe(true);
             expect(hasClass(linkedinLI, 'inactive')).toBe(true);
-            expect(hasClass(contactLI, 'inactive')).toBe(true);
+            expect(hasClass(portfolioLI, 'inactive')).toBe(true);
         });
+        // it('should navigate back to the resume page from the contact page', function () {
+        //     browser.navigate().back();
+        //     expect(browser.getLocationAbsUrl()).toBe('/resume');
+        //     expect(hasClass(resumeLI, 'active')).toBe(true);
+        //     expect(hasClass(portfolioLI, 'inactive')).toBe(true);
+        //     expect(hasClass(linkedinLI, 'inactive')).toBe(true);
+        //     expect(hasClass(contactLI, 'inactive')).toBe(true);
+        // });
         it('should navigate back to the portfolio page from the resume page', function () {
             browser.navigate().back();
             expect(browser.getLocationAbsUrl()).toBe('/');
             expect(hasClass(portfolioLI, 'active')).toBe(true);
             expect(hasClass(resumeLI, 'inactive')).toBe(true);
             expect(hasClass(linkedinLI, 'inactive')).toBe(true);
-            expect(hasClass(contactLI, 'inactive')).toBe(true);
+            // expect(hasClass(contactLI, 'inactive')).toBe(true);
         });
         it('should navigate to the hotwire detail page from the portfolio page', function () {
             projectTestButton.click();
@@ -113,7 +113,7 @@ describe('Portfolio navigation', function () {
             expect(hasClass(portfolioLI, 'active')).toBe(true);
             expect(hasClass(resumeLI, 'inactive')).toBe(true);
             expect(hasClass(linkedinLI, 'inactive')).toBe(true);
-            expect(hasClass(contactLI, 'inactive')).toBe(true);
+            // expect(hasClass(contactLI, 'inactive')).toBe(true);
         });
     })
 });
