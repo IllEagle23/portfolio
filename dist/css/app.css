@@ -787,6 +787,14 @@ project-detail section blockquote p {
   display: inline;
   font-size: 120%;
 }
+project-detail section blockquote p a {
+  text-decoration: none;
+  color: #758799;
+  font-weight: 600;
+}
+project-detail section blockquote p a:hover {
+  text-decoration: underline;
+}
 project-detail section cite {
   background: #eee;
   border-left: 10px solid #758799;
