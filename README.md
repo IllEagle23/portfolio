@@ -19,7 +19,7 @@ _An Angular JS project for creating a responsive UX Development portfolio._
 * Run `npm test` for unit tests
 * Run `npm run protractor` for e2e tests
 
-# Project Grunt tasks
+# Grunt task definition
 * Watch for file changes
 * File concatenation
 * LESS to CSS compilation
