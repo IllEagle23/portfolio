@@ -220,8 +220,8 @@
         templateUrl: function($element, $attrs) {
             return $attrs.templateUrl;
         },
-        controller: ['$attrs', '$scope', 'Portfolio', '$route', '$analytics',
-            function NavigationController($attrs, $scope, Portfolio, $route, $analytics) {
+        controller: ['$attrs', 'Portfolio', '$route', '$analytics', '$scope',
+            function NavigationController($attrs, Portfolio, $route, $analytics, $scope) {
                 var self = this;
                 if ($attrs.defaultRoute !== undefined) {
                     Portfolio.SetDefaultRoute($attrs.defaultRoute);
