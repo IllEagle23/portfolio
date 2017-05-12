@@ -1,8 +1,11 @@
 .white {
   background-color: white !important;
 }
+.grey {
+  background-color: #e6e6e6 !important;
+}
 .off-white {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-color: #efefef !important;
 }
 .mobile-offwhite {
   background-color: #fbfbfb !important;
@@ -33,6 +36,9 @@
 }
 .hotwire-red {
   background-color: #b90005;
+}
+.bbc-color {
+  background-color: #005d85;
 }
 html {
   background-color: white;
@@ -265,6 +271,9 @@ jlvideo .video-marquee video {
 jlvideo .video-marquee video.longest-shortest {
   max-width: none;
 }
+jlvideo .video-marquee video.bbc {
+  max-width: 1080px;
+}
 jlvideo .video-marquee video.mobile-ios {
   max-width: 378px;
   width: 100%;
@@ -436,14 +445,22 @@ portfolio-page #biz-card .container {
 }
 portfolio-page #biz-card .container h1 {
   font-size: 2.7em;
-  margin: 0 0 10px;
-  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  color: #efefef;
+  font-weight: 400;
+  line-height: 1em;
+}
+portfolio-page #biz-card .container h2 {
+  font-size: 2.1em;
+  margin: 0 0 20px;
+  color: #efefef;
   font-weight: 300;
+  line-height: 1em;
 }
 portfolio-page #biz-card .container ul.skill-list {
   margin: 0;
   padding: 0;
-  color: rgba(255, 255, 255, 0.95);
+  color: #efefef;
 }
 portfolio-page #biz-card .container ul.skill-list li::before {
   content: '\00B7';
@@ -466,7 +483,7 @@ portfolio-page #biz-card .container ul.skill-list li {
 portfolio-page #biz-card .container a {
   margin: 15px 0 0;
   transition: color 0.25s ease-out;
-  color: rgba(255, 255, 255, 0.95);
+  color: #efefef;
   text-decoration: none;
   font-weight: 700;
   display: inline-block;
@@ -486,25 +503,19 @@ portfolio-page #biz-card .container a:hover {
   transition: color 0.25s ease-in;
   color: rgba(31, 45, 61, 0.75);
 }
-@media (max-width: 360px) {
+@media (min-width: 320px) and (max-width: 360px) {
   portfolio-page #biz-card {
     box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
-  }
-  portfolio-page #biz-card .container h1 {
-    font-size: 1.7em;
   }
   portfolio-page #biz-card .container ul li::before {
     margin-right: 5px;
   }
   portfolio-page #biz-card .container ul li {
-    font-size: 12px;
+    font-size: 11px;
     margin-left: 5px;
   }
 }
 @media (min-width: 361px) and (max-width: 385px) {
-  portfolio-page #biz-card .container h1 {
-    font-size: 1.8em;
-  }
   portfolio-page #biz-card .container ul li::before {
     margin-right: 10px;
   }
@@ -514,9 +525,6 @@ portfolio-page #biz-card .container a:hover {
   }
 }
 @media (min-width: 386px) and (max-width: 525px) {
-  portfolio-page #biz-card .container h1 {
-    font-size: 2em;
-  }
   portfolio-page #biz-card .container ul li::before {
     margin-right: 10px;
   }
@@ -526,9 +534,6 @@ portfolio-page #biz-card .container a:hover {
   }
 }
 @media (max-width: 768px) {
-  portfolio-page #biz-card .container {
-    max-width: 400px;
-  }
   portfolio-page #biz-card .container ul.skill-list li:before {
     margin-right: 10px;
   }
@@ -608,12 +613,6 @@ project-list ul {
   vertical-align: middle;
   width: 100%;
 }
-project-list ul li:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.85);
-}
-project-list ul li:nth-child(even) {
-  background-color: rgba(240, 240, 240, 0.75);
-}
 project-list ul li:hover h3 {
   top: -30px;
   transition: top 0.25s ease-out;
@@ -658,7 +657,7 @@ project-list ul li h3 {
   top: 0;
   min-height: 20px;
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.95);
+  color: #efefef;
   font-weight: 300;
   background: rgba(0, 0, 0, 0.5);
   letter-spacing: .05em;

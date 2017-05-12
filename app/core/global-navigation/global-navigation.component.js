@@ -6,12 +6,15 @@
         templateUrl: function($element, $attrs) {
             return $attrs.templateUrl;
         },
-        controller: ['$attrs', '$scope', 'Portfolio', '$route',
-            function NavigationController($attrs, $scope, Portfolio, $route) {
+        controller: ['$attrs', 'Portfolio', '$route', '$analytics', '$scope',
+            function NavigationController($attrs, Portfolio, $route, $analytics, $scope) {
                 var self = this;
                 if ($attrs.defaultRoute !== undefined) {
                     Portfolio.SetDefaultRoute($attrs.defaultRoute);
                 }
+                $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+                    $analytics.eventTrack(JSON.stringify(data, null, 2));
+                });
                 
                 self.dataPath = $attrs.datapath;
                 // Read from resource

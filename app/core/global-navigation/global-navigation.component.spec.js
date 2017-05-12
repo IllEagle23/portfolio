@@ -8,7 +8,7 @@
         beforeEach(module('core.globalNavigation', 'core.portfolio'));
         // Test the controller
         describe('Controller: NavigationController', function () {
-            var $httpBackend, ctrl, Portfolio, $attrs, event, $route;
+            var $httpBackend, ctrl, Portfolio, $attrs, event, $route, $analytics;
             beforeEach(inject(function ($componentController, _$httpBackend_, _Portfolio_) {
                 $httpBackend = _$httpBackend_;
                 $httpBackend.expectGET('content/portfolioData/portfolio.json').respond({globalHeader: {'portfolio': {'title': 'Portfolio'}, 'resume': {'title': 'Resume'}}});
@@ -17,8 +17,13 @@
                 event.preventDefault = function () {};
                 $route = {};
                 $route.current = {title:'Jamie Lloyd, Portfolio 2017 : Portfolio'};
-                ctrl = $componentController('globalNavigation', {$attrs: $attrs, event:event, $route:$route});
+                
+                $analytics = {};
+                $analytics.eventTrack = function () {};
+                
+                ctrl = $componentController('globalNavigation', {$attrs: $attrs, event:event, $route:$route, $analytics:$analytics});
                 Portfolio = _Portfolio_;
+                
                 jasmine.addCustomEqualityTester(angular.equals);
                 expect(ctrl.data).toEqual({});
                 $httpBackend.flush();

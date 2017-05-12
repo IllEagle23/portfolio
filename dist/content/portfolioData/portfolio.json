@@ -31,7 +31,8 @@
       "imgclass": "medium",
       "id": "you-are-here",
       "clientId": "jamie-lloyd",
-      "description": "UX, UI, Angular, JS, CSS, HTML"
+      "description": "UX, UI, Angular, JS, CSS, HTML",
+      "bkgclass": "white"
     },
     {
       "title": "Hotwire",
@@ -39,30 +40,22 @@
       "id": "ux-development",
       "clientId": "hotwire",
       "description": "PM, UX, Prototyping, R&D",
-      "bkgclass": "white  "
+      "bkgclass": "off-white"
     },
     {
-      "title": "The Longest Shortest Time",
-      "img": ["content/img/brand-logos/longestshortest/lst-text-logo.png"],
+      "title": "Bay Bridge Celebration",
+      "img": ["content/img/brand-logos/bbc/BayBridgeCelebration-logo.jpg"],
       "id": "site-launch",
-      "clientId": "longest-shortest-time",
+      "clientId": "bay-bridge-celebration",
       "description": "PM, UX, WordPress, JS, CSS, HTML, PHP",
-      "bkgclass": "lst-yellow"
+      "bkgclass": "white"
     },
     {
       "title": "Walmart",
-      "img": ["content/img/brand-logos/walmart/download.svg"],
+      "img": ["content/img/brand-logos/walmart/New_Walmart_Logo.svg.png"],
       "id": "50-year-anniversary",
       "clientId": "walmart",
       "description": "Motion Design",
-      "bkgclass": "walmart-blue"
-    },
-    {
-      "title": "Budweiser",
-      "img": ["content/img/brand-logos/budweiser/budweiser-logo-small.png"],
-      "id": "king-of-the-road",
-      "clientId": "budweiser",
-      "description": "Creative Direction, Motion Design",
       "bkgclass": "off-white"
     },
     {
@@ -72,6 +65,14 @@
       "clientId": "ishares",
       "description": "Branding, Creative Direction, Motion Design",
       "bkgclass": "white"
+    },
+    {
+      "title": "Budweiser",
+      "img": ["content/img/brand-logos/budweiser/budweiser-logo-small.png"],
+      "id": "king-of-the-road",
+      "clientId": "budweiser",
+      "description": "Creative Direction, Motion Design",
+      "bkgclass": "off-white"
     }
   ]
 }

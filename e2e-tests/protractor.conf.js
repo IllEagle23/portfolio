@@ -10,7 +10,7 @@ exports.config = {
         globalNavigation: ['./tests/global-navigation/global-navigation.scenarios.js']
     },
     
-    baseUrl: 'http://10.0.1.11:8000/',
+    baseUrl: 'http://localhost:8400/',
     
     framework: 'jasmine',
     
